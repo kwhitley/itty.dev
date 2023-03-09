@@ -1,0 +1,86 @@
+:root {
+  --text-opacity: 1;
+  --overlay-opacity: 0.1;
+  --text-hue: 255, 0, 200;
+  --overlay-hue: var(--background-color);
+
+  --black-hue: 0, 0, 0;
+  --blue-hue: 48, 115, 221;
+  --brick-hue: 234, 88, 12;
+  --cyan-hue: 8, 145, 178;
+  --green-hue: 35, 197, 94;
+  --orange-hue: 245, 158, 11;
+  --pink-hue: 219, 39, 119;
+  --purple-hue: 147, 51, 234;
+  --red-hue: 234, 51, 51;
+  --yellow-hue: 255, 218, 0;
+  --white-hue: 255, 255, 255;
+
+  // COLOR OPTIONS
+  --black: rgb(var(--black-hue));
+  --blue: rgb(var(--blue-hue));
+  --brick: rgb(var(--brick-hue));
+  --cyan: rgb(var(--cyan-hue));
+  --green: rgb(var(--green-hue));
+  --orange: rgb(var(--orange-hue));
+  --pink: rgb(var(--pink-hue));
+  --purple: rgb(var(--purple-hue));
+  --red: rgb(var(--red-hue));
+  --white: rgb(var(--white-hue));
+  --yellow: rgb(var(--yellow-hue));
+
+  --text-color: rgba(var(--text-hue), var(--text-opacity));
+  --overlay-color: rgba(var(--overlay-hue), var(--overlay-opacity));
+}
+
+.text-gradient {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--grad-stops));
+  text-shadow: none;
+  --grad-stops: var(--grad-from), var(--grad-to);
+  --grad-to: transparent;
+}
+
+.from-blue { --grad-from: var(--blue); }
+.from-cyan { --grad-from: var(--cyan); }
+.from-green { --grad-from: var(--green); }
+.from-orange { --grad-from: var(--orange); }
+.from-pink { --grad-from: var(--pink); }
+.from-purple { --grad-from: var(--purple); }
+.from-red { --grad-from: var(--red); }
+.from-yellow { --grad-from: var(--yellow); }
+.from-accent { --grad-from: var(--accent-color); }
+.from-foreground { --grad-from: var(--foreground-color); }
+.from-background { --grad-from: var(--background-color); }
+
+.to-blue { --grad-to: var(--blue); }
+.to-cyan { --grad-to: var(--cyan); }
+.to-green { --grad-to: var(--green); }
+.to-orange { --grad-to: var(--orange); }
+.to-pink { --grad-to: var(--pink); }
+.to-purple { --grad-to: var(--purple); }
+.to-red { --grad-to: var(--red); }
+.to-yellow { --grad-to: var(--yellow); }
+.to-accent { --grad-to: var(--accent-color); }
+.to-foreground { --grad-to: var(--foreground-color); }
+.to-background { --grad-to: var(--background-color); }
+
+.black { --text-hue: var(--black-hue); }
+.blue { --text-hue: var(--blue-hue); }
+.brick { --text-hue: var(--brick-hue); }
+.cyan { --text-hue: var(--cyan-hue); }
+.green { --text-hue: var(--green-hue); }
+.orange { --text-hue: var(--orange-hue); }
+.pink { --text-hue: var(--pink-hue); }
+.purple { --text-hue: var(--purple-hue); }
+.red { --text-hue: var(--red-hue); }
+.white { --text-hue: var(--white-hue); }
+.yellow { --text-hue: var(--yellow-hue); }
+.accent { color: var(--accent-color); }
+
+.colored {
+  --text-color: rgba(var(--text-hue), var(--text-opacity));
+  color: var(--text-color);
+}

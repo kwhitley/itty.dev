@@ -1,0 +1,99 @@
+:root {
+  --input-focus-color: var(--blue);
+  --input-border-thickness: var(--border-thickness);
+  --input-background-color: var(--foreground-5);
+  --label-width: 6em;
+  --checkbox-size: 1.1rem;
+  --button-background-primary: var(--blue);
+  --button-foreground-primary: var(--white);
+  --button-background-secondary: var(--background-color);
+  --button-foreground-secondary: var(--foreground-color);
+  --button-border-radius: var(--border-radius);
+}
+
+input, textarea, button {
+  font-size: 1.1rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: calc(0.6 * var(--border-radius));
+  background: var(--input-background-color);
+  border: var(--input-border-thickness) solid var(--foreground-25);
+  width: 100%;
+  color: var(--foreground-color);
+
+  &:focus {
+    outline: 2px solid var(--input-focus-color);
+    outline-offset: calc(-1 * var(--input-border-thickness));
+  }
+}
+
+input[type=range], input[type=checkbox] {
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type=checkbox] {
+  justify-self: flex-start;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  cursor: pointer;
+}
+
+label {
+  display: flex;
+  gap: 0.3rem;
+  flex-flow: column;
+  font-weight: 600;
+  user-select: none;
+
+  &.inline {
+    flex-flow: row;
+    white-space: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    display: grid;
+    // width: 100%;
+    grid-template-columns: var(--label-width) 1fr;
+    gap: 0.8rem;
+
+    input {
+      // max-width: calc(100% - var(--label-width));
+      // width: calc(100% - var(--label-width));
+      // flex: 1 calc(100% - var(--label-width)) calc(100% - var(--label-width));
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.5em;
+  }
+
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--foreground-25);
+}
+
+button {
+  background-color: var(--button-background-primary);
+  color: var(--button-foreground-primary);
+  border-color: var(--foreground-10);
+  border-radius: calc(0.6 * var(--button-border-radius));
+
+  &.secondary {
+    background-color: var(--button-background-secondary);
+    color: var(--button-foreground-secondary);
+    border-color: var(--foreground-75);
+  }
+
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.25;
+    pointer-events: none;
+    cursor: default;
+  }
+}

@@ -1,0 +1,13 @@
+:root {
+  // RATINGS
+  --rating-color: var(--yellow);
+  --rating-gap: 0.2em;
+
+  // CARDS
+  --card-gutter: 1.5rem;
+  --card-active-color: var(--blue);
+  --card-border-thickness: var(--border-thickness);
+
+  // TILES
+  --tile-gap: var(--default-gap);
+}
