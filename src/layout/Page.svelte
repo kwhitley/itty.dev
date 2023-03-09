@@ -13,10 +13,9 @@
   main {
     width: 100%;
     flex: 1 100%;
-    padding:  calc(var(--page-gutter) * 1.5) var(--page-gutter) 2rem;
+    padding: calc(var(--page-gutter) * 1) var(--page-gutter) 2rem;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
     margin-bottom: 2rem;
     min-height: 100%;
   }

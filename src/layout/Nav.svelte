@@ -31,7 +31,7 @@
 <!-- STYLES -->
 <style lang="scss">
   header {
-    padding: 0.5em 1em 0.7em;
+    padding: 0.3em 1em 0.5em;
     background-color: var(--header-color);
     z-index: 1;
     display: flex;

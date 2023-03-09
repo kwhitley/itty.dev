@@ -1,8 +1,9 @@
 @import './colors.scss';
 @import './utility.scss';
+@import './code.scss';
 
 :root {
-  --max-page-width: 800px;
+  --max-page-width: 1200px;
   --transition-duration: 0.1s;
   --border-radius: 0.6rem;
   --border-thickness: 2px;
@@ -13,7 +14,7 @@
   --brand-color: var(--accent-color);
   --brand-size: 2.2rem;
   --version-offset: -0.3rem;
-  --header-color: var(--foreground-5);
+  --header-color: var(--background-95);
   --footer-color: var(--background-color);
   --page-gutter: 2rem;
   --navlink-border: 2px;
@@ -70,6 +71,7 @@
 html {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
+  font-family: "Overpass", sans-serif;
   margin-left: calc(100vw - 100%);
   background-color: var(--background-color);
 }
@@ -176,6 +178,7 @@ h1 {
   line-height: 0.6em;
   letter-spacing: -0.06em;
   font-weight: 400;
+  font-family: arial;
 }
 
 h2, h3 {
@@ -194,10 +197,9 @@ h3 {
 }
 
 p, li, caption {
-  font-family: sans-serif;
   font-weight: 100;
   font-size: 1.1em;
-  line-height: 1.5em;
+  line-height: 1.6em;
 
   &:not(:last-child) {
     margin-bottom: 1.5em;

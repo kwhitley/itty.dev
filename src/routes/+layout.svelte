@@ -3,6 +3,7 @@
   import Footer from '~/layout/Footer.svelte'
   import Nav from '~/layout/Nav.svelte'
   import Page from '~/layout/Page.svelte'
+  import Sidebar from '~/layout/Sidebar.svelte'
   import ForkMe from '~/components/ForkMe.svelte'
   import '~/styles/app.scss'
 
@@ -16,87 +17,48 @@
 
 <svelte:head>
   <link rel="icon" type="image/svg" href="/favicon.png">
-  <link rel="preconnect" href="https://api.itty.cards" crossorigin>
-  <title>itty.industries</title>
-  <meta name="description" content="Official site of itty.industries, home of itty open-source projects on NPM." />
+  <title>itty.dev</title>
+  <meta name="description" content="Official documentation site for the itty ecosystem." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <html lang="en" />
 </svelte:head>
 
 
 <main>
-  <ForkMe user="kwhitley" repo="itty.industries" />
+  <div class="nav">
+    <Nav version horizontal sticky />
+  </div>
 
-  <Nav version horizontal constrained>
-    <!-- <a href="/" use:navlink={{ exact: true }}>Home</a>
-    <a href="/about" use:navlink={{ exact: true }}>About</a> -->
-  </Nav>
+  <div class="sidebar">
+    <Sidebar />
+  </div>
 
-  <section class:constrained>
+  <div class="content">
     <Page>
       <slot />
     </Page>
-  </section>
-
-  <Footer constrained={constrained}>
-    <div class="split">
-      &copy; {year} Kevin R. Whitley. All rights reserved.
-
-      <div class="social">
-        <a href="https://twitter.com/kevinrwhitley">
-          <Twitter />
-        </a>
-
-        <a href="https://github.com/kwhitley">
-          <GitHub />
-        </a>
-      </div>
-    </div>
-
-
-
-  </Footer>
+  </div>
 </main>
 
 <style lang="scss">
   main {
     display: flex;
-    flex-flow: column;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: relative;
-
-    section {
-      flex: 1;
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-    }
-  }
-
-  .split {
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .social {
-    flex: 0 5em;
-    display: flex;
     flex-flow: row wrap;
-    align-items: center;
-    gap: 1em;
+    height: 100vh;
+    overflow: hidden;
+    outline: 5px solid red;
+  }
 
-    > * {
-      color: var(--foreground-50);
-      display: block;
-      height: 2em;
-      width: 2em;
-      transition: all 0.2s ease;
+  .nav {
+    flex: 1 100%;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+  }
 
-      &:hover {
-        color: var(--foreground-color);
-      }
-    }
+  .content {
+    flex: 1;
+    overflow: auto;
+    height: 100%;
+    padding-bottom: 5rem;
   }
 </style>

@@ -1,6 +1,6 @@
 {
-  "name": "itty.industries",
-  "version": "0.3.0",
+  "name": "itty.dev",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -15,25 +15,29 @@
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.1",
-    "eslint": "^8.24.0",
-    "eslint-config-prettier": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-svelte3": "^4.0.0",
     "mdsvex": "^0.10.6",
-    "prettier": "^2.7.1",
-    "prettier-plugin-svelte": "^2.7.1",
-    "sass": "^1.55.0",
-    "svelte": "^3.50.1",
-    "svelte-check": "^2.9.1",
-    "svelte-preprocess": "^4.10.7",
-    "tslib": "^2.4.0",
-    "typescript": "^4.8.4",
-    "vite": "^3.1.3",
-    "yarn-release": "^1.10.3"
+    "prettier": "^2.8.4",
+    "prettier-plugin-svelte": "^2.9.0",
+    "sass": "^1.58.3",
+    "svelte": "^3.55.1",
+    "svelte-check": "^3.1.0",
+    "svelte-preprocess": "^5.0.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.4",
+    "yarn-release": "^1.10.5"
   },
   "type": "module",
   "dependencies": {
-    "svelte-navlink-action": "^0.1.4"
+    "@fontsource/ibm-plex-mono": "^4.5.13",
+    "node-html-parser": "^6.1.5",
+    "shiki": "^0.14.1",
+    "svelte-navlink-action": "^0.2.0",
+    "svelte-shiki": "^0.0.6"
   }
 }

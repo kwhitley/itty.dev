@@ -9,10 +9,7 @@
 <div class="brand">
   <a href="/">
     <slot>
-      <span class="logo"><Skyline /></span>
-      it<strike>t</strike>y<small>.industries</small>
-
-
+      itty<small>.dev</small>
     </slot>
   </a>
 
@@ -29,7 +26,6 @@
     align-self: center;
     padding: 0.15rem 0;
     position: relative;
-    overflow: hidden;
   }
 
   .version {
@@ -46,7 +42,7 @@
 
   a {
     font-size: var(--brand-size);
-    letter-spacing: -0.05em;
+    letter-spacing: -0.1em;
     transition: color 0.2s ease;
     display: inline-block;
     transform-origin: 0% 50%;
