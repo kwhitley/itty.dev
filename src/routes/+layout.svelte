@@ -32,7 +32,7 @@
     <Sidebar />
   </div>
 
-  <div class="content">
+  <div id="content">
     <Page>
       <slot />
     </Page>
@@ -43,9 +43,13 @@
   main {
     display: flex;
     flex-flow: row wrap;
-    height: 100vh;
     overflow: hidden;
     outline: 5px solid red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 
   .nav {
@@ -55,10 +59,43 @@
     overflow: auto;
   }
 
-  .content {
+  .sidebar {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  #content {
     flex: 1;
     overflow: auto;
     height: 100%;
     padding-bottom: 5rem;
+  }
+
+  @media (max-width: 600px) {
+    main {
+      flex-flow: column;
+      // display: grid;
+      overflow: visible;
+      position: relative;
+
+      > * {
+        flex: 0;
+      }
+
+      .nav {
+        flex: 0 5rem;
+      }
+
+      .sidebar {
+        height: auto;
+        order: 2;
+      }
+
+      #content {
+        height: auto;
+        flex: 0;
+        overflow: visible;
+      }
+    }
   }
 </style>

@@ -16,7 +16,7 @@
   --version-offset: -0.3rem;
   --header-color: var(--background-95);
   --footer-color: var(--background-color);
-  --page-gutter: 2rem;
+  --page-gutter: 3rem;
   --navlink-border: 2px;
   --default-gap: 1.5rem;
 
@@ -165,7 +165,7 @@ hr {
 }
 
 h1, h2, h3 {
-  font-size: clamp(2.5rem, 23vmin, 7rem);
+  font-size: clamp(2.5rem, 18vmin, 5rem);
   font-weight: lighter;
   line-height: 1em;
   letter-spacing: -0.02em;
@@ -176,17 +176,18 @@ h1, h2, h3 {
 
 h1 {
   line-height: 0.6em;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.07em;
   font-weight: 400;
-  font-family: arial;
+  // font-family: arial;
 }
 
 h2, h3 {
+  letter-spacing: -0.04em;
   font-family: sans-serif, Arial;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 100;
 }
 
@@ -194,11 +195,12 @@ h3 {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
   font-weight: 400;
+  letter-spacing: 0;
 }
 
 p, li, caption {
   font-weight: 100;
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 1.6em;
 
   &:not(:last-child) {

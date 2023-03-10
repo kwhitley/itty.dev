@@ -1,5 +1,10 @@
 <script>
   import { fade, fly } from 'svelte/transition'
+  import { afterNavigate } from '$app/navigation'
+
+  afterNavigate(() => {
+    document.getElementById('content').scrollTop = 0
+  })
 </script>
 
 <main class="page">
@@ -18,6 +23,11 @@
     flex-flow: row wrap;
     margin-bottom: 2rem;
     min-height: 100%;
+    max-width: 1000px;
+
+    div {
+      width: 100%;
+    }
   }
 
   :global(.constrained .page > div) {

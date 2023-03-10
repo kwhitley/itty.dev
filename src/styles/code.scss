@@ -3,9 +3,8 @@ code {
   counter-increment: step 0;
 
   background: var(--foreground-10);
-  padding: 0.1rem 0.4rem;
+  padding: 0.1rem 0.4rem 0.2rem;
   border-radius: 0.2rem;
-  vertical-align: middle;
 }
 
 .shiki {
@@ -15,7 +14,7 @@ code {
   overflow-x: scroll;
   max-width: var(--max-width-full);
   font-size: 1rem;
-  line-height: 1.2em;
+  line-height: 1.3em;
 
   & > code {
     background-color: transparent;
@@ -86,4 +85,12 @@ code .line::before{
   text-align: right;
   font-variant-numeric: tabular-nums;
   color:var(--colour-line-numbers);
+}
+
+h3:has(code) {
+  margin-top: 0;
+}
+
+h3 + h3:has(code) {
+  margin-top: -0.2em;
 }
