@@ -70,11 +70,60 @@ const expiration = datePlus('1 week')
 const expiration = datePlus('1 week', datePlus('1 year'))
 ```
 
-[![itty-fetcher](https://img.shields.io/npm/dw/itty-fetcher?style=for-the-badge&logo=npm&color=ded&label=itty-fetcher)](https://npmjs.com/package/itty-fetcher)
-- At some point, you'll need to talk to these APIs you've written.  This simplifies that process, leaving your code short and beautiful, while only costing you around 600 bytes.
+## [itty-durable](/itty-durable) - [![itty-durable](https://img.shields.io/npm/dw/itty-durable?style=for-the-badge&logo=npm&color=ded&label=itty-durable)](https://npmjs.com/package/itty-durable)
 
-[![itty-durable](https://img.shields.io/npm/dw/itty-durable?style=for-the-badge&logo=npm&color=ded&label=itty-durable)](https://npmjs.com/package/itty-durable)
-- A bit of an experiemental package, yet one I use in production all the time.  This takes the incredibly powerful [Durable Object](https://developers.cloudflare.com/workers/learning/using-durable-objects/) (thanks, Cloudflare!), but gives it a MUCH improved interface for simple tasks.  This library removes nearly every bit of the boilerplate when working with DOs, leaving your code tiny, readable, and powerful.
+A bit of an experimental package, designed to allow a [much] more direct usage of [Cloudflare Durable Object](https://developers.cloudflare.com/workers/learning/using-durable-objects/).  This library removes virtually all boilerplate when working with DOs, leaving your code tiny, readable, and powerful.
+
+Now your Durable Object class can look this simple:
+```ts
+import { createDurable } from 'itty-durable'
+
+export class Counter extends createDurable({ autoReturn: true, autoPersist: true }) {
+  constructor(state, env) {
+    super(state, env)
+    this.counter = 0
+  }
+
+  increment() {
+    this.counter++
+  }
+
+  setValue(newValue: number) {
+    this.counter = newValue
+  }
+}
+```
+
+While being able to access them from a Worker much like a native class:
+
+```ts
+import { Router, error, withParams } from 'itty-router'
+import { withDurables } from 'itty-durable'
+
+// export the durable class, per spec
+export { Counter } from './Counter'
+
+const router = Router()
+
+router
+  // add upstream middleware
+  .all('*', withDurables(), withParams)
+
+  // get the contents of a DO
+  .get('/:id', ({ id, Counter }) => 
+    Counter.get(id).toJSON()
+  )
+
+  // call a method on the DC
+  .get('/:id/increment', ({ id, Counter }) => 
+    Counter.get(id).increment()
+  )
+
+  // or pass data to a method
+  .get('/set/:value', withParams, ({ id, value, Counter }) => 
+    Counter.get(id).setValue(Number(value))
+  )
+```
 
 <style lang="scss">
   img {
