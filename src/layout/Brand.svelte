@@ -26,6 +26,8 @@
     align-self: center;
     padding: 0.15rem 0;
     position: relative;
+    line-height: 0.5em;
+    margin-top: 0.5em;
   }
 
   .version {
@@ -34,6 +36,7 @@
     align-self: center;
     margin-top: var(--version-offset);
     margin-bottom: calc(-1 * var(--version-offset));
+    display: inline-block;
 
     &:hover {
       opacity: 1;

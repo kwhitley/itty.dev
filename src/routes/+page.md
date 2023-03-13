@@ -1,6 +1,6 @@
 # welcome to <span class="accent">itty</span>.dev
 
-The itty ecosystem was born from a fun little experiment:  To create the world's smallest, full-featured microrouter.  Originally, this served the emerging edge function space, where API routing appeared to be in a rather barbaric state.  Nowadays, we have many great router and/or framework options, depending on your environment, but itty still remains the smallest (by far).
+The itty ecosystem was born from a fun little experiment:  To create the world's smallest, full-featured JavaScript microrouter for use in edge/client environments where bundle size matters.  Thus [itty-router](/itty-router) was born.
 
 Each of the additional libraries was developed to support other elements of API generation, with the goal of making the functions you've probably written a million times, but hopefully smaller than you get it yourself (thus earning its spot as a dependency in your project).  Luckily, the community has helped code golf the heck out of these to ensure this remains true!
 

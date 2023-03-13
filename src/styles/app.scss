@@ -175,7 +175,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  line-height: 0.6em;
+  line-height: 0.8em;
   letter-spacing: -0.07em;
   font-weight: 400;
   // font-family: arial;
@@ -314,7 +314,7 @@ caption {
 // RESPONSIVE BITS
 :root {
   @media (max-width: 500px) {
-    --page-gutter: 1em;
+    --page-gutter: 1.5em;
   }
 }
 

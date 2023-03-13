@@ -1,64 +1,93 @@
 <script>
   import { navlink } from 'svelte-navlink-action'
+  import Brand from './Brand.svelte'
+
+  const navMap = [
+    {
+      name: 'itty-router',
+      children: [
+        { name: 'Getting Started' },
+        { name: 'Responses' },
+        { name: 'Middleware' },
+        { name: 'Nesting Routers' },
+        { name: 'Types' },
+        { name: 'Errors' },
+        { name: 'Custom Regex' },
+        { name: 'CORS' },
+        {
+          name: 'API',
+          children: [
+            { name: 'createCors' },
+            { name: 'createResponse' },
+            { name: 'error' },
+            { name: 'html' },
+            { name: 'jpeg' },
+            { name: 'png' },
+            { name: 'Router' },
+            { name: 'StatusError' },
+            { name: 'text' },
+            { name: 'webp' },
+            { name: 'withContent' },
+            { name: 'withCookies' },
+            { name: 'withParams' },
+          ]
+        },
+      ]
+    }
+  ]
+
+  const slugify = (name) => name.toLowerCase().replace(/\s+/g, '-')
 </script>
 
 <!-- MARKUP -->
 <div class="side-navigation">
-  <ul>
-    <li class="header"><a use:navlink={{ exact: true }} href="/itty-router">itty-router</a></li>
-    <li><a use:navlink href="/itty-router/getting-started">getting started</a></li>
-    <li><a use:navlink href="/itty-router/responses">Responses</a></li>
-    <li><a use:navlink href="/itty-router/middleware">middleware</a></li>
-    <li><a use:navlink href="/itty-router/getting-started">nesting</a></li>
-    <li><a use:navlink href="/itty-router/getting-started">types</a></li>
-    <li><a use:navlink href="/itty-router/errors">error handling</a></li>
-    <li><a use:navlink href="/itty-router/getting-started">custom regex</a></li>
-    <li><a use:navlink href="/itty-router/cors">CORS</a></li>
-
-    <li class="gap subheading"><a use:navlink={{ exact: true }} href="/itty-router/api">API</a>
-      <ul>
-        <li><a use:navlink href="/itty-router/api#createCors">createCors</a></li>
-        <li><a use:navlink href="/itty-router/api#createResponse">createResponse</a></li>
-        <li><a use:navlink href="/itty-router/api#error">error</a></li>
-        <li><a use:navlink href="/itty-router/api#html">html</a></li>
-        <li><a use:navlink href="/itty-router/api#jpeg">jpeg</a></li>
-        <li><a use:navlink href="/itty-router/api#json">json</a></li>
-        <li><a use:navlink href="/itty-router/api#png">png</a></li>
-        <li><a use:navlink href="/itty-router/api#Router">Router</a></li>
-        <li><a use:navlink href="/itty-router/api#StatusError">StatusError</a></li>
-        <li><a use:navlink href="/itty-router/api#text">text</a></li>
-        <li><a use:navlink href="/itty-router/api#webp">webp</a></li>
-        <li><a use:navlink href="/itty-router/api#withContent">withContent</a></li>
-        <li><a use:navlink href="/itty-router/api#withCookies">withCookies</a></li>
-        <li><a use:navlink href="/itty-router/api#withParams">withParams</a></li>
-      </ul>
-
+  <ul class="brand">
+    <li>
+      <Brand showVersion />
+      <h3>Official documentation of the itty ecosystem.</h3>
     </li>
   </ul>
 
-  <ul>
-    <li class="header"><a use:navlink={{ exact: true }} href="/itty-fetcher">itty-fetcher</a></li>
-  </ul>
+  {#each navMap as branch}
+    {@const basePath = '/' + (branch.path || slugify(branch.name))}
+    <ul>
+      <li class="header">
+        <a use:navlink={{ exact: true }} href={basePath}>
+          {branch.name}
+        </a>
+      </li>
 
-  <ul>
-    <li class="header"><a use:navlink={{ exact: true }} href="/itty-time">itty-time</a></li>
-  </ul>
+      {#each branch.children as child}
+        {@const childPath = (child.path || slugify(child.name))}
+        <li class={child.children ? 'gap subheading' : ''}>
+          <a use:navlink href={`${basePath}/${childPath}`}>
+            {child.name}
+          </a>
 
-  <ul>
-    <li class="header"><a use:navlink={{ exact: true }} href="/itty-durable">itty-durable</a></li>
-  </ul>
+          {#if child.children}
+            <ul>
+              {#each child.children as grandChild}
+                <li>
+                  <a use:navlink href={`${basePath}/${childPath}#${grandChild.path || slugify(grandChild.name)}`}>
+                    {grandChild.name}
+                  </a>
+                </li>
+              {/each}
+            </ul>
+          {/if}
+        </li>
+      {/each}
+    </ul>
+  {/each}
 </div>
 
 <!-- STYLES -->
 <style lang="scss">
   .side-navigation {
     background-color: var(--foreground-5);
-    // height: 100%;
-    // padding: 1.5rem;
-    min-width: 12rem;
+    // width: 16rem;
     letter-spacing: -0.01em;
     position: relative;
-    // overflow: hidden;
     border-right: 1px solid var(--foreground-75);
     padding-bottom: 3rem;
     min-height: 100%;
@@ -120,5 +149,21 @@
 
   .subheading > a {
     color: var(--foreground-color);
+  }
+
+  ul.brand {
+    margin-bottom: 0;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--background-color);
+    box-shadow: 0 0 1em rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--foreground-50);
+
+    h3 {
+      margin: 0;
+      font-size: 0.9em;
+      line-height: 1.2;
+    }
   }
 </style>

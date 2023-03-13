@@ -5,6 +5,7 @@
   import Page from '~/layout/Page.svelte'
   import Sidebar from '~/layout/Sidebar.svelte'
   import ForkMe from '~/components/ForkMe.svelte'
+  import EditLink from '~/components/EditLink.svelte'
   import '~/styles/app.scss'
 
   import GitHub from '~/components/icons/GitHub.svelte'
@@ -24,15 +25,12 @@
 
 
 <main>
-  <div class="nav">
-    <Nav version horizontal sticky />
-  </div>
-
   <div class="sidebar">
     <Sidebar />
   </div>
 
   <div id="content">
+    <EditLink />
     <Page>
       <slot />
     </Page>
@@ -71,7 +69,7 @@
     padding-bottom: 5rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     main {
       flex-flow: column;
       // display: grid;
@@ -96,6 +94,15 @@
         flex: 0;
         overflow: visible;
       }
+    }
+
+    :global(ul.brand:not(#foo)) {
+      position: absolute;
+      width: 100%;
+    }
+
+    :global(.page) {
+      margin-top: 7rem;
     }
   }
 </style>
