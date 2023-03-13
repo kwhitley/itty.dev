@@ -28,6 +28,7 @@
     position: relative;
     line-height: 0.5em;
     margin-top: 0.5em;
+    white-space: nowrap;
   }
 
   .version {

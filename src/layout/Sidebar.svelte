@@ -41,13 +41,6 @@
 
 <!-- MARKUP -->
 <div class="side-navigation">
-  <ul class="brand">
-    <li>
-      <Brand showVersion />
-      <h3>Official documentation of the itty ecosystem.</h3>
-    </li>
-  </ul>
-
   {#each navMap as branch}
     {@const basePath = '/' + (branch.path || slugify(branch.name))}
     <ul>
@@ -149,21 +142,5 @@
 
   .subheading > a {
     color: var(--foreground-color);
-  }
-
-  ul.brand {
-    margin-bottom: 0;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background-color: var(--background-color);
-    box-shadow: 0 0 1em rgba(0,0,0,0.2);
-    border-bottom: 1px solid var(--foreground-50);
-
-    h3 {
-      margin: 0;
-      font-size: 0.9em;
-      line-height: 1.2;
-    }
   }
 </style>
