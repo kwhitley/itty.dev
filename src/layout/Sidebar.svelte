@@ -211,7 +211,7 @@
   }
 
   .description {
-    line-height: 1.3;
+    line-height: 1.2;
     display: block;
     font-size: 0.6em;
     font-weight: 300;
