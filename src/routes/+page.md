@@ -16,6 +16,8 @@ The catch?  We also aim to make them *even smaller* than you might write yoursel
 
 At only 430 bytes, itty-router is arguably the world's smallest, feature-rich router, designed for use in nearly *any* environment or runtime.  It has two goals in mind: 1. have nearly zero impact on your bundle sizes, and 2. keep your API code looking tiny and beautiful.
 
+It gets top billing because it was the first, the OG "itty".
+
 ```js
 import { 
   error,              // creates error Responses

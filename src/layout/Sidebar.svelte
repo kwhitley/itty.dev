@@ -35,7 +35,19 @@
           ]
         },
       ]
-    }
+    },
+    {
+      name: 'itty-fetcher',
+      children: [],
+    },
+    {
+      name: 'itty-time',
+      children: [],
+    },
+    {
+      name: 'itty-durable',
+      children: [],
+    },
   ]
 
   const slugify = (name) => name.toLowerCase().replace(/\s+/g, '-')
@@ -92,7 +104,12 @@
 
     > ul {
       margin: 0 0 2rem 0;
-      padding: 2rem;
+      margin: 0;
+      padding: 1.5rem 2rem;
+    }
+
+    ul ul:last-child {
+      margin-bottom: 0;
     }
 
     li {
