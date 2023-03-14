@@ -5,6 +5,7 @@
   const navMap = [
     {
       name: 'itty-router',
+      description: 'The 430 byte microrouter.',
       children: [
         { name: 'Getting Started' },
         { name: 'Route Patterns' },
@@ -38,14 +39,17 @@
     },
     {
       name: 'itty-fetcher',
+      description: `The good parts of axios, and then some, at ~1/20th the size.`,
       children: [],
     },
     {
       name: 'itty-time',
+      description: `Because we're tired of seeing time math in your code. \n\nAnd ours!`,
       children: [],
     },
     {
       name: 'itty-durable',
+      description: `Cloudflare Durable Objects are amazing, but using them requires some... steps.\n\nWe removed most of them for you.\n\n#acceptingdonations #jk #butmaybe?`,
       children: [],
     },
   ]
@@ -62,6 +66,10 @@
         <a use:navlink={{ exact: true }} href={basePath}>
           {branch.name}
         </a>
+
+        {#if branch.description}
+        <small class="description">{branch.description}</small>
+        {/if}
       </li>
 
       {#each branch.children as child}
@@ -105,7 +113,7 @@
     > ul {
       margin: 0 0 2rem 0;
       margin: 0;
-      padding: 1.5rem 2rem;
+      padding: 1.2rem 2rem;
     }
 
     ul ul:last-child {
@@ -136,6 +144,27 @@
     font-weight: 400;
   }
 
+  li.header:has(.active + .description) + li {
+    margin-top: 1rem;
+  }
+
+  li.header ~ li {
+    transition: all 0.4s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  li.header ~ li ul {
+    transition: all 0.4s ease;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  li.header:has(a.active) ~ li:has(ul) {
+    transition: all 0.2s ease;
+  }
+
   :global(.side-navigation a.active) {
     color: var(--accent-color);
   }
@@ -154,11 +183,39 @@
     z-index: 1;
   }
 
-  .gap {
+  :global(.side-navigation a.active) {
+    color: var(--accent-color);
+  }
+
+  :global(.side-navigation > ul > li.header:has(a.active) ~ li) {
+    // display: block;
+    max-height: 2em;
+    opacity: 1;
+  }
+
+  :global(.side-navigation > ul > li.header:has(a.active) ~ li:has(ul)) {
+    max-height: 20em;
+  }
+
+  :global(.side-navigation > ul > li.header:has(a.active) ~ li ul) {
+    max-height: 20em;
+  }
+
+
+  li:has(.active) ~ .gap {
     margin-top: 1rem;
   }
 
   .subheading > a {
     font-size: 1.2rem;
+  }
+
+  .description {
+    line-height: 1.3;
+    display: block;
+    font-size: 0.6em;
+    font-weight: 300;
+    color: var(--foreground-75);
+    white-space: pre-wrap;
   }
 </style>
