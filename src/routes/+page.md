@@ -4,7 +4,7 @@ The itty ecosystem was born from a fun little experiment:  To create the world's
 
 Each of the additional libraries were later developed to support other elements of API generation.
 
-> We remove boilerplate noise through high-impact, low-cost microlibraries.
+> We remove boilerplate noise through high-impact, low-calorie microlibraries.
 
 By creating minimalist (yet flexible) versions of common patterns, we've made low-cost alternatives to many current larger libraries we all use.  Some of these we've written countless times in our own projects (e.g. [**itty-fetcher**](/itty-fetcher) or [**itty-time**](/itty-time)), as certainly you've done as well.  
 
