@@ -105,6 +105,7 @@
     border-right: 1px solid var(--foreground-75);
     padding-bottom: 3rem;
     min-height: 100%;
+    overflow: hidden;
 
     ul {
       margin: 0 0 1rem 1rem;

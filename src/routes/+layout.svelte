@@ -50,11 +50,6 @@
     flex-flow: row wrap;
     overflow: hidden;
     outline: 5px solid red;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     grid-template-areas:
       "header content"
       "navigation content";
@@ -66,6 +61,7 @@
   .navigation {
     height: 100%;
     overflow-y: scroll;
+    overflow-x: hidden;
     grid-area: navigation;
   }
 
