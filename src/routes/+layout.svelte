@@ -35,7 +35,7 @@
     <Sidebar />
   </div>
 
-  <div class="content">
+  <div id="content">
     <EditLink />
     <Page>
       <slot />
@@ -69,7 +69,7 @@
     grid-area: navigation;
   }
 
-  .content {
+  #content {
     flex: 1;
     overflow: auto;
     height: 100%;
@@ -106,7 +106,7 @@
       overflow: auto;
     }
 
-    .content {
+    #content {
       overflow: visible;
       max-width: 100vw;
     }

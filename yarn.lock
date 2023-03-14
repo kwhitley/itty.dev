@@ -1445,11 +1445,6 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==
 
-itty-time@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/itty-time/-/itty-time-0.2.2.tgz#6ab5b85d17195ce0624d60c7fb28ed61c99825d7"
-  integrity sha512-oNjDnInq+A7LssSGbSU1cOx6ev6XHeBsMUlDWjkKYtnepAx5URzqmtZMLyIod7Ee9vZnjNIYrBjMtQHzkidJvQ==
-
 js-sdsl@^4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/js-sdsl/-/js-sdsl-4.1.4.tgz#78793c90f80e8430b7d8dc94515b6c77d98a26a6"
