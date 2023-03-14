@@ -145,8 +145,8 @@
     font-weight: 400;
   }
 
-  li.header:has(.active + .description) + li {
-    margin-top: 1rem;
+  :global(ul:has(a.active) .description) {
+    margin-bottom: 1rem;
   }
 
   li.header ~ li {
@@ -160,10 +160,6 @@
     transition: all 0.4s ease;
     max-height: 0;
     overflow: hidden;
-  }
-
-  li.header:has(a.active) ~ li:has(ul) {
-    transition: all 0.2s ease;
   }
 
   :global(.side-navigation a.active) {
@@ -188,22 +184,21 @@
     color: var(--accent-color);
   }
 
-  :global(.side-navigation > ul > li.header:has(a.active) ~ li) {
-    // display: block;
+  :global(.side-navigation > ul:has(a.active) li.header ~ li) {
     max-height: 2em;
     opacity: 1;
   }
 
-  :global(.side-navigation > ul > li.header:has(a.active) ~ li:has(ul)) {
+  :global(.side-navigation > ul:has(a.active) > li.header ~ li:has(ul)) {
     max-height: 20em;
   }
 
-  :global(.side-navigation > ul > li.header:has(a.active) ~ li ul) {
+  :global(.side-navigation > ul:has(a.active) > li.header ~ li ul) {
     max-height: 20em;
   }
 
 
-  li:has(.active) ~ .gap {
+  ul:has(.active) .gap {
     margin-top: 1rem;
   }
 
