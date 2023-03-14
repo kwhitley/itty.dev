@@ -97,7 +97,7 @@
         "navigation";
       grid-template-rows: 1fr auto 1fr;
       grid-template-columns: 1fr;
-      overflow: auto;
+      overflow-y: scroll;
     }
 
     #content {
