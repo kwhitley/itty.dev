@@ -25,7 +25,7 @@
 </svelte:head>
 
 
-<main>
+<main id="layout">
   <div class="header">
     <Brand showVersion />
     <h3>Official documentation of the itty ecosystem.</h3>
@@ -73,7 +73,6 @@
     flex: 1;
     overflow: auto;
     height: 100%;
-    padding-bottom: 5rem;
     grid-area: content;
     background-color: var(--background-color);
     position: relative;

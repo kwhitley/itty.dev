@@ -3,6 +3,7 @@
   import { afterNavigate } from '$app/navigation'
 
   afterNavigate(() => {
+    document.getElementById('layout').scrollTop = 0
     document.getElementById('content').scrollTop = 0
   })
 </script>

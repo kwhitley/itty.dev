@@ -25,6 +25,16 @@ a code {
     background-color: transparent;
     padding: 0;
   }
+
+  @media (max-width: 700px) {
+    font-size: 1em;
+    padding: 1.5em;
+    // white-space: pre-wrap;
+
+    code .line::before {
+      display: none;
+    }
+  }
 }
 
 .highlight-line {
@@ -81,7 +91,7 @@ a code {
     -20px 20px 31.8px -2.5px hsl(var(--shadow-color) / 0.36);
 }
 
-code .line::before{
+code .line::before {
   display: inline-block;
   content:counter(step);
   counter-increment: step;
