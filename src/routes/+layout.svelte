@@ -49,7 +49,6 @@
     display: grid;
     flex-flow: row wrap;
     overflow: hidden;
-    outline: 5px solid red;
     grid-template-areas:
       "header content"
       "navigation content";
