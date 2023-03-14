@@ -14,6 +14,9 @@ Itty will keep matching routes and executing attached handlers/middleware until 
 ### Ultra-Light
 We're not just talking about bundle size here.  We like seeing tiny, readable route code too.  Itty helps with that.
 
+### Battle-Ready
+This little router nets over 1 million downloads a year, has been hardened and tested by dozens of contributors over two years, and currently handles many millions of requests daily across an assortment of production APIs.  These 430 tiny bytes have an enormous battery of test coverage to ensure it stays stable across releases.
+
 ### Example Usage
 
 ```js
