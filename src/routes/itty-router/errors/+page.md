@@ -1,25 +1,58 @@
 # <span class="accent">itty</span>-router
 
 ## Handling Errors
-Errors in itty are pretty simple.  Either return an error Response using `error(code: number, message: string | object): Response` from your routes, or simple throw an `Error` or `StatusError`, and catch it using a `.catch()` block after handling a request.
+Errors in itty are pretty simple, using either `error` or `StatusError`, depending on your use case.
 
-`StatusError` throws are just like any other Error, but embed a required HTTP status code for downstream use.  Do note, that by throwing *any* type of Error, you'll need to `.catch()` it downstream after `router.handle()` calls.
+
+### Creating an Error Response
+### `error(code: number, body?: string | object): Response`
+### `error(error: Error | StatusError): Response`
+
+To return a complete error Response, use the `error` helper.  As itty-router Request matching stops at the first return, returning this function from a route (which in turn, returns a Response) will stop the route matching and return the error in the outermost router.
+
+```js
+import { error } from 'itty-router'
+
+// simple 404
+error(404)
+
+// custom 404
+error(404, 'Are you sure about that?')
+```
+
+### Throwing Errors
+### `throw new StatusError(statusCode?: number, message?: string | object)`
+To throw an error (with a status code) anywhere in your application, simply throw a new `StatusError`.  Downstream handlers (e.g. in the outermost `router.handle(request).catch()` block) can then turn this into a valid Response.
 
 ```js
 import { StatusError } from 'itty-router'
 
-// example throwing a 400 error
-throw new StatusError(400, 'calls to getUser(id: number) require an ID')
+// throwing a simple 400
+throw new StatusError(400)
+
+// throwing a a custom 400
+throw new StatusError(400, 'You must provide an ID for this request.')
 ```
 
 The `error(code: number, body?: any): Response` Response helper returns a JSON Response with the status code and error.  If passed an `Error` or `StatusError` (for example, when using `error` as a downstream handler), it will generate an error Response based on that error.
 
-For example, the following call to error:
+## Custom Error Messages
+By default, the standard error message (400, 401, 403, 404, 500) include industry-standard messages within the payload.  For instance, `error(404)` creates the following 404 Response:
+
+```json
+{
+  "status": 404,
+  "error": "Not Found",
+}
+```
+
+To modify this, simply pass an optional message to `error`. For example:
+
 ```js
 error(400, 'You appear to be missing something')
 ```
 
-Returns a 400 Response with the following payload:
+Returns this 400 Response:
 ```json
 {
   "status": 400,
@@ -28,6 +61,8 @@ Returns a 400 Response with the following payload:
 ```
 
 ## Examples
+The following examples demonstrate a few of the possible error scenarios you may run into while using itty-router:
+
 ```js
 import { error, Router } from 'itty-router'
 
@@ -35,7 +70,7 @@ const router = Router()
 
 router
   // returning an error directly
-  .get('/error-response', () => error(400, 'You seem to be missing something.'))
+  .get('/error-response', () => error(400))
 
   // manual throwing
   .get('/manual-throw', () => {
@@ -43,7 +78,8 @@ router
 
     ids.forEach(id => {
       if (id > 2) {
-        throw new StatusError(400, 'This works even when a return (error) may not be appropriate.')
+        // This works even when a return (error) would not.
+        throw new StatusError(400, 'Yikes!')
       }
     })
   })

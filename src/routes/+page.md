@@ -1,10 +1,16 @@
 # welcome to <span class="accent">itty</span>.dev
 
-The itty ecosystem was born from a fun little experiment:  To create the world's smallest, full-featured JavaScript microrouter for use in edge/client environments where bundle size matters.  Thus [itty-router](/itty-router) was born.
+The itty ecosystem was born from a fun little experiment:  To create the world's smallest, full-featured JavaScript microrouter for use in edge/client environments where bundle size matters.  Thus [itty-router](/itty-router) was born. 
 
-Each of the additional libraries was developed to support other elements of API generation, with the goal of making the functions you've probably written a million times, but hopefully smaller than you get it yourself (thus earning its spot as a dependency in your project).  Luckily, the community has helped code golf the heck out of these to ensure this remains true!
+Each of the additional libraries were later developed to support other elements of API generation.
 
-Here are the current itty libraries:
+> We remove boilerplate noise through high-impact, low-cost microlibraries.
+
+By creating minimalist (yet flexible) versions of common patterns, we've made low-cost alternatives to many current larger libraries we all use.  Some of these we've written countless times in our own projects (e.g. [**itty-fetcher**](/itty-fetcher) or [**itty-time**](/itty-time)), as certainly you've done as well.  
+
+The catch?  We also aim to make them *even smaller* than you might write yourself, making them a guiltless inclusion within each project!
+
+# the lineup:
 
 ## [itty-router](/itty-router) - [![itty-router](https://img.shields.io/npm/dw/itty-router?style=for-the-badge&logo=npm&color=ded&label=itty-router)](https://npmjs.com/package/itty-router)
 

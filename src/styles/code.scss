@@ -5,6 +5,11 @@ code {
   padding: 0.1rem 0.4rem 0.2rem;
   border-radius: 0.2rem;
   line-height: 1.4;
+  vertical-align: text-top;
+}
+
+a code {
+  color: var(--foreground-color);
 }
 
 .shiki {
@@ -89,8 +94,9 @@ code .line::before{
 
 h3:has(code) {
   margin-top: 0;
+  font-size: 1rem;
 }
 
 h3 + h3:has(code) {
-  margin-top: -0.2em;
+  margin-top: -0.6em;
 }

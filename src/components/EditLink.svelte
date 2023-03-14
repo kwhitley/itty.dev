@@ -1,11 +1,12 @@
 <script>
   import GitHub from '~/components/icons/GitHub.svelte'
+  import { page } from '$app/stores'
 
-  const getPath = () => 'https://github.com/kwhitley/itty.dev/blob/main/src/routes/itty-router/responses/+page.md'
+  $: editPath = `https://github.com/kwhitley/itty.dev/blob/main/src/routes${$page.url.pathname}/+page.md`
 </script>
 
 <!-- MARKUP -->
-<a class="edit" href={getPath()}>
+<a class="edit" href={editPath}>
   <i><GitHub /></i>
   edit page on GitHub
 </a>

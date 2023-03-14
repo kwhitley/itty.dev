@@ -198,6 +198,10 @@ h3 {
   letter-spacing: 0;
 }
 
+h4 {
+  color: var(--foreground-75);
+}
+
 p, li, caption {
   font-weight: 100;
   font-size: 1em;
@@ -319,5 +323,24 @@ caption {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+td, th {
+  padding: 0.6rem 0.6rem 0.5rem;
+  border: 1px solid var(--foreground-25);
+}
+
+th {
+  background-color: var(--foreground-5);
 }

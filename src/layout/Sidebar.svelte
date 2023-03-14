@@ -7,13 +7,15 @@
       name: 'itty-router',
       children: [
         { name: 'Getting Started' },
+        { name: 'Route Patterns' },
         { name: 'Responses' },
         { name: 'Middleware' },
-        { name: 'Nesting Routers' },
-        { name: 'Types' },
+        { name: 'Nesting' },
+        // { name: 'Types' },
         { name: 'Errors' },
-        { name: 'Custom Regex' },
+        // { name: 'Custom Regex' },
         { name: 'CORS' },
+        { name: 'Performance' },
         {
           name: 'API',
           children: [
@@ -61,7 +63,7 @@
             <ul>
               {#each child.children as grandChild}
                 <li>
-                  <a use:navlink href={`${basePath}/${childPath}#${grandChild.path || slugify(grandChild.name)}`}>
+                  <a use:navlink href={`${basePath}/${childPath}#${grandChild.path || grandChild.name}`}>
                     {grandChild.name}
                   </a>
                 </li>
@@ -78,7 +80,6 @@
 <style lang="scss">
   .side-navigation {
     background-color: var(--foreground-5);
-    // width: 16rem;
     letter-spacing: -0.01em;
     position: relative;
     border-right: 1px solid var(--foreground-75);
@@ -141,6 +142,6 @@
   }
 
   .subheading > a {
-    color: var(--foreground-color);
+    font-size: 1.2rem;
   }
 </style>

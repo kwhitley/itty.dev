@@ -13,9 +13,9 @@ const router = Router() // no "new", as this is not a real class
 ```
 
 ### 2. Register Route(s)
-### `router[method](route: string, ...handlers: Function): Router`
+### `router[method: string](route: string, ...handlers): Router`
 
-To define routes, call the lowercase matching HTTP method on the `router` object (e.g. 'get' for the GET HTTP method).  Thanks to the underlying Proxy, *any* method (except ALL) can be mapped, allowing itty to be used in non-standard applications.
+To define routes, call the lowercase matching HTTP method on the [`router`](./api#Router) object (e.g. 'get' for the GET HTTP method).  Thanks to the underlying Proxy, *any* method (except ALL) can be mapped, allowing itty to be used in non-standard applications.
 
 Standard route params, optional route params, wildcards, file formats, and even greedy params are supported within the core library.  For full-manual control, see [Advanced Usage](/itty-router/custom-regex).
 

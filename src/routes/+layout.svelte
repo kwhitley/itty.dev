@@ -35,10 +35,11 @@
     <Sidebar />
   </div>
 
-  <div id="content">
+  <div class="content">
     <EditLink />
     <Page>
       <slot />
+      <Footer />
     </Page>
   </div>
 </main>
@@ -68,7 +69,7 @@
     grid-area: navigation;
   }
 
-  #content {
+  .content {
     flex: 1;
     overflow: auto;
     height: 100%;
@@ -80,12 +81,12 @@
 
   .header {
     padding: 1.5rem 2rem;
-    background-color: var(--background-color);
+    background-color: var(--foreground-5);
     box-shadow: 0 0 1em rgba(0,0,0,0.2);
     border-bottom: 1px solid var(--foreground-75);
     border-right: 1px solid var(--foreground-75);
     z-index: 1;
-    // outline: 1px solid var(--foreground-75);
+    min-width: 13rem;
 
     h3 {
       margin: 0;
@@ -105,52 +106,17 @@
       overflow: auto;
     }
 
-    #content {
+    .content {
       overflow: visible;
       max-width: 100vw;
+    }
+
+    .header {
+      border-right: none;
     }
 
     .navigation {
       overflow: visible;
     }
-
-    :global(.edit) {
-      color: red;
-    }
-
-    // main {
-    //   flex-flow: column;
-    //   // display: grid;
-    //   overflow: visible;
-    //   position: relative;
-
-    //   > * {
-    //     flex: 0;
-    //   }
-
-    //   .nav {
-    //     flex: 0 5rem;
-    //   }
-
-    //   .sidebar {
-    //     height: auto;
-    //     order: 2;
-    //   }
-
-    //   #content {
-    //     height: auto;
-    //     flex: 0;
-    //     overflow: visible;
-    //   }
-    // }
-
-    // :global(ul.brand:not(#foo)) {
-    //   position: absolute;
-    //   width: 100%;
-    // }
-
-    // :global(.page) {
-    //   margin-top: 7rem;
-    // }
   }
 </style>

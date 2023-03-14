@@ -1,6 +1,6 @@
 # <span class="accent">itty</span>-router
 <div class="byline">
-  An extremely tiny (~430 bytes) router, designed to make lightweight, beautiful APIs.
+  An extremely tiny (~430 bytes) router, designed to make lightweight APIs &mdash; anywhere.
 </div>
 
 ### Use Anywhere
@@ -9,7 +9,10 @@ Originally created for lightweight serverless and client environments (e.g. Serv
 ### Ultra-Flexible
 Unlike many framework routers, itty makes no underlying assumptions of how or where you'll use it. It has an extremely simplified handler signature, only requiring a Request-like object (anything with a method+url) to match and process routes.  Any other arguments are sent along the entire chain, allowing you to pass additional contexts, environments, or really just anything you like.
 
-Itty will keep matching routes and executing attached handlers/middleware until either an error is thrown, or a handler actually returns something. Want to return a Response?  You can do that, but you don't have to!
+Itty will keep matching routes and executing attached handlers/middleware until either an error is thrown, or a handler actually returns something. Want to return a Response?  You can do that, but you don't have to! Want to recreate the `(request, response, next)` interface of Express.js?  You can do that too!
+
+### Ultra-Light
+We're not just talking about bundle size here.  We like seeing tiny, readable route code too.  Itty helps with that.
 
 ### Example Usage
 
