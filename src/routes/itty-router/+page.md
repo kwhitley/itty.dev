@@ -7,9 +7,7 @@
 Originally created for lightweight serverless and client environments (e.g. Service Workers, Cloudflare Workers, etc.), itty-router is, at its heart, a completely environment-agnostic microrouter.  This means you can use it anywhere, knowing it will leave a near-zero impact on your bundle size.
 
 ### Ultra-Flexible
-Unlike many framework routers, itty makes no underlying assumptions of how or where you'll use it. It has an extremely simplified handler signature, only requiring a Request-like object (anything with a method+url) to match and process routes.  Any other arguments are sent along the entire chain, allowing you to pass additional contexts, environments, or really just anything you like.
-
-Itty will keep matching routes and executing attached handlers/middleware until either an error is thrown, or a handler actually returns something. Want to return a Response?  You can do that, but you don't have to! Want to recreate the `(request, response, next)` interface of Express.js?  You can do that too!
+Unlike many framework routers, itty makes no underlying assumptions of how or where you'll use it. It has an extremely simplified handler signature, requiring only a Request-like object, with the rest left up to you! This can even be used to emulate the syntax of other popular routers (e.g. Express.js), if you're inclined.
 
 ### Ultra-Light
 We're not just talking about bundle size here.  We like seeing tiny, readable route code too.  Itty helps with that.
