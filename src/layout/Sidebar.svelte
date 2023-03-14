@@ -8,14 +8,15 @@
       description: 'The 430 byte microrouter.',
       children: [
         { name: 'Getting Started' },
+        { name: 'CORS' },
+        { name: 'Errors' },
+        { name: 'Nesting' },
+        { name: 'Middleware' },
         { name: 'Route Patterns' },
         { name: 'Responses' },
-        { name: 'Middleware' },
-        { name: 'Nesting' },
         // { name: 'Types' },
-        { name: 'Errors' },
         // { name: 'Custom Regex' },
-        { name: 'CORS' },
+        { name: 'Tree-Shaking' },
         { name: 'Performance' },
         {
           name: 'API',
@@ -190,11 +191,11 @@
   }
 
   :global(.side-navigation > ul:has(a.active) > li.header ~ li:has(ul)) {
-    max-height: 20em;
+    max-height: 30em;
   }
 
   :global(.side-navigation > ul:has(a.active) > li.header ~ li ul) {
-    max-height: 20em;
+    max-height: 30em;
   }
 
 

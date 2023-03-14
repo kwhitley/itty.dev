@@ -31,7 +31,21 @@ router.get('/todos/:id/:action?', handler)
 // GET /todos/13/edit
 ```
 
-### 4. wildcards
+
+### 4. file formats/extensions
+
+To capture a filename + extension, simply include the period before a final named group.
+
+```js
+router.get('/files/:file.:extension', handler)
+// GET /files/kitten.jpeg ==> { file: 'kitten', extension: 'jpg' }
+
+router.get('/files/manifest.:extension?', handler)
+// GET /files/manifest ==> {}
+// GET /files/manifest.json ==> { extension: 'json' }
+```
+
+### 5. wildcards
 
 Especially useful for global middleware, nesting routers, etc., the wildcard `*` allows a route to match anything preceeding the `*`.  It should be noted that this is a *non-capturing* group, and merely to allow matching.
 ```js
@@ -45,7 +59,7 @@ router.get('/test/*', handler)
 // GET /test/foo/bar
 ```
 
-### 4. greedy params
+### 6. greedy params
 
 Need a param that may include otherwise challenging characters, like a `/`? A final named route param may be set as "greedy" by adding a `+` to the end.  This will capture anything following.  
 
@@ -62,7 +76,14 @@ Returns the following params:
 }
 ```
 
-### 5. query string
+Returns the following params:
+```json
+{ 
+  "url": "https:/google.com"
+}
+```
+
+### 6. query string
 
 As a convenience, we embed a parsed `query` object into the Request.  This will always be an object, with keys matching any query names found in the path.  If more than one value is found for the same key (e.g. `/?foo=bar&foo=baz`), the value will be an array of the listed values.
 

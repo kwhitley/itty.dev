@@ -1,6 +1,6 @@
 {
   "name": "itty.dev",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -35,6 +35,7 @@
   "type": "module",
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^4.5.13",
+    "itty-fetcher": "^0.8.1",
     "node-html-parser": "^6.1.5",
     "shiki": "^0.14.1",
     "svelte-navlink-action": "^0.2.0",
