@@ -9,7 +9,7 @@
     document.getElementById('content').scrollTop = 0
 
     if (hash) {
-      // document.getElementsByName(hash).scrollTop = 0
+      document.getElementsByName(hash)[0]?.scrollIntoView()
     }
   })
 </script>
