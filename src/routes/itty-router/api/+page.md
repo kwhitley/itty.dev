@@ -1,5 +1,3 @@
-# <span class="accent">itty</span>-router (api)
-
 ## createCors <a name="createCors"></a>
 Creates a `preflight` middleware and `corsify` Response-handler.  Used together, this handles both OPTIONS requests as well as appends the appropriate CORS headers to created Responses.
 
@@ -34,6 +32,23 @@ export default {
 
 ---
 
+## createResponse <a name="createResponse"></a>
+Creates a response helper from a MIME-type (string), and optionally, a body-transform (function).
+
+### `createResponse(mimeType: string, transform?: Function): ResponseHelper`
+
+For example, here's we created the [`json`](/itty-router/api#json) helper:
+
+```js
+import { createResponse } from 'itty-router'
+
+export const json = createResponse('application/json', JSON.stringify)
+
+json({ foo: 'bar' }) // creates JSON-formatted Response
+```
+
+---
+
 ## error <a name="error"></a>
 Returns an error Response
 
@@ -45,21 +60,28 @@ Returns an error Response
 ## html <a name="html"></a>
 Returns an HTML Response
 
-### `html(string): Response`
+### `html(string, options?: ResponseInit): Response`
 
 ---
 
 ## jpeg <a name="jpeg"></a>
 Returns a JPEG Response
 
-### `jpeg(data): Response`
+### `jpeg(data, options?: ResponseInit): Response`
+
+---
+
+## json <a name="json"></a>
+Returns a JSON Response
+
+### `json(data, options?: ResponseInit): Response`
 
 ---
 
 ## png <a name="png"></a>
 Returns a PNG Response
 
-### `png(data): Response`
+### `png(data, options?: ResponseInit): Response`
 
 ---
 
@@ -127,14 +149,14 @@ throw new StatusError(400, 'Incorrect number of parameters')
 ## text <a name="text"></a>
 Returns a text Response
 
-### `text(data): Response`
+### `text(data, options?: ResponseInit): Response`
 
 ---
 
 ## webp <a name="webp"></a>
 Returns a webp Response
 
-### `webp(data): Response`
+### `webp(data, options?: ResponseInit): Response`
 
 ---
 

@@ -1,16 +1,69 @@
 <script>
-  import { navlink } from 'svelte-navlink-action'
-  import Footer from '~/layout/Footer.svelte'
-  import Nav from '~/layout/Nav.svelte'
-  import Page from '~/layout/Page.svelte'
-  import Brand from '~/layout/Brand.svelte'
-  import Sidebar from '~/layout/Sidebar.svelte'
-  import ForkMe from '~/components/ForkMe.svelte'
+  import { page } from '$app/stores'
   import EditLink from '~/components/EditLink.svelte'
+  import Brand from '~/layout/Brand.svelte'
+  import Footer from '~/layout/Footer.svelte'
+  import Page from '~/layout/Page.svelte'
+  import Sidebar from '~/layout/Sidebar.svelte'
   import '~/styles/app.scss'
 
-  import GitHub from '~/components/icons/GitHub.svelte'
-  import Twitter from '~/components/icons/Twitter.svelte'
+  const siteNavigation = [
+    {
+      name: 'itty-router',
+      description: 'The 430 byte microrouter.',
+      children: [
+        { name: 'Getting Started' },
+        { name: 'v4.x Migration', path: 'migration-guide' },
+        { name: 'CORS' },
+        { name: 'Errors' },
+        { name: 'Nesting' },
+        { name: 'Middleware' },
+        { name: 'Route Patterns' },
+        { name: 'Responses' },
+        // { name: 'Types' },
+        // { name: 'Custom Regex' },
+        { name: 'Tree-Shaking' },
+        { name: 'Performance' },
+        {
+          name: 'API',
+          children: [
+            { name: 'createCors' },
+            { name: 'createResponse' },
+            { name: 'error' },
+            { name: 'html' },
+            { name: 'jpeg' },
+            { name: 'json' },
+            { name: 'png' },
+            { name: 'Router' },
+            { name: 'StatusError' },
+            { name: 'text' },
+            { name: 'webp' },
+            { name: 'withContent' },
+            { name: 'withCookies' },
+            { name: 'withParams' },
+          ]
+        },
+      ]
+    },
+    {
+      name: 'itty-fetcher',
+      description: `The good parts of axios, and then some, at ~1/20th the size.`,
+      children: [],
+    },
+    {
+      name: 'itty-time',
+      description: `Because we're tired of seeing time math in your code. \n\nAnd ours!`,
+      children: [],
+    },
+    {
+      name: 'itty-durable',
+      description: `Cloudflare Durable Objects are amazing, but using them requires some... steps.\n\nWe removed most of them for you.\n\n#acceptingdonations #jk #butmaybe?`,
+      children: [],
+    },
+  ]
+
+  $: base = $page.url.pathname.split('/')[1]
+  $: onBranch = siteNavigation.find(b => b.name === base)
 
   // DEFINES IF THE PAGE IS WIDTH-CONSTRAINED
   let constrained = true
@@ -24,7 +77,6 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 </svelte:head>
 
-
 <main id="layout">
   <div class="header">
     <Brand showVersion />
@@ -32,13 +84,22 @@
   </div>
 
   <div class="navigation">
-    <Sidebar />
+    <Sidebar siteNavigation={siteNavigation} />
   </div>
 
   <div id="content">
+
+
     <EditLink />
     <Page>
+      {#if onBranch}
+        <h1>
+          {@html onBranch.name.replace('itty', '<span class="accent">itty</span>')}
+        </h1>
+      {/if}
+
       <slot />
+
       <Footer />
     </Page>
   </div>

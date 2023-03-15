@@ -1,4 +1,3 @@
-# <span class="accent">itty</span>-time
 <div class="byline">
   A tiny time library for counting the seconds... but using human-readable strings.
 </div>

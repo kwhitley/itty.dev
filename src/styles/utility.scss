@@ -14,11 +14,13 @@
 }
 
 .byline {
-  margin-top: -0.5em;
   font-size: 1.3em;
   letter-spacing: -0.02em;
-  border-top: 2px dotted var(--foreground-25);
-  padding-top: 0.3em;
+
   margin-bottom: 2rem;
   font-weight: 300;
+}
+
+.byline + * {
+  margin-top: 0;
 }

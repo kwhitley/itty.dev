@@ -1,4 +1,3 @@
-# <span class="accent">itty</span>-router
 <div class="byline">
   An extremely tiny (~430 bytes) router, designed to make lightweight APIs &mdash; anywhere.
 </div>

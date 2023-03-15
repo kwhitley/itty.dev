@@ -1,5 +1,3 @@
-# <span class="accent">itty</span>-router
-
 ## Middleware
 Technically, any function within itty-router can be considered middlware, and you may attach any number of these to a given route.
 

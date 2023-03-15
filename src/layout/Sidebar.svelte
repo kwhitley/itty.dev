@@ -2,65 +2,14 @@
   import { navlink } from 'svelte-navlink-action'
   import Brand from './Brand.svelte'
 
-  const navMap = [
-    {
-      name: 'itty-router',
-      description: 'The 430 byte microrouter.',
-      children: [
-        { name: 'Getting Started' },
-        { name: 'CORS' },
-        { name: 'Errors' },
-        { name: 'Nesting' },
-        { name: 'Middleware' },
-        { name: 'Route Patterns' },
-        { name: 'Responses' },
-        // { name: 'Types' },
-        // { name: 'Custom Regex' },
-        { name: 'Tree-Shaking' },
-        { name: 'Performance' },
-        {
-          name: 'API',
-          children: [
-            { name: 'createCors' },
-            { name: 'createResponse' },
-            { name: 'error' },
-            { name: 'html' },
-            { name: 'jpeg' },
-            { name: 'png' },
-            { name: 'Router' },
-            { name: 'StatusError' },
-            { name: 'text' },
-            { name: 'webp' },
-            { name: 'withContent' },
-            { name: 'withCookies' },
-            { name: 'withParams' },
-          ]
-        },
-      ]
-    },
-    {
-      name: 'itty-fetcher',
-      description: `The good parts of axios, and then some, at ~1/20th the size.`,
-      children: [],
-    },
-    {
-      name: 'itty-time',
-      description: `Because we're tired of seeing time math in your code. \n\nAnd ours!`,
-      children: [],
-    },
-    {
-      name: 'itty-durable',
-      description: `Cloudflare Durable Objects are amazing, but using them requires some... steps.\n\nWe removed most of them for you.\n\n#acceptingdonations #jk #butmaybe?`,
-      children: [],
-    },
-  ]
+  export let siteNavigation = {}
 
   const slugify = (name) => name.toLowerCase().replace(/\s+/g, '-')
 </script>
 
 <!-- MARKUP -->
 <div class="side-navigation">
-  {#each navMap as branch}
+  {#each siteNavigation as branch}
     {@const basePath = '/' + (branch.path || slugify(branch.name))}
     <ul>
       <li class="header">

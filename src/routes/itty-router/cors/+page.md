@@ -1,5 +1,3 @@
-# <span class="accent">itty</span>-router
-
 ## CORS in itty-router
 
 Handling CORS requests in itty is a little different than many traditional routers, since we don't build the Response over a series of middlewares and handlers.  Because of that, our `createCors(options?)` helper returns a pair of handlers, `preflight` and `corsify`.

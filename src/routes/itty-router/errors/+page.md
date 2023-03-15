@@ -1,5 +1,3 @@
-# <span class="accent">itty</span>-router
-
 ## Handling Errors
 Errors in itty are pretty simple, using either `error` or `StatusError`, depending on your use case.
 

@@ -1,5 +1,3 @@
-# <span class="accent">itty</span>-router
-
 ## Tree-Shaking
 Following the v4.x release, itty-router is no longer "just" the Router function.  For convenience and a better DX, we've wrapped the "extras" from **itty-router-extras**, and the CORS handling of **itty-cors** into the core library.  As a result of this, the reported bundle size for the entire library is a bit inflated from previous numbers.  If tree-saking is a concern, or you would like to build upon *just* the Router for instance, tree-shaking is your solution.
 

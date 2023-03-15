@@ -1,4 +1,3 @@
-# <span class="accent">itty</span>-fetcher
 <div class="byline">
  The same Fetch API helper you've probably written countless times before, only smaller.
 </div>

@@ -1,5 +1,3 @@
-# <span class="accent">itty</span>-router
-
 ## Nesting Routers
 To created a nested API, simply use a child router's `router.handle` as a route handler in a parent router, typically on a wildcard route.  The following example shows a simple nested router.
 

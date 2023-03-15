@@ -1,5 +1,3 @@
-# <span class="accent">itty</span>-router
-
 ## Performance
 
 By their nature, virtually *all* modern routers are extremely performant, and itty-router is no different.  Some (arguably less-flexible) routers avoid internal matching loops in favor of lookup tables and trees, and are thus able to achieve higher ops/sec than a linear loop-based router such as itty, but depending on your environment... that may not matter at all.

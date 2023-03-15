@@ -1,7 +1,9 @@
-# <span class="accent">itty</span>-durable
 <div class="byline">
   A healthy dose of magic for <a href="https://blog.cloudflare.com/introducing-workers-durable-objects/">Cloudflare Durable Objects</a> to beautify your Worker and DO code.
 </div>
+
+## What is it?
+This library helps reduce the boilerplate around [Durable Objects](https://blog.cloudflare.com/introducing-workers-durable-objects/), allowing you to focus on the business logic of your stateful objects, rather than things like internal routing, building requests, etc.
 
 Now your Durable Object class can look this simple:
 ```ts

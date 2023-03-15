@@ -12,14 +12,21 @@ a code {
   color: var(--foreground-color);
 }
 
+h3 code {
+  position: relative;
+  top: -2px;
+}
+
 .shiki {
   border-radius: var(--spacing-1);
   padding: var(--spacing-6) var(--spacing-4);
-  margin: var(--spacing-4) auto var(--spacing-12);
+  // margin: var(--spacing-4) auto var(--spacing-12);
+  margin-bottom: 2rem;
   overflow-x: scroll;
   max-width: var(--max-width-full);
   font-size: 1rem;
   line-height: 1.3em;
+  width: 100%;
 
   & > code {
     background-color: transparent;
