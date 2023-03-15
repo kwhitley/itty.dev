@@ -37,7 +37,7 @@ Creates a response helper from a MIME-type (string), and optionally, a body-tran
 
 ### `createResponse(mimeType: string, transform?: Function): ResponseHelper`
 
-For example, here's we created the [`json`](/itty-router/api#json) helper:
+For example, here's how we created the [`json`](/itty-router/api#json) helper:
 
 ```js
 import { createResponse } from 'itty-router'
