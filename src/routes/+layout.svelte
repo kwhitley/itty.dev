@@ -140,7 +140,6 @@
     box-shadow: 0 0 1em rgba(0,0,0,0.2);
     border-bottom: 1px solid var(--foreground-75);
     border-right: 1px solid var(--foreground-75);
-    z-index: 1;
     min-width: 13rem;
 
     h3 {
