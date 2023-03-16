@@ -141,6 +141,7 @@
     border-bottom: 1px solid var(--foreground-75);
     border-right: 1px solid var(--foreground-75);
     min-width: 13rem;
+    z-index: 1;
 
     h3 {
       margin: 0;
