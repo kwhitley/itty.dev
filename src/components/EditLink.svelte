@@ -8,7 +8,7 @@
 <!-- MARKUP -->
 <a class="edit" href={editPath} target="_blank">
   <i><GitHub /></i>
-  edit page on GitHub
+  edit this page
 </a>
 
 <!-- !STYLES -->

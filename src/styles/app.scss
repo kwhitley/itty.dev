@@ -133,7 +133,7 @@ blockquote {
   font-style: italic;
   letter-spacing: -0.01em;
 
-  &:before {
+  & > p:first-child:before {
     color: #ccc;
     color: var(--foreground-25);
     content: open-quote;
