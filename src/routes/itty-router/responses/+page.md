@@ -46,3 +46,29 @@ const json = createResponse('application/json', JSON.stringify)
 
 json({ foo: 'bar' }) // creates JSON-formatted Response
 ```
+
+### Downstream Response Helpers
+Because each response helper transforms raw data into a valid Response, they can also be used downstream, rather than at the route level.  This allows route code to remain simpler, removing the boilerplate of always transforming data into JSON within each route handler.  Additionally, as all route handlers are awaited, async functions (that eventually return data) are a perfectly valid response if caught and transformed downstream.
+
+#### Using Response Helpers Downstream
+```js
+import { error, json, Router } from 'itty-router'
+import { db } from './database-service'
+
+const router = Router()
+
+router
+  // a simple JSON call
+  .get('/foo', (request) => ['bar', 'baz'])
+
+
+  // an async JSON call
+  .get('/database-call', () => db.getData())
+
+export default {
+  fetch: (...args) => router
+                        .handle(...args)
+                        .then(json) // <-- add the JSON transform downstream
+                        .catch(error)
+}
+```

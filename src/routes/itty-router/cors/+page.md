@@ -47,7 +47,9 @@ router
   .then(corsify)
 ```
 
-## Options
+## Configuring CORS
+In order to facilitate different CORS setups, all the usual CORS options are available when using `createCors` to create your CORS pair.  The following table describes the available options:
+
 | Name | Type(s) | Default | Description
 | --- | --- | --- | ---
 | **origins** | `string[]` | `["*"]` | the list of acceptable origins
