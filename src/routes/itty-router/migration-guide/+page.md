@@ -1,6 +1,12 @@
 ## Migrating to v4.x
 Migrating to v4.x will be largely transparent for most users, with a few notable exceptions.  The follow changes have been made in this overhaul.
 
+## Installation
+Until the official release, you may test the v4.x branch as `itty-router@next`:
+```
+npm install itty-router@next
+```
+
 ### 1. itty-router-extas and itty-cors are now "in-house"
 As of v4.x, you may simply import any of these items directly from **itty-router**.  In the meantime, your code importing from the separate modules will continue to work just fine!
 
