@@ -10,7 +10,7 @@ router.get('/foo/bar/baz', handler)
 // GET /foo/bar/baz
 ```
 
-### 2. Simple route params
+### 2. Simple route params <a name="params"></a>
 
 Prefix any named route param with a `:` to capture it.  These are separated by slashes.
 ```js
@@ -19,7 +19,7 @@ router.get('/todos/:id/:action', handler)
 // GET /todos/13/edit
 ```
 
-### 3. Optional route params
+### 3. Optional route params <a name="optional"></a>
 
 Make a route parameter optional by adding a `?` after the name.  In this example, `actions` becomes an optional parameter, allowing requests to match with or without it.
 ```js
@@ -30,7 +30,7 @@ router.get('/todos/:id/:action?', handler)
 ```
 
 
-### 4. File formats/extensions
+### 4. File formats/extensions <a name="file-formats"></a>
 
 To capture a filename + extension, simply include the period before a final named group.
 
@@ -43,7 +43,7 @@ router.get('/files/manifest.:extension?', handler)
 // GET /files/manifest.json ==> { extension: 'json' }
 ```
 
-### 5. Wildcards
+### 5. Wildcards <a name="wildcards"></a>
 
 Especially useful for global middleware, nesting routers, etc., the wildcard `*` allows a route to match anything preceeding the `*`.  It should be noted that this is a *non-capturing* group, and merely to allow matching.
 ```js
@@ -57,7 +57,7 @@ router.get('/test/*', handler)
 // GET /test/foo/bar
 ```
 
-### 6. "Greedy" params
+### 6. "Greedy" params <a name="greedy"></a>
 
 A final named route param may be set as "greedy" by adding a `+` to the end.  This will capture anything following, including slashes and otherwise challenging characters.
 
@@ -74,7 +74,7 @@ Returns the following params:
 }
 ```
 
-### 6. Query params
+### 6. Query params <a name="query"></a>
 
 As a convenience, we embed a parsed `query` object into the Request.  This will always be an object, with keys matching any query names found in the path.  If more than one value is found for the same key (e.g. `/?foo=bar&foo=baz`), the value will be an array of the listed values.
 
