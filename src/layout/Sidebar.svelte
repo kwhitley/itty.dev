@@ -85,9 +85,13 @@
     font-weight: 400;
     font-size: 1.3rem;
 
-    a {
+    a:not(.active) {
       color: var(--foreground-color);
     }
+  }
+
+  :global(.header a.active) {
+    color: var(--accent-color);
   }
 
   a {
