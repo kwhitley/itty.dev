@@ -20,10 +20,10 @@ Standard route params, optional route params, wildcards, file formats, and even 
 ```js
 // register a route on the "GET" method
 router
-  .get('/todos/:user/:item?', (request) => {
-    const { params, query } = request
+  .get('/todos/:id', (request) => {
+    const { params } = request
 
-    console.log({ params, query })
+    return `You've asked for todo #${params.id}.`
   })
 
   // we can chain definitions to reduce boilerplate
@@ -41,36 +41,10 @@ const request = new Request('https://foo.bar/todos/jane')
 
 // attempt to match Request to registered routes
 await router.handle(request)
-```
 
-Using the example router from #2 above, we might expect the following outputs:
-```json
-// GET /todos/jane/13
-{
-  params: {
-    user: 'jane',
-    item: '13'
-  },
-  query: {}
-}
-
-// GET /todos/jane
-{
-  params: {
-    user: 'jane'
-  },
-  query: {}
-}
-
-// GET /todos/jane?limit=2&page=1&foo=bar&foo=baz
-{
-  params: {
-    user: 'jane'
-  },
-  query: {
-    limit: '2',
-    page: '2',
-    foo: ['bar', 'baz],
-  }
-}
+// or a more robust handling
+await router
+        .handle(request)
+        .then(json)       // transform all unformed responses to JSON
+        .catch(error)     // and catch any uncaught errors
 ```
