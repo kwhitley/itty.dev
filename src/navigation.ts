@@ -20,7 +20,6 @@ export const navigation = [
         children: [
           { name: 'Bun' },
           { name: 'Cloudflare Workers' },
-          { name: 'Deno' },
           { name: 'Node' },
         ]
       },
