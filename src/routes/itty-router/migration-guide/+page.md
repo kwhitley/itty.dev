@@ -7,6 +7,8 @@ Until the official release, you may test the v4.x branch as `itty-router@next`:
 npm install itty-router@next
 ```
 
+## Changes
+
 ### 1. itty-router-extas and itty-cors are now "in-house"
 As of v4.x, you may simply import any of these items directly from **itty-router**.  In the meantime, your code importing from the separate modules will continue to work just fine!
 
@@ -40,10 +42,10 @@ router
   .get('/:id',  withParams, ({ id }) => id)
 ```
 
-### 3. createResponse - create your own Response types
+### 3. exporting createResponse
 [`createResponse`](/itty-router/api#createResponse) is the function we use to create all the familiar response helpers, including [`json`](/itty-router/api#json).  We now expose this, allowing you to create your own custom types.  
 
 In v4.x, we've also added a second argument; a body transform function.  If present, anything you pass to the helper will be passed through this function.  For example, in [`json`](/itty-router/api#json), we pass `JSON.stringify` to the second argument.
 
 ### 4. slight tweaks to the RegEx
-In order to code-golf the regex even further (huge shoutout to [@DrLoopFall](https://twitter.com/DrLoopFall)), we've accepted some slight changes in v4.x that hopefully should affect almost none of you.
+In order to code-golf the regex even further (huge shoutout to [@DrLoopFall](https://twitter.com/DrLoopFall)), we've accepted some slight changes in v4.x that hopefully should affect no one at all.

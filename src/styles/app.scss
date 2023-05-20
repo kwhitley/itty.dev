@@ -207,10 +207,10 @@ p, li, caption {
   font-weight: 100;
   font-size: 1em;
   line-height: 1.6em;
+}
 
-  &:not(:last-child) {
-    margin-bottom: 1.5em;
-  }
+p:not(:last-child) {
+  margin-bottom: 1.5em;
 }
 
 p + * {
