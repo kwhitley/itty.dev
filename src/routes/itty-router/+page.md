@@ -10,7 +10,7 @@
 [![Discord](https://img.shields.io/discord/832353585802903572?style=flat-square)](https://discord.com/channels/832353585802903572)
 
 ### Use Anywhere
-Originally created for lightweight serverless and client environments (e.g. Service Workers, Cloudflare Workers, etc.), itty-router is, at its heart, a completely environment-agnostic microrouter.  This means you can use it anywhere, knowing it will leave a near-zero impact on your bundle size.
+Originally created for lightweight serverless and client environments (e.g. Service Workers, [Cloudflare Workers](/itty-router/runtimes#Cloudflare%20Workers), etc.), itty-router is, at its heart, a completely environment-agnostic microrouter.  This means you can use it anywhere (e.g. [Bun](/itty-router/runtimes#Bun) or [Node](/itty-router/runtimes#Node)), knowing it will leave a near-zero impact on your bundle size, without locking you into a specific runtime or deployment type.
 
 ### Ultra-Flexible
 Unlike many framework routers, itty makes no underlying assumptions of how or where you'll use it. It has an extremely simplified handler signature, requiring only a Request-like object, with the rest left up to you! This can even be used to emulate the syntax of other popular routers (e.g. Express.js), if you're inclined.
