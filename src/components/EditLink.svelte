@@ -14,8 +14,8 @@
 <!-- !STYLES -->
 <style lang="scss">
   a {
-    color: var(--accent-color);
-    font-size: 0.9rem;
+    color: var(--foreground-75);
+    font-size: 0.8rem;
     display: block;
     float: right;
     position: fixed;
@@ -25,7 +25,13 @@
     box-shadow: 0 0 0.5em rgba(0,0,0,0.2);
     border-bottom-left-radius: var(--border-radius);
     border: 1px solid var(--foreground-25);
-    padding: 0.5rem 1.2rem 0.6rem;
+    padding: 0.2rem 0.6rem 0.3rem;
+    transition: color 0.2s ease;
+
+    &:hover, &:active {
+      color: var(--accent-color);
+      opacity: 1;
+    }
 
     @media (max-width: 700px) {
       position: relative;
