@@ -24,9 +24,8 @@
     width: 100%;
     flex: 1 100%;
     padding: calc(var(--page-gutter) * 1) var(--page-gutter) 2rem;
-    display: column;
-    flex-flow: row wrap;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-flow: column;
     min-height: 100%;
     max-width: 1000px;
 

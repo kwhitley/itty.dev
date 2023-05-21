@@ -102,7 +102,7 @@ a {
   }
 
   &:not([href]) {
-    height: 0.1rem;
+    font-size: 0;
     display: block;
   }
 }

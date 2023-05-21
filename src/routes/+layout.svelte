@@ -5,6 +5,7 @@
   import Footer from '~/layout/Footer.svelte'
   import Page from '~/layout/Page.svelte'
   import Sidebar from '~/layout/Sidebar.svelte'
+  import MenuLink from '~/layout/MenuLink.svelte'
   import { navigation } from '~/navigation'
   import '~/styles/app.scss'
 
@@ -27,6 +28,8 @@
   <div class="header">
     <Brand showVersion />
     <h3>Official documentation of the itty ecosystem.</h3>
+
+    <MenuLink />
   </div>
 
   <div class="navigation">
@@ -94,6 +97,14 @@
       margin: 0;
       font-size: 0.9em;
       line-height: 1.2;
+    }
+
+    @media (max-width: 700px) {
+      position: sticky;
+      top: 0;
+      background-color: var(--background-color);
+      z-index: 10;
+      box-shadow: 0 0 1.5em rgba(0,0,0,0.5);
     }
   }
 
