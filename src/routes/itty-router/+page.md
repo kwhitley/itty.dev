@@ -1,5 +1,5 @@
 <div class="byline">
-  An extremely tiny (~430 bytes) router, designed to make lightweight APIs &mdash; anywhere.
+  A ~440 byte router, designed to make beautiful APIs <em>anywhere</em>.
 </div>
 
 [![Version](https://img.shields.io/npm/v/itty-router.svg?style=flat-square)](https://npmjs.com/package/itty-router)
@@ -10,16 +10,16 @@
 [![Discord](https://img.shields.io/discord/832353585802903572?style=flat-square)](https://discord.com/channels/832353585802903572)
 
 ### Use Anywhere
-Originally created for lightweight serverless and client environments (e.g. Service Workers, [Cloudflare Workers](/itty-router/runtimes#Cloudflare%20Workers), etc.), itty-router is, at its heart, a completely environment-agnostic microrouter.  This means you can use it anywhere (e.g. [Bun](/itty-router/runtimes#Bun) or [Node](/itty-router/runtimes#Node)), knowing it will leave a near-zero impact on your bundle size, without locking you into a specific runtime or deployment type.
+Itty is, at its heart, a completely environment-agnostic microrouter.  This means you can use it _anywhere_ (e.g. [Bun](/itty-router/runtimes#Bun), [Node](/itty-router/runtimes#Node), in Service Workers, or even in the browser).
 
 ### Ultra-Flexible
-Unlike many framework routers, itty makes no underlying assumptions of how or where you'll use it. It has an extremely simplified handler signature, requiring only a Request-like object, with the rest left up to you! This can even be used to emulate the syntax of other popular routers (e.g. Express.js), if you're inclined.
+Itty makes zero underlying assumptions of how or where you'll use it.  By maintaining a simple signature, and following Web Standards/Fetch API, it can be used in virtually all modern environments, and easily adapted to others.
 
 ### Ultra-Light
-We're not just talking about bundle size here.  We like seeing tiny, readable route code too.  Itty helps with that.
+We're not just talking about bundle size here.  We like seeing tiny, readable route code too.  Itty helps with that!
 
 ### Battle-Ready
-This little router nets over 1 million downloads a year, has been hardened and tested by dozens of contributors over two years, and currently handles many millions of requests daily across an assortment of production APIs.  These 430 tiny bytes have an enormous battery of test coverage to ensure it stays stable across releases.
+With over a million downloads a year, itty has been hardened and tested by dozens of contributors over several years. It currently handles many millions of requests daily across an assortment of production APIs, with an enormous battery of tests (100% coverage) to ensure it stays stable across releases.
 
 ### Example Usage
 

@@ -1,7 +1,7 @@
 export const navigation = [
   {
     name: 'itty-router',
-    description: 'The 430 byte microrouter.',
+    description: 'The ~440 byte microrouter.',
     children: [
       { name: 'Getting Started' },
       { name: 'v4.x Migration', path: 'migration-guide' },
