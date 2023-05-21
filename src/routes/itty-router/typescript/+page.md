@@ -12,7 +12,7 @@ But I think we've got it this time.
 
 Have consistent request types?  Choose [uniform routers](#Uniform%20Routers) and save some boilerplate.  Have a bunch of custom middleware that modify the request?  Probably go with the default [non-uniform routers](#Uniform%20Routers).
 
-<a name="Uniform Routers"></a>
+<a name="uniform-routers"></a>
 
 ### Uniform Routers <small class="new">new in v4.x</small>
 When you have a consistent signature and arguments throughout the routes of a given router, pass your types to the Router itself to avoid repeated defintions on routes downstream.
@@ -64,7 +64,7 @@ router
   })
 ```
 
-<a name="Non-uniform Routers"></a>
+<a name="non-uniform-routers"></a>
 
 ### Non-uniform Routers <small class="new">new in v4.x</small>
 By default, itty assumes this - the most flexible pattern.

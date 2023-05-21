@@ -1,0 +1,53 @@
+.side-navigation {
+  a.active {
+    color: var(--accent-color) !important;
+  }
+
+  .header.active a {
+    color: var(--accent-color);
+  }
+
+  a {
+    color: var(--foreground-75);
+    font-weight: 400;
+  }
+
+  li.active .description {
+    margin-bottom: 1rem;
+  }
+
+  :global(.side-navigation a.active) {
+    color: var(--accent-color);
+  }
+
+  a.active:after {
+    content: '';
+    display: block;
+    background-color: var(--accent-color);
+    height: 1rem;
+    width: 1rem;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -0.8rem;
+    margin-top: -1.5em;
+    border: 2px solid var(--foreground-50);
+    z-index: 1;
+  }
+
+  .gap {
+    margin-top: 1rem;
+  }
+
+  .subheading > a {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    line-height: 1.2;
+    display: block;
+    font-size: 0.6em;
+    font-weight: 300;
+    color: var(--foreground-75);
+    white-space: pre-wrap;
+  }
+}

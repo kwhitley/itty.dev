@@ -1,3 +1,37 @@
+type NavigationItem = {
+  name: string,
+  path?: string,
+  parent?: NavigationItem,
+  fullPath?: string,
+  description?: string,
+  children?: NavigationItem[]
+}
+
+const slugify = (name) => name.toLowerCase().replace(/\s+/g, '-')
+
+const getFullPath = (item) => {
+  const parentPath = item.parent?.path
+
+  return item.parent
+          ? item.parent.fullPath + item.path
+          : item.path
+}
+
+const connect = (item: NavigationItem, parent?: NavigationItem, depth = 0) => {
+  item.parent = parent
+  const shortPath = depth > 1
+                  ? item.path || encodeURIComponent(item.name)
+                  : item.path || slugify(item.name)
+  item.path = `${depth > 1 ? '#' : '/'}${shortPath}`
+  item.fullPath = getFullPath(item)
+
+  if (item.children) {
+    item.children = item.children.map(child => connect(child, item, depth+1))
+  }
+
+  return item
+}
+
 export const navigation = [
   {
     name: 'itty-router',
@@ -18,8 +52,8 @@ export const navigation = [
       {
         name: 'TypeScript',
         children: [
-          { name: 'Uniform Routers' },
-          { name: 'Non-uniform Routers' },
+          { name: 'Uniform Routers', path: 'uniform-routers' },
+          { name: 'Non-uniform Routers', path: 'non-uniform-routers' },
           { name: 'IRequest' },
           { name: 'IRequestStrict' },
         ]
@@ -31,7 +65,6 @@ export const navigation = [
           { name: 'Bun' },
           { name: 'Cloudflare Workers' },
           { name: 'Node' },
-          { name: 'Hono' },
         ]
       },
       {
@@ -70,4 +103,4 @@ export const navigation = [
     description: `Cloudflare Durable Objects are amazing, but using them requires some... steps.\n\nWe removed most of them for you.\n\n#acceptingdonations #jk #butmaybe?`,
     children: [],
   },
-]
+].map((item) => connect(item))
