@@ -2,7 +2,7 @@
   import GitHub from '~/components/icons/GitHub.svelte'
   import { page } from '$app/stores'
 
-  $: editPath = `https://github.com/kwhitley/itty.dev/blob/main/src/routes${$page.url.pathname}/+page.md`
+  $: editPath = `https://github.com/kwhitley/itty.dev/edit/main/src/routes${$page.url.pathname}/+page.md`
 </script>
 
 <!-- MARKUP -->
