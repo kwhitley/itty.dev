@@ -54,12 +54,6 @@
 
 <!-- STYLES -->
 <style lang="scss">
-  a[name=navigation] {
-    font-size: 0;
-    // position: absolute;
-    position: relative;
-    top: -8.5rem;
-  }
 
   .active, .activeHash {
     color: var(--accent-color) !important;

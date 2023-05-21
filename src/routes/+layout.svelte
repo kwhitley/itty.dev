@@ -105,14 +105,6 @@
       font-size: 0.9em;
       line-height: 1.2;
     }
-
-    @media (max-width: 700px) {
-      position: sticky;
-      top: 0;
-      background-color: var(--background-color);
-      z-index: 10;
-      box-shadow: 0 0 1.5em rgba(0,0,0,0.5);
-    }
   }
 
   @media (max-width: 700px) {
@@ -129,14 +121,24 @@
     #content {
       overflow: visible;
       max-width: 100vw;
+      scroll-margin-top: var(--sticky-top);
     }
 
     .header {
       border-right: none;
+      position: sticky;
+      top: 0;
+      background-color: var(--background-color);
+      z-index: 10;
+      box-shadow: 0 0 1.5em rgba(0,0,0,0.5);
     }
 
     .navigation {
       overflow: visible;
+    }
+
+    :global(a[name]) {
+      scroll-margin-top: 7.4rem;
     }
   }
 </style>
