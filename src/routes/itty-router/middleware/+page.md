@@ -40,7 +40,7 @@ import { getUser } from './user-validation'
 
 // MIDDLEWARE: withAuthenticatedUser - embeds user in Request or returns a 401
 const withAuthenticatedUser = (request) => {
-  const token = request.headers.get('Authorization)
+  const token = request.headers.get('Authorization')
   const user = getUser(token)
   
   // by returning early here, we cut off all future handlers
