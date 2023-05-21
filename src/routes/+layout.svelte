@@ -26,10 +26,16 @@
 
 <main id="layout">
   <div class="header">
-    <Brand showVersion />
-    <h3>Official documentation of the itty ecosystem.</h3>
+    <div class="split">
+      <section>
+        <Brand showVersion />
+        <h3>Official documentation of the itty ecosystem.</h3>
+      </section>
+      <section class="right">
+        <MenuLink />
+      </section>
+    </div>
 
-    <MenuLink />
   </div>
 
   <div class="navigation">
@@ -92,6 +98,7 @@
     border-right: 1px solid var(--foreground-75);
     min-width: 13rem;
     z-index: 1;
+    display: flex;
 
     h3 {
       margin: 0;

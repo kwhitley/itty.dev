@@ -25,6 +25,10 @@
   margin-top: 0;
 }
 
+.right {
+  text-align: right;
+}
+
 // new styles for migration updates
 p.new, small.new {
   background-color: var(--accent-fade);
