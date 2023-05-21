@@ -24,3 +24,22 @@
 .byline + * {
   margin-top: 0;
 }
+
+// new styles for migration updates
+p.new, small.new {
+  background-color: var(--accent-fade);
+  color: var(--background-95);
+  font-weight: 400;
+  font-size: 0.85em;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--border-radius);
+  margin-right: 0;
+}
+
+small.new {
+  padding: 0.4em 0.7rem;
+  font-size: 0.7rem;
+  border-radius: 1rem;
+  letter-spacing: 0;
+  vertical-align: middle;
+}

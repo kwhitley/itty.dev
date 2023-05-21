@@ -5,10 +5,11 @@
 :root {
   --max-page-width: 1200px;
   --transition-duration: 0.1s;
-  --border-radius: 0.6rem;
+  --border-radius: 0.3rem;
   --border-thickness: 2px;
   --accent-hue: 255, 0, 200;
   --accent-color: rgb(var(--accent-hue));
+  --accent-fade: rgba(var(--accent-hue), 0.8);
 
   --link-color: var(--blue);
   --brand-color: var(--accent-color);
@@ -97,6 +98,11 @@ a {
 
   &:hover {
     text-decoration: underline;
+  }
+
+  &:not([href]) {
+    height: 0.1rem;
+    display: block;
   }
 }
 
@@ -213,14 +219,6 @@ p:not(:last-child) {
   margin-bottom: 1.5em;
 }
 
-p + * {
-  // margin-top: 0;
-}
-
-// * + h1, * + h2, * + h3 {
-//   margin-top: 2rem;
-// }
-
 li, caption {
   font-size: 0.95em;
 }
@@ -237,9 +235,9 @@ ol {
   list-style: none;
   counter-reset: ol-counter;
   gap: 1em;
-  margin: 0;
-  padding: 0;
-  margin-left: 1em;
+  margin: 1rem 0;
+  // padding: 0;
+  // margin-left: 1em;
 }
 
 ul {
@@ -249,16 +247,28 @@ ul {
 ol li {
   flex: 1;
   counter-increment: ol-counter;
-  display: flex;
-  margin-bottom: 0.5rem;
+  // display: flex;
+  position: relative;
+  align-items: baseline;
+  padding-left: 2rem;
+  // margin-bottom: 0.5rem;
 }
 
 ol li::before {
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
   content: counter(ol-counter);
-  font-weight: bold;
-  font-size: var(--ol-counter-size);
-  margin: -0.1em 0.7rem 0 0;
-  font-family: serif;
+  flex: 0 1rem;
+  min-width: 2rem;
+  text-align: right;
+  font-weight: 400;
+  position: absolute;
+  left: -0.5em;
+  line-height: 1em;
+  // background-color: pink;
+  // font-size: var(--ol-counter-size);
+  margin: 0 0.7rem 0 0;
+  // font-family: serif;
 }
 
 figure {

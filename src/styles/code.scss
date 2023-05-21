@@ -112,13 +112,18 @@ code .line::before {
 h3:has(code) {
   margin-top: 0;
   font-size: 1rem;
+  margin-bottom: 0;
+  margin-top: 1.8rem;
 }
 
 h3 + h3:has(code) {
   margin-top: -0.3em;
 }
 
-h3:has(code) + .shiki,
-h3:has(code) + p  {
+h3:has(code) + h3:has(code) {
+  margin-top: 0.1rem;
+}
+
+h3:has(code) + .shiki {
   margin-top: 1rem;
 }

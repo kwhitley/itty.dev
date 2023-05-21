@@ -69,6 +69,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     grid-area: navigation;
+    min-width: 14rem;
   }
 
   #content {

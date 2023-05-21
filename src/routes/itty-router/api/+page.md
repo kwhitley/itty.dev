@@ -57,14 +57,14 @@ Returns an error Response
 
 ---
 
-## html <a name="html"></a>
+## html <small class="new">new in v4.x</small> <a name="html"></a>
 Returns an HTML Response
 
 ### `html(string, options?: ResponseInit): Response`
 
 ---
 
-## jpeg <a name="jpeg"></a>
+## jpeg <small class="new">new in v4.x</small> <a name="jpeg"></a>
 Returns a JPEG Response
 
 ### `jpeg(data, options?: ResponseInit): Response`
@@ -78,7 +78,7 @@ Returns a JSON Response
 
 ---
 
-## png <a name="png"></a>
+## png <small class="new">new in v4.x</small> <a name="png"></a> 
 Returns a PNG Response
 
 ### `png(data, options?: ResponseInit): Response`
@@ -153,7 +153,7 @@ Returns a text Response
 
 ---
 
-## webp <a name="webp"></a>
+## webp <small class="new">new in v4.x</small> <a name="webp"></a>
 Returns a webp Response
 
 ### `webp(data, options?: ResponseInit): Response`
@@ -221,4 +221,8 @@ router
   // access params directly from the request
   .get('/:id', withParams, ({ id }) => `Your id is ${id}`)
 ```
+
+<p class="new">
+  v4.x changes - <code>withParams</code> may <em>finally</em> be used as a global upstream middleware, saving the many boilerplatey injections throughout your routes.  Hooray!
+</p>
 

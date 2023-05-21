@@ -11,16 +11,27 @@ export const navigation = [
       { name: 'Middleware' },
       { name: 'Route Patterns' },
       { name: 'Responses' },
-      // { name: 'Types' },
+      // { name: 'TypeScript' },
       // { name: 'Custom Regex' },
       { name: 'Tree-Shaking' },
       { name: 'Performance' },
       {
-        name: 'Runtimes',
+        name: 'TypeScript',
+        children: [
+          { name: 'Uniform Routers' },
+          { name: 'Non-uniform Routers' },
+          { name: 'IRequest' },
+          { name: 'IRequestStrict' },
+        ]
+      },
+      {
+        name: 'Runtimes, etc.',
+        path: 'runtimes',
         children: [
           { name: 'Bun' },
           { name: 'Cloudflare Workers' },
           { name: 'Node' },
+          { name: 'Hono' },
         ]
       },
       {
