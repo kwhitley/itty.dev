@@ -52,7 +52,7 @@ In order to facilitate different CORS setups, all the usual CORS options are ava
 
 | Name | Type(s) | Default | Description
 | --- | --- | --- | ---
-| **origins** | `string[]` | `["*"]` | the list of acceptable origins
+| **origins** | `string[] | (origin: string) => boolean` | `["*"]` | the list of acceptable origins or function returns boolean
 | **methods** | `string[]` | `["GET"]` | list of CORS-allowed HTTP methods
 | **maxAge** | `number` | `undefined` | max-age, in seconds, for CORS headers
 | **headers** | `object` | `undefined` | list of headers to manually inject into all CORS Responses (via both `preflight` and `corsify`)
@@ -65,7 +65,9 @@ import { otherRouter } from './api/v1'
 // create the CORS pair
 const { preflight, corsify } = createCors({
   methods: ['GET', 'PATCH', 'POST'],
-  origins: ['http://localhost:3000'],
+  origins: ['http://localhost:3000', 'https://localhost:3000'],
+  // or 
+  // origins: (origin) => /https?:\/\/localhost:3000/.test(origin),
   headers: {
     'my-funky-header': 'is pretty funky indeed',
   },

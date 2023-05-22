@@ -8,6 +8,8 @@ import { Router, createCors, error, json } from 'itty-router'
 
 const { preflight, corsify } = createCors({
   origins: ['*'],
+  // or function returns boolean
+  // origins: (origin) => origin.endsWith('.all-my.example.com'),
   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
 })
 
