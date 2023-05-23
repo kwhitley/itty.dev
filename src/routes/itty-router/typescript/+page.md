@@ -7,10 +7,10 @@ But I think we've got it this time.
 
 ### There are 2 main ways to type in itty:
 
-1. **[Uniform Routers](#Uniform%20Routers)**. A single Request-type and args for an entire router.  This saves a lot of per-route typing, but is only appropriate if all the routes on a given router have the same request signature.  Triggered by passing generics to the Router itself.
-2. **[Non-uniform Routers](#Non-uniform%20Routers)**.  Each route will default to (IRequest, ...args), and may be overriden with generics, or simply by casting arguments in the handlers.  This style is enabled by default for greatest flexibility.  To disable, simply pass generics to the Router itself (and remove any downstream).
+1. **[Uniform Routers](#uniform-routers)**. A single Request-type and args for an entire router.  This saves a lot of per-route typing, but is only appropriate if all the routes on a given router have the same request signature.  Triggered by passing generics to the Router itself.
+2. **[Non-uniform Routers](#non-uniform-routers)**.  Each route will default to (IRequest, ...args), and may be overriden with generics, or simply by casting arguments in the handlers.  This style is enabled by default for greatest flexibility.  To disable, simply pass generics to the Router itself (and remove any downstream).
 
-Have consistent request types?  Choose [uniform routers](#Uniform%20Routers) and save some boilerplate.  Have a bunch of custom middleware that modify the request?  Probably go with the default [non-uniform routers](#Uniform%20Routers).
+Have consistent request types?  Choose [uniform routers](#uniform-routers) and save some boilerplate.  Have a bunch of custom middleware that modify the request?  Probably go with the default [non-uniform routers](#non-uniform-routers).
 
 <a name="uniform-routers"></a>
 
@@ -32,8 +32,12 @@ type FooRequest = {
 const router = <FooRequest>Router()
 
 router
-  .get('/', ({ foo }) => 'This will work')
-  .get('/bar', ({ foo }) => 'So will this.')
+  .get('/', (request) => {
+    request.foo         // valid
+  })
+  .get('/bar', (request) => {
+    request.foo         // still valid
+  })
 ```
 
 #### Passing Additional Arguments (example with Cloudlare Workers)

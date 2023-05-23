@@ -34,9 +34,8 @@ h3 code {
   }
 
   @media (max-width: 700px) {
-    font-size: 1em;
+    font-size: clamp(0.7rem, 2vw, 1rem);
     padding: 1.5em;
-    // white-space: pre-wrap;
 
     code .line::before {
       display: none;
