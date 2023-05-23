@@ -31,7 +31,7 @@
         <Brand showVersion />
         <h3>Official documentation of the itty ecosystem.</h3>
       </section>
-      <section class="right">
+      <section class="right menu-link">
         <MenuLink />
       </section>
     </div>
@@ -71,6 +71,10 @@
     grid-template-rows: 1fr 10fr;
     grid-template-columns: 1fr 5fr;
     height: 100%;
+  }
+
+  .menu-link {
+    display: none;
   }
 
   .navigation {
@@ -131,6 +135,10 @@
       background-color: var(--background-color);
       z-index: 10;
       box-shadow: 0 0 1.5em rgba(0,0,0,0.5);
+    }
+
+    .menu-link {
+      display: block;
     }
 
     .navigation {
