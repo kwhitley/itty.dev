@@ -1,3 +1,14 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-router"
+  subtitle="API Docs"
+  description="Complete API docs for itty-router."
+  />
+
 ## createCors <a name="createCors"></a>
 Creates a `preflight` middleware and `corsify` Response-handler.  Used together, this handles both OPTIONS requests as well as appends the appropriate CORS headers to created Responses.
 

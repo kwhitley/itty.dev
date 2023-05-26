@@ -1,3 +1,14 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-router"
+  subtitle="Nesting Routers"
+  description="How to nest routers for deep APIs within itty-router."
+  />
+
 ## Nesting Routers
 To created a nested API, simply use a child router's `router.handle` as a route handler in a parent router, typically on a wildcard route.  The following example shows a simple nested router.
 

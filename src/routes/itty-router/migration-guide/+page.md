@@ -1,3 +1,14 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-router"
+  subtitle="Migrating to v4.x"
+  description="A guide to migrating between versions within itty-router.  In particular, we focus on the latest v3.x to v4.x migration."
+  />
+
 ## Migrating to v4.x
 Migrating to v4.x will be largely transparent for most users, with a few notable exceptions.  The follow changes have been made in this overhaul.
 

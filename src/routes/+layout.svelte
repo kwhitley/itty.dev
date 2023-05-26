@@ -19,8 +19,6 @@
 
 <svelte:head>
   <link rel="icon" type="image/svg" href="/favicon.png">
-  <title>itty.dev - Official itty documentation.</title>
-  <meta name="description" content="Official documentation site for the itty ecosystem." />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 </svelte:head>
 

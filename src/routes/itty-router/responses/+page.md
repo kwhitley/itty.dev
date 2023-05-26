@@ -1,3 +1,14 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-router"
+  subtitle="Building Responses"
+  description="Building Responses with itty-router."
+  />
+
 ## Creating Responses
 
 To create Responses without all the boilerplate, itty-router includes several response helper functions, as well as a utility function to make your own custom types.

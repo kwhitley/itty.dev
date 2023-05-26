@@ -2020,6 +2020,11 @@ sass@*, sass@^1.58.3:
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
 
+schema-dts@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/schema-dts/-/schema-dts-1.1.2.tgz#82ccf71b5dcb80065a1cc5941888507a4ce1e44b"
+  integrity sha512-MpNwH0dZJHinVxk9bT8XUdjKTxMYrA5bLtrrGmFA6PTLwlOKnhi67XoRd6/ty+Djt6ZC0slR57qFhZDNMI6DhQ==
+
 semver@^6.0.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
@@ -2194,6 +2199,13 @@ svelte-hmr@^0.14.12:
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.14.12.tgz#a127aec02f1896500b10148b2d4d21ddde39973f"
   integrity sha512-4QSW/VvXuqVcFZ+RhxiR8/newmwOCTlbYIezvkeN6302YFRE8cXy0naamHcjz8Y9Ce3ITTZtrHrIL0AGfyo61w==
 
+svelte-meta-tags@^2.7.2:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/svelte-meta-tags/-/svelte-meta-tags-2.7.2.tgz#924b2acc009ac697583d892edee0236299a91534"
+  integrity sha512-CLUrgpT1sGUqKWOXtAdSDWULcxk6YKBIl/9HD0NdGzMRX4HmGq158gHVkww5N8fY/gCbhcwEnsACQUHnPzCFXg==
+  dependencies:
+    schema-dts "^1.1.2"
+
 svelte-navlink-action@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/svelte-navlink-action/-/svelte-navlink-action-0.2.0.tgz#437b25f183e1df7377c8a900c6599663c637f48a"
@@ -2210,6 +2222,11 @@ svelte-preprocess@^5.0.0, svelte-preprocess@^5.0.1:
     magic-string "^0.27.0"
     sorcery "^0.11.0"
     strip-indent "^3.0.0"
+
+svelte-seo@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/svelte-seo/-/svelte-seo-1.5.3.tgz#55997e13c6d530fe991310d4fabd6823c9fb815c"
+  integrity sha512-xkaVGNaQOWiNYApx6ehFSEVfdpfzy4pJLKWqQucFepl4SxJWcKDugCcND2k8bF4FskQ1M/4v4/Js35dDE/xFjg==
 
 svelte-shiki@^0.0.6:
   version "0.0.6"

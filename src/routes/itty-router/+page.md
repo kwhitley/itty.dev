@@ -1,3 +1,13 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-router"
+  description="A tiny, zero-dependency router, designed to make beautiful APIs in any environment."
+  />
+
 <div class="byline">
   A ~440 byte router, designed to make beautiful APIs <em>anywhere</em>.
 </div>

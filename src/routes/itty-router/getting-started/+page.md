@@ -1,3 +1,14 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-router"
+  subtitle="Getting Started"
+  description="How to quickly get up and running using itty-router to create an API."
+  />
+
 ## Getting Started
 
 ### 1. Create a Router

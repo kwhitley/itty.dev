@@ -1,3 +1,13 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-durable"
+  description="A healthy dose of magic for Cloudflare Durable Objects to beautify your Worker and Object code."
+  />
+
 <div class="byline">
   A healthy dose of magic for <a href="https://blog.cloudflare.com/introducing-workers-durable-objects/">Cloudflare Durable Objects</a> to beautify your Worker and DO code.
 </div>

@@ -1,3 +1,13 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-fetcher"
+  description="The same Fetch API helper you've probably written countless times before, only smaller.  Ultralight Axios alternative."
+  />
+
 <div class="byline">
  The same Fetch API helper you've probably written countless times before, only smaller.
 </div>

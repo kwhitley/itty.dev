@@ -1,3 +1,13 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty-time"
+  description="A tiny time library for counting the seconds... but using human-readable strings."
+  />
+
 <div class="byline">
   A tiny time library for counting the seconds... but using human-readable strings.
 </div>
