@@ -194,20 +194,28 @@ h2, h3 {
 h2 {
   font-size: 2.2rem;
   font-weight: 100;
-  margin-top: 3rem;
+  // margin-top: 3rem;
 }
 
 h3 {
   font-size: 1.4rem;
-  margin-top: 2rem;
+  // margin-top: 2rem;
   margin-bottom: 0.3rem;
   font-weight: 400;
   letter-spacing: 0;
 }
 
+h3 + h3 {
+  // margin-top: 2rem;
+}
+
 h4 {
   color: var(--foreground-75);
   margin-bottom: 0.3rem;
+}
+
+h1 + h2, h1 + p {
+  margin-top: 2rem;
 }
 
 p, li, caption {

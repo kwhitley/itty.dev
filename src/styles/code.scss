@@ -111,8 +111,9 @@ code .line::before {
 h3:has(code) {
   margin-top: 0;
   font-size: 1rem;
-  margin-bottom: 0;
-  margin-top: 1.8rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.4em;
+  // margin-top: 1.8rem;
 }
 
 h3 + h3:has(code) {

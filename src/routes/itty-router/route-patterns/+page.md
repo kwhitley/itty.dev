@@ -8,7 +8,7 @@
   subtitle="Route Matching Patterns"
   description="How to effectively use route patterns within itty-router."
   />
-  
+
 ## Route Patterns
 Below we'll list some of the common route-matching patterns supported by itty-router.  By default, all matched route params are accessible in the handlers as `request.params`, unless using the [`withParams`](/itty-router/api#withParams) middleware.
 

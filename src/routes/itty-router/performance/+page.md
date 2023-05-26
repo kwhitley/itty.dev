@@ -23,7 +23,7 @@ This makes each route match effectively a ~0ms operation (e.g. 100,000 ops/sec =
 
 > Pick the router that fits your vibe, syntax preference, or anything - but don't stress the performance side of it. You won't feel the difference. <cite>Probably Someone, Somewhere</cite>
 
-## So how can I tune itty to be as fast as possible?
+## How can I optimize itty for speed?
 
 This is where that linear loop pays itself back! Instead of having to understand how we prioritize route matching (we don't), you control that yourself!  Have a few public routes that need to be as fast as possible and account for the bulk of your traffic?  Put them first!  Have some edge cases?  Put them last!
 

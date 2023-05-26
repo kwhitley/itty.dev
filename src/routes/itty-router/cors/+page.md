@@ -8,8 +8,10 @@
   subtitle="Using CORS"
   description="Building CORS-enabled APIs using itty-router."
   />
-  
-## CORS in itty-router
+
+## CORS
+
+Everyone's favorite topic.
 
 Handling CORS requests in itty is a little different than many traditional routers, since we don't build the Response over a series of middlewares and handlers.  Because of that, our `createCors(options?)` helper returns a pair of handlers, `preflight` and `corsify`.
 
