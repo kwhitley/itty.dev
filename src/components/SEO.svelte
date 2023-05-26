@@ -5,8 +5,9 @@
   export let title
   export let subtitle
   export let description
+  export let delimiter = ' : '
 
-  $: breadcrumbs = [subtitle, title, site].filter(v => v).join(' : ')
+  $: breadcrumbs = [subtitle, title, site].filter(v => v).join(delimiter)
 </script>
 
 <!-- MARKUP -->

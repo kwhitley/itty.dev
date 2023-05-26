@@ -4,7 +4,7 @@
 
 <!-- MARKUP -->
 <SEO
-  title="itty.dev Home"
+  title="Welcome to itty.dev"
   description="Official documentation and learning site for the itty JavaScript libraries (itty-router, itty-fetcher, itty-time, and itty-durable)."
   />
 
