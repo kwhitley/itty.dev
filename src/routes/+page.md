@@ -1,3 +1,13 @@
+<script>
+  import SEO from '~/components/SEO.svelte'
+</script>
+
+<!-- MARKUP -->
+<SEO
+  title="itty.dev Home"
+  description="Official documentation and learning site for the itty JavaScript libraries (itty-router, itty-fetcher, itty-time, and itty-durable)."
+  />
+
 # welcome to <span class="accent">itty</span>.dev
 
 The itty ecosystem was born from a fun little experiment:  To create the world's smallest, full-featured JavaScript microrouter for use in edge/client environments where bundle size matters.  Thus [itty-router](/itty-router) was born. 
