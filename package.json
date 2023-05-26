@@ -1,6 +1,6 @@
 {
   "name": "itty.dev",
-  "version": "0.7.10",
+  "version": "0.7.11",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -38,7 +38,6 @@
     "itty-fetcher": "^0.8.1",
     "node-html-parser": "^6.1.5",
     "shiki": "^0.14.1",
-    "svelte-meta-tags": "^2.7.2",
     "svelte-navlink-action": "^0.2.0",
     "svelte-seo": "^1.5.3",
     "svelte-shiki": "^0.0.6"
