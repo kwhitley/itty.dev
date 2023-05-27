@@ -13,16 +13,14 @@
 Migrating to v4.x will be largely transparent for most users, with a few notable exceptions.  The follow changes have been made in this overhaul.
 
 ## Installation
-Until the official release, you may test the v4.x branch as `itty-router@next`:
 ```
-npm install itty-router@next
+npm install itty-route
 ```
 
 ## Changes
 
-
 ### 1. Massive TypeScript overhaul
-This was the reason for such a huge delay in releasing v4.x. The types simply weren't up to our standards, causing a bunch of issues throughout the community. Since this will be a migration pain/breaking change for v3.x users, we opted to fully iron out a flexible future-proof system before moving out of `@next`.
+This was the reason for such a huge delay in releasing v4.x. The types simply weren't up to our standards, causing a bunch of issues throughout the community.
 
 For a full guide on using the v4.x types, please see the [TypeScript](/itty-router/typescript) section.
 
