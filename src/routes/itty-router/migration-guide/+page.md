@@ -14,7 +14,7 @@ Migrating to v4.x will be largely transparent for most users, with a few notable
 
 ## Installation
 ```
-npm install itty-route
+npm install itty-router
 ```
 
 ## Changes
