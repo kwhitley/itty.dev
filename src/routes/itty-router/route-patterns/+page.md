@@ -81,7 +81,7 @@ router.get('/goto/:url+', handler)
 Returns the following params:
 ```json
 { 
-  "url": "https:/google.com"
+  "url": "https://google.com"
 }
 ```
 
