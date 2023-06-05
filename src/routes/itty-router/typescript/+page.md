@@ -40,7 +40,7 @@ type FooRequest = {
   foo: string
 } & IRequest
 
-const router = <FooRequest>Router()
+const router = Router<FooRequest>()
 
 router
   .get('/', (request) => {
@@ -70,7 +70,7 @@ type Env = {
 type CF = [env: Env, context: ExecutionContext]
 
 // then pass them to the Router
-const router = <FooRequest, CF>Router()
+const router = Router<FooRequest, CF>()
 
 router
   .get('/', ({ foo }, env, context) => {
