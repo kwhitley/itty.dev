@@ -1,6 +1,6 @@
 {
   "name": "itty.dev",
-  "version": "0.7.15",
+  "version": "0.7.16",
   "private": true,
   "scripts": {
     "dev": "vite dev",

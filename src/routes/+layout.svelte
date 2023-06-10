@@ -8,6 +8,8 @@
   import MenuLink from '~/layout/MenuLink.svelte'
   import { navigation } from '~/navigation'
   import '~/styles/app.scss'
+	import NPM from '../components/icons/NPM.svelte'
+	import GitHub from '../components/icons/GitHub.svelte'
 
   $: base = $page.url.pathname.split('/')[1]
   $: onBranch = navigation.find(b => b.name === base)
@@ -41,13 +43,28 @@
   </div>
 
   <div id="content">
-
-
     <EditLink />
     <Page>
       {#if onBranch}
         <h1>
-          {@html onBranch.name.replace('itty', '<span class="accent">itty</span>')}
+          <span>{@html onBranch.name.replace('itty', '<span class="accent">itty</span>')}</span>
+
+          <section>
+            <a
+              class="npm"
+              rel="noreferrer"
+              target="_blank"
+              href={`https://www.npmjs.com/package/${onBranch.name}`}>
+              <NPM />
+            </a>
+            <a
+              class="github"
+              rel="noreferrer"
+              target="_blank"
+              href={`https://github.com/kwhitley/${onBranch.name}`}>
+              <GitHub />
+            </a>
+          </section>
         </h1>
       {/if}
 
@@ -146,5 +163,32 @@
     :global(a[name]) {
       scroll-margin-top: 7.4rem;
     }
+  }
+
+  h1 {
+    white-space: nowrap;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    column-gap: 0.5em;
+
+    section {
+      a {
+        display: inline-block;
+        height: 0.4em;
+      }
+
+      .github {
+        position: relative;
+      }
+
+      .npm {
+        height: 0.33em;
+      }
+    }
+  }
+
+  .github {
+    color: var(--foreground-90);
   }
 </style>

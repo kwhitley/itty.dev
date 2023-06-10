@@ -28,7 +28,7 @@
 
   // DARK MODE COLORS
   --darkmode-foreground-hue: 225, 225, 225;
-  --darkmode-background-hue: 4, 4, 4;
+  --darkmode-background-hue: 15, 15, 15;
 
   // MISC SETTINGS
   --ol-counter-size: 2rem;
@@ -274,6 +274,7 @@ ol li::before {
   position: absolute;
   left: -0.5em;
   line-height: 1em;
+  color: var(--accent-color);
   // background-color: pink;
   // font-size: var(--ol-counter-size);
   margin: 0 0.7rem 0 0;
@@ -367,4 +368,10 @@ td, th {
 
 th {
   background-color: var(--foreground-5);
+}
+
+svg {
+  // max-height: 100%;
+  // max-width: 100%;
+  height: 100%;
 }
