@@ -59,7 +59,7 @@ router
 
 - Upstream middleware, such as ones registered in parent routers ahead of child routers, will still affect downstream requests.  This means you only need to register some middleware at the outermost router - for example `withParams`.  This also allows you to authenticate entire API branches.
 
-- Unless you have a specific 404 message for a child router, or prevent other API branches from being analyszed, there is no need to register that catch-all route within each router.  Simply include that logic once in the root router.
+- Unless you have a specific 404 message for a child router, or prevent other API branches from being analyzed, there is no need to register that catch-all route within each router.  Simply include that logic once in the root router.
 
 - Similarly, a single downstream `json` handler (shown in the example above) will form a Response for the final returned value, even if the match occured within a child router.
 
