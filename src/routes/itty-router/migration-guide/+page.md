@@ -24,7 +24,7 @@ This was the reason for such a huge delay in releasing v4.x. The types simply we
 
 For a full guide on using the v4.x types, please see the [TypeScript](/itty-router/typescript) section.
 
-### 2. itty-router-extas and itty-cors are now "in-house"
+### 2. itty-router-extras and itty-cors are now "in-house"
 As of v4.x, you may simply import any of these items directly from **itty-router**.  In the meantime, your code importing from the separate modules will continue to work just fine!
 
 #### Now
