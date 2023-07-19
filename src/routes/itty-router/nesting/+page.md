@@ -63,4 +63,4 @@ router
 
 - Similarly, a single downstream `json` handler (shown in the example above) will form a Response for the final returned value, even if the match occured within a child router.
 
-- Upstream middleware (from the parent router) will still affect downstream routes.  For example, a single `winthParams` middleware inclusion at the parent router will cover your entire API!
+- Upstream middleware (from the parent router) will still affect downstream routes.  For example, a single `withParams` middleware inclusion at the parent router will cover your entire API!
