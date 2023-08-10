@@ -72,7 +72,7 @@ In order to facilitate different CORS setups, all the usual CORS options are ava
 
 ### Complete Example
 ```js
-import { createCors, error, json, Router }
+import { createCors, error, json, Router } from 'itty-router'
 import { otherRouter } from './api/v1'
 
 // create the CORS pair
