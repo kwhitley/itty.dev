@@ -10,7 +10,7 @@
   />
 
 ## Nesting Routers
-To created a nested API, simply use a child router's `router.handle` as a route handler in a parent router, typically on a wildcard route.  
+To create a nested API, simply use a child router's `router.handle` as a route handler in a parent router, typically on a wildcard route.  
 
 ### Requirements
 1. <u>Each subrouter needs to explicity declare its ENTIRE base path</u>, not just the relative path. While unlike most routers, this is the small price we pay for keeping itty so tiny.
