@@ -77,7 +77,7 @@ export default {
 }
 ```
 
-# What's different about itty?
+# What's different about itty? <a name="a-different-kind-of-router"></a>
 Itty does a few things very differently from other routers.  This allows itty route code to be shorter and more intuitive than most!
 
 ### 1. Simpler handler/middleware flow.
