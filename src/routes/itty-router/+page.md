@@ -76,3 +76,92 @@ export default {
                               .catch(error)
 }
 ```
+
+# What's different about itty?
+Itty does a few things very differently from other routers.  This allows itty route code to be shorter and more intuitive than most!
+
+### 1. Simpler handler/middleware flow.
+In itty, you simply return (anything) to exit the flow.  If any handler ever returns a thing, that's what the `router.handle` returns.  If it doesn't, it's considered middleware, and the next handler is called. 
+
+That's it!
+
+```ts
+// not middleware: any handler that returns (anything at all)
+(request) => [1, 4, 5, 1]
+
+// middleware: simply doesn't return
+const withUser = (request) => { 
+  request.user = 'Halsey'
+}
+
+// a middleware that *might* return
+const onlyHalsey = (request) => {
+  if (request.user !== 'Halsey') {
+    return error(403, 'Only Halsey is allowed to see this!')
+  }
+}
+
+// uses middleware, then returns something
+route.get('/secure', withUser, onlyHalsey,
+  ({ user }) => `Hey, ${user} - welcome back!`
+)
+```
+
+### 2. You don't have to build a response in each route handler.
+We've been stuck in this pattern for over a decade.  Almost every router still expects you to build and return a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response)... in every single route.  
+
+We think you should be able to do that once, at the end. In most modern APIs for instance, we're serving JSON in the majority of our routes.  So why handle that more than once?
+```ts
+router
+  // we can still do it the manual way
+  .get('/traditional', (request) => json([1, 2, 3]))
+
+  // or defer to later
+  .get('/easy-mode', (request) => [1, 2, 3])
+
+// later, when handling a request
+router
+  .handle(request)
+  .then(json) // we can turn any non-Response into valid JSON.
+```
+
+### 3. It's all Promises.
+We `await` every handler, looking for a return value.  If we get one, we break the flow and return your value.  If we don't, we continue processing handlers/routes until we do.  This means that every handler can either be synchronous or async - it's all the same.
+
+When paired with the fact that we can simply return raw data and transform it later, this is AWESOME for working with async APIs, database layers, etc.  We don't need to transform anything at the route, we can simply return the Promise (to data) itself!
+
+Check this out:
+```ts
+import { myDatabase } from './somewhere'
+
+router
+  // assumes getItems() returns a Promise to some data
+  .get('/items', () => myDatabase.getItems())
+
+// later, when handling a request
+router
+  .handle(request)
+  .then(json) // we can turn any non-Response into valid JSON.
+```
+
+### 4. Only one required argument.  The rest is up to you.
+We only require one argument in itty - a Request-like object with the following shape: `{ url, method }` (usually a native [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)).  Because itty is not opinionated about [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) creation, there is not "response" argument built in.  Every other argument you pass to `route.handle` is given to each handler, in the same order.  
+
+> ### This makes itty one of the most platform-agnostic routers, *period*, as it's able to match up to any platform's signature.
+
+Here's an example using [Cloudflare Worker](https://workers.cloudflare.com/) arguments:
+```ts
+router
+  .get('/my-route', (request, environment, context) => {
+    // we can access anything here that was passed to `router.handle`.
+  })
+
+// Cloudflare gives us 3 arguments: request, environment, and context.
+// Passing them to `route.handle` gives every route handler (above) access to each.  
+export default {
+  fetch: (request, env, ctx) => router
+                                  .handle(request, env, ctx)
+                                  .then(json)
+                                  .catch(error)
+}
+```
