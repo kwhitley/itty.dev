@@ -17,7 +17,7 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/kwhitley/itty-router/verify.yml?branch=v4.x&style=flat-square)](https://github.com/kwhitley/itty-router/actions/workflows/verify.yml)
 [![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-router/v4.x?style=flat-square)](https://coveralls.io/github/kwhitley/itty-router?branch=v4.x)
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-router?style=flat-square)](https://npmjs.com/package/itty-router)
-[![Discord](https://img.shields.io/discord/832353585802903572?style=flat-square)](https://discord.com/channels/832353585802903572)
+[![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
 ### Use Anywhere
 Itty is, at its heart, a completely environment-agnostic microrouter.  This means you can use it _anywhere_ (e.g. [Cloudflare Workers](/itty-router/runtimes#Cloudflare%20Workers), [Bun](/itty-router/runtimes#Bun), [Node](/itty-router/runtimes#Node), in Service Workers, or even in the browser).
