@@ -9,7 +9,9 @@
   description="Complete API docs for itty-router."
   />
 
-## createCors <a name="createCors"></a>
+<a name="createCors"></a>
+
+## createCors 
 Creates a `preflight` middleware and `corsify` Response-handler.  Used together, this handles both OPTIONS requests as well as appends the appropriate CORS headers to created Responses.
 
 ### `createCors(options)`
@@ -42,8 +44,9 @@ export default {
 ```
 
 ---
+<a name="createResponse"></a>
 
-## createResponse <a name="createResponse"></a>
+## createResponse 
 Creates a response helper from a MIME-type (string), and optionally, a body-transform (function).
 
 ### `createResponse(mimeType: string, transform?: Function): ResponseHelper`
@@ -59,44 +62,50 @@ json({ foo: 'bar' }) // creates JSON-formatted Response
 ```
 
 ---
+<a name="error"></a>
 
-## error <a name="error"></a>
+## error 
 Returns an error Response
 
 ### `error(code: number, body?: string | object): Response`
 ### `error(error: Error | StatusError): Response`
 
 ---
+<a name="html"></a>
 
-## html <small class="new">new in v4.x</small> <a name="html"></a>
+## html <small class="new">new in v4.x</small> 
 Returns an HTML Response
 
 ### `html(string, options?: ResponseInit): Response`
 
 ---
+<a name="jpeg"></a>
 
-## jpeg <small class="new">new in v4.x</small> <a name="jpeg"></a>
+## jpeg <small class="new">new in v4.x</small> 
 Returns a JPEG Response
 
 ### `jpeg(data, options?: ResponseInit): Response`
 
 ---
+<a name="json"></a>
 
-## json <a name="json"></a>
+## json 
 Returns a JSON Response
 
 ### `json(data, options?: ResponseInit): Response`
 
 ---
+<a name="png"></a> 
 
-## png <small class="new">new in v4.x</small> <a name="png"></a> 
+## png <small class="new">new in v4.x</small> 
 Returns a PNG Response
 
 ### `png(data, options?: ResponseInit): Response`
 
 ---
+<a name="Router"></a>
 
-## Router <a name="Router"></a>
+## Router 
 Constructor function, returning a router Proxy (object).
 
 ### `Router(options?: RouterOptions): RouterType`
@@ -145,8 +154,21 @@ The router itself has essentially two properties:
   ```
 
 ---
+<a name="status"></a>
 
-## StatusError <a name="StatusError"></a>
+## status 
+Returns a no-body response code.
+
+### `status(code: number, options?: ResponseInit): Response`
+
+```js
+return status(204) // returns a 204, without a body
+```
+
+---
+<a name="StatusError"></a>
+
+## StatusError 
 Extends `Error`, adding an HTTP status code to the constructor.  Throwing this is identical to a standard Error, but allows downstream handlers to add context to the error Response.
 
 ### `StatusError(statusCode: number, message?: string): StatusError`
@@ -156,22 +178,25 @@ throw new StatusError(400, 'Incorrect number of parameters')
 ```
 
 ---
+<a name="text"></a>
 
-## text <a name="text"></a>
+## text 
 Returns a text Response
 
 ### `text(data, options?: ResponseInit): Response`
 
 ---
+<a name="webp"></a>
 
-## webp <small class="new">new in v4.x</small> <a name="webp"></a>
+## webp <small class="new">new in v4.x</small> 
 Returns a webp Response
 
 ### `webp(data, options?: ResponseInit): Response`
 
 ---
+<a name="withContent"></a>
 
-## withContent <a name="withContent"></a> <small>(middleware)</small>
+## withContent <small>(middleware)</small>
 If a request body is attached, this middleware attempts to parse it (as JSON) and embed it within the Request as `request.content`.  See example:
 
 ### `withContent(): void`
@@ -191,8 +216,9 @@ router
 ```
 
 ---
+<a name="withCookies"></a> 
 
-## withCookies <a name="withCookies"></a> <small>(middleware)</small>
+## withCookies <small>(middleware)</small>
 Extracts cookies from the headers into a `cookies` object on the Request. See example:
 
 ### `withCookies(): void`

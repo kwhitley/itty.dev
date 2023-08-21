@@ -78,6 +78,7 @@ export const navigation = [
           { name: 'json' },
           { name: 'png' },
           { name: 'Router' },
+          { name: 'status' },
           { name: 'StatusError' },
           { name: 'text' },
           { name: 'webp' },

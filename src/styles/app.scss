@@ -228,7 +228,7 @@ p:not(:last-child) {
   margin-bottom: 1.5em;
 }
 
-li, caption {
+caption {
   font-size: 0.95em;
 }
 
@@ -245,8 +245,6 @@ ol {
   counter-reset: ol-counter;
   gap: 1em;
   margin: 1rem 0;
-  // padding: 0;
-  // margin-left: 1em;
 }
 
 ul {
@@ -256,11 +254,9 @@ ul {
 ol li {
   flex: 1;
   counter-increment: ol-counter;
-  // display: flex;
   position: relative;
   align-items: baseline;
   padding-left: 2rem;
-  // margin-bottom: 0.5rem;
 }
 
 ol li::before {
@@ -275,10 +271,7 @@ ol li::before {
   left: -0.5em;
   line-height: 1em;
   color: var(--accent-color);
-  // background-color: pink;
-  // font-size: var(--ol-counter-size);
   margin: 0 0.7rem 0 0;
-  // font-family: serif;
 }
 
 figure {

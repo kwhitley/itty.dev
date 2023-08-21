@@ -54,6 +54,9 @@
 
 <!-- STYLES -->
 <style lang="scss">
+  li {
+    font-size: 0.95em;
+  }
 
   .active, .activeHash {
     color: var(--accent-color) !important;
