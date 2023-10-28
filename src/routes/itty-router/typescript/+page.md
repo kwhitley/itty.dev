@@ -116,7 +116,7 @@ router
   // RequestType generic with payload passed through via withContent
   .post<Hascontent<FooRequest>>(
     '/generics-request',
-		withContent,
+    withContent,
     (request) => {
       const foo = request.content.foo // valid typing, and the value of foo will be passed through!
   })
