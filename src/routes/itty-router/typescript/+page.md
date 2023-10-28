@@ -88,7 +88,7 @@ To custom type routes using this method, either pass generics to the route handl
 or declare the types for the request handlers manually.
 
 ```ts
-import { Router, IRequest, withContent } from 'itty-router'
+import { Router, IRequest, withContent, HasContent } from 'itty-router'
 
 // define a custom RequestType
 type FooRequest = {
@@ -114,7 +114,7 @@ router
   })
 
   // RequestType generic with payload passed through via withContent
-  .post<Hascontent<FooRequest>>(
+  .post<HasContent<FooRequest>>(
     '/generics-request',
     withContent,
     (request) => {
