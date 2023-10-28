@@ -187,7 +187,7 @@ type IRequest = IRequestStrict & GenericTraps
 <a name="HasContent"></a>
 
 ### `HasContent`
-This type is intended to be used in conjunction with the [`withContent`](../api/+page.md#withContent) middleware to facilitate unpacking request payloads onto the strongly typed `IRequest` seen above.
+This type is intended to be used in conjunction with the [`withContent`](../api/+page.md#withContent) middleware to facilitate unpacking request payloads onto the request.
 
 ```ts
 export type HasContent<ContentType> = {
