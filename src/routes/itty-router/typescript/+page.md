@@ -88,7 +88,7 @@ To custom type routes using this method, either pass generics to the route handl
 or declare the types for the request handlers manually.
 
 ```ts
-import { Router, IRequest } from 'itty-router'
+import { Router, IRequest, withContent } from 'itty-router'
 
 // define a custom RequestType
 type FooRequest = {
@@ -110,7 +110,15 @@ router
 
   // RequestType generic
   .get<FooRequest>('/generics-request', (request) => {
-    request.foo // valid!
+    request.foo // valid typing! In order to give foo a value, you'd need to assign it one in your middleware
+  })
+
+  // RequestType generic with payload passed through via withContent
+  .post<Hascontent<FooRequest>>(
+    '/generics-request',
+		withContent,
+    (request) => {
+      const foo = request.content.foo // valid typing, and the value of foo will be passed through!
   })
 
   // RequestType and Args generics
@@ -137,7 +145,7 @@ router
 ---
 
 ### Exposed Types
-There are two useful types exposed by Itty to make your life easier (along with many other internal ones that you'll likely never need):
+There are a few useful types exposed by Itty to make your life easier (along with many other internal ones that you'll likely never need):
 
 <a name="IRequestStrict"></a>
 
@@ -175,6 +183,20 @@ type GenericTraps = {
 
 type IRequest = IRequestStrict & GenericTraps
 ```
+
+<a name="HasContent"></a>
+
+### `HasContent`
+This type is intended to be used in conjunction with the [`withContent`](../api/+page.md#withContent) middleware to facilitate unpacking request payloads onto the strongly typed `IRequest` seen above.
+
+```ts
+export type HasContent<ContentType> = {
+  content: ContentType,
+} & IRequestStrict
+```
+
+If you want to use `HasContent` but require less strict typing, you can simply union it with `IRequest`.
+
 
 That's it!  These will hopefully be the only core ones you need (outside of ones you define yourself).
 
