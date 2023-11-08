@@ -12,6 +12,13 @@
 ## Middleware
 Technically, any function within itty-router can be considered middlware, and you may attach any number of these to a given route.
 
+These follow a few simple rules:
+
+1. All route handlers are equal in itty.
+1. A handler becomes "middleware" simply by being upstream of subsequent handlers/routes and *not returning* (or returning undefined).
+1. The return of each of each handler is "awaited", allowing any handler to use sync/async syntax.
+1. You may pass any number of handlers to a given route.
+
 Execution of each matched function will proceed until the list is exhausted (no match), or one of them returns *anything at all*.  This is fundamentally different from say, Express.js, where middleware must call a `next()` function to continue.  In itty, just omit a return to continue.  This creates fantastically small middleware/route code.
 
 Every handler/middleware has the following signature, where `...args` are whatever you passed into the `router.handle(request, ..args)` function.
@@ -40,7 +47,29 @@ router
   .get('/kitten', withKitten, ({ kitten }) => kitten.name)
 ```
 
-### Example 2 - global middleware
+### Example 2 - sync vs. async middleware
+
+Since all handlers are awaited during execution, both sync and async handlers are fine to use, with no changes in your route code/flow. :)
+
+```js
+// sync middleware
+const withSyncData = (request) => {
+  request.foo = 'bar'
+}
+
+// async middleware
+const withAsyncData = async (request) => {
+  request.items = await db.getItems()
+}
+
+// and to use...
+
+router.get('/test', withSyncData, withAsyncData,
+  ({ foo, items }) => `foo is ${foo} and you have ${items.length} items`
+)
+```
+
+### Example 3 - global middleware
 
 Any upstream route matches affect all others downstream.  This means you can put global middleware at the top of a router, branch, etc.  Here we'll show an example of simple user authentication on a particular branch.
 
