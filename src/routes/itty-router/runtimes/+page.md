@@ -15,6 +15,7 @@ Itty follows the Fetch API, and thus fits natively with any Web Standards server
 - [Cloudflare Workers](#Cloudflare%20Workers)
 - [Bun](#Bun)
 - [Node](#Node)
+- [Next.js](#Next)
 
 
 ## Cloudflare Workers <a name="Cloudflare Workers"></a>
@@ -86,3 +87,26 @@ const ittyServer = createServerAdapter(
 const httpServer = createServer(ittyServer)
 httpServer.listen(3001)
 ```
+
+## Next.js <a name="Next"></a>
+
+To integrate itty router openapi with Next.js, you can create a custom API route that captures all requests. For instance, you might have a route like app/api/gpt/[slug].ts.
+
+In Next.js 14, to intercept GET and POST requests and pass them to itty router, you need to set up your API routes to forward these requests to therouter. This can be done by returning router.handle(req) within your API route handlers.
+```ts
+import { Router } from 'itty-router'
+
+const router = Router()
+
+router.get('/', () => 'Success!')
+router.all('*', () => new Response('404 Not Found...', { status: 200 }))
+
+export async function POST(req) {
+  return router.handle(req)
+}
+
+export async function GET(req) {
+  return router.handle(req)
+}
+```
+
