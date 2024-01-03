@@ -45,7 +45,7 @@ router
 ### `async router.handle(request: IRequest, ...args) => Promise<any>`
 The `router.handle` method takes a Request-like argument and any additional arguments - then passes them to any matching routes.  This process occurs in a linear loop fashion until *anything at all is returned, from any handler/middleware*, or the routes are exhausted (without a return).  Each handler is **awaited**, allowing both syncronous and asynchronous handlers to work equally well.
 
-**NOTE:** Requests in itty should have both a **method** and full **url**, but otherwise to not need to implement the full Request specification.
+**NOTE:** Requests in itty should have both a **method** and full **url**, but otherwise do not need to implement the full Request specification.
 
 ```js
 const request = new Request('https://foo.bar/todos/jane')
