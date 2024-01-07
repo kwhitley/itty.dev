@@ -9,7 +9,7 @@
   />
 
 <div class="byline">
-  A ~450 byte router, designed to make beautiful APIs <em>anywhere</em>.
+  The mighty ~500 byte router, designed to be used where every byte matters (e.g. serverless).
 </div>
 
 [![Version](https://img.shields.io/npm/v/itty-router.svg?style=flat-square)](https://npmjs.com/package/itty-router)
