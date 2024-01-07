@@ -24,38 +24,37 @@ The catch?  We also aim to make them *even smaller* than you might write yoursel
 
 ## [itty-router](/itty-router) - [![itty-router](https://img.shields.io/npm/dw/itty-router?style=for-the-badge&logo=npm&color=ded&label=itty-router)](https://npmjs.com/package/itty-router)
 
-At only 450 bytes, itty-router is arguably the world's smallest, feature-rich router, designed for use in nearly *any* environment or runtime.  It has two goals in mind: 1. have nearly zero impact on your bundle sizes, and 2. keep your API code looking tiny and beautiful.
+At ~500 bytes, itty-router is a supremely flexible router, designed to be used where smaller size === faster performance.  It has two goals in mind: 1. have nearly zero impact on your bundle sizes, and 2. keep your API code looking tiny and beautiful.
 
 It gets top billing because it was the first, the OG "itty".
 
 ```js
-import { 
-  error,              // creates error Responses
-  json,               // creates JSON Responses
-  Router,             // the Router itself
-} from 'itty-router'
+import { error, json, Router } from 'itty-router'
 
 const router = Router()
 
-router
-  // GET a route, with a route param
-  .get('/todos/:id', 
-    ({ params }) => ({ message: `You fetched todo #${params.id}` })
-  )
+// simple route with route params
+router.get('/todos/:id', 
+  ({ params }) => json({ message: `You fetched todo #${params.id}` })
+)
 
-  // *any* HTTP method works, even ones you make up
-  .puppy('/secret', () => 'Because why not?')
+// return a 404 for all else
+router.all('*', () => error(404))
 
-  // return a 404 for anything else
-  .all('*', () => error(404))
+// NEW in v4.1: router matches { fetch } signature for CF Workers/Bun, etc
+export default router
+```
 
-// Example showing Cloudflare module syntax
-export default {
-  fetch: (req, env, ctx) => router
-                              .handle(req, env, ctx)
-                              .then(json)   // turn any raw data into JSON
-                              .catch(error) // and catch any uncaught errors
-}
+or shorthand...
+
+```js
+import { error, json, Router } from 'itty-router'
+
+export default Router()
+                .get('/todos/:id', ({ params }) => 
+                  json({ message: `You fetched todo #${params.id}` })
+                )
+                .all('*', () => error(404))
 ```
 
 ## [itty-fetcher](/itty-fetcher) - [![itty-fetcher](https://img.shields.io/npm/dw/itty-fetcher?style=for-the-badge&logo=npm&color=ded&label=itty-fetcher)](https://npmjs.com/package/itty-fetcher)

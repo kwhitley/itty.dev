@@ -35,7 +35,7 @@ const connect = (item: NavigationItem, parent?: NavigationItem, depth = 0) => {
 export const navigation = [
   {
     name: 'itty-router',
-    description: 'The ~450 byte microrouter.',
+    description: 'The ~500 byte router, size-optimized for blistering performance in edge serverless environments.',
     children: [
       { name: 'Getting Started' },
       { name: 'v4.x Migration', path: 'migration-guide' },

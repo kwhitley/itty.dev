@@ -10,57 +10,61 @@
   />
 
 ## Nesting Routers
-To create a nested API, simply use a child router's `router.handle` as a route handler in a parent router, typically on a wildcard route.  
-
-### Requirements
-1. <u>Each subrouter needs to explicity declare its ENTIRE base path</u>, not just the relative path. While unlike most routers, this is the small price we pay for keeping itty so tiny.
-1. Pass the `subrouter.handle` function to a route on the parent router.  This is typically in a wildcard route on the `.all` channel (if the subrouter needs access to multiple HTTP methods).  Adjust to suite your requirements.
+To create a nested API, simply pass the child router as a route handler on a wildcard route.  
 
 The following example shows a simple nested router:
-
-#### Parent/Root Router:
-```js
-import { Router, error, json } from 'itty-router'
-import { router as routerV1 } from './api/v1'
-
-const router = Router({ base: '/api' })
-
-router
-  // register the child router
-  .all('/v1/*', routerV1.handle)
-
-  // 404 for all misses
-  .all('*', () => error(404))
-
-export default {
-  fetch: (...args) => router
-                        .handle(...args)
-                        .then(json)
-                        .catch(error)
-}
-```
 
 #### Child Router:
 ```js
 import { Router } from 'itty-router'
 
-// NOTE: this base must include the *complete* base path
-export const router = Router({ base: '/api/v1' })
+export const router = Router()
+// optionally include { base: '/v1' } option
 
 router
   .get('/', () => 'API v1 root')
   .get('/item', () => 'API v1 item')
 ```
 
-### Things to consider
-- To preserve the incredibly small size of itty-router, we do not include any sort of automatic path-building like other routers have.  This means each child router must include a `base` option to prefix every route within that router (optionally, each route can simply define itself from the root).  In the example above, please note that the base of the child router MUST match the base of the route (wildcard aside) it was registered for in the parent router.
+#### Parent/Root Router:
+```js
+import { Router } from 'itty-router'
+import { router as childRouter } from './api/v1'
 
-- You may nest any number of routers, but be sure to keep track of the required base path.
+const router = Router({ base: '/api' })
+
+router.all('/v1/*', childRouter) // NEW in v4.1x
+```
+
+### Things to Consider
+- **Including a `base` path in the child router is *required* for advanced branch paths (e.g. ones with route params).**
+
+- Including a `base` path option in the child router is technically a faster execution path.  ONLY if the base path is included, using the `childRouter.handle` instead of `childRouter` is even faster still (prevents an internal redirect)
 
 - Upstream middleware, such as ones registered in parent routers ahead of child routers, will still affect downstream requests.  This means you only need to register some middleware at the outermost router - for example `withParams`.  This also allows you to authenticate entire API branches.
 
-- Unless you have a specific 404 message for a child router, or prevent other API branches from being analyzed, there is no need to register that catch-all route within each router.  Simply include that logic once in the root router.
+- Including a 404 at the end of a nested router will prevent further execution/checking of other branches.  This is not strictly necessary (a single 404 at the end of the root router will catch anything), but is a possible performance optimization.
 
-- Similarly, a single downstream `json` handler (shown in the example above) will form a Response for the final returned value, even if the match occured within a child router.
+### Changes in v4.1x
+Previous to v4.1, nesting required the following:
+- always defining the **complete** base path in each child router.
+- passing the `childRouter.handle` to the parent route as a handler.
 
-- Upstream middleware (from the parent router) will still affect downstream routes.  For example, a single `withParams` middleware inclusion at the parent router will cover your entire API!
+This still works in v4.1x (and is the prefered path for ultimate performance), but **optionally you may use the base-path-less syntax by passing the the entire router.**
+
+```ts
+// AFTER (v4.x+)
+const childRouter = Router() // no base path
+childRouter.get('/foo', () => 'From the child.')
+
+const parentRouter = Router()
+parentRouter.all('/child/*', childRouter) // no .handle
+
+// BEFORE (v4.0x)
+const childRouter = Router({ base: '/child' })
+childRouter.get('/foo', () => 'From the child.')
+
+const parentRouter = Router()
+parentRouter.all('/child/*', childRouter.handle)
+```
+
