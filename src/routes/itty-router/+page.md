@@ -43,8 +43,8 @@ import {
 
 // we'll start with some fake data
 const todos = [
-  { id: '1', message: 'Pet the puppy'. },
-  { id: '2', message: 'Pet the kitty'. },
+  { id: '1', message: 'Pet the puppy' },
+  { id: '2', message: 'Pet the kitty' },
 ]
 
 const router = Router()
