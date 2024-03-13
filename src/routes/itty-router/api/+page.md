@@ -196,8 +196,14 @@ Returns a webp Response
 ---
 <a name="withContent"></a>
 
-## withContent <small>(middleware)</small>
-If a request body is attached, this middleware attempts to parse it (as JSON) and embed it within the Request as `request.content`.  See example:
+## withContent <small>(middleware)</small> <small class="new">updated in v4.2.x</small> 
+If a request body is attached, this middleware attempts to parse it, embedding the results within the Request as `request.content`. 
+
+<p class="new">
+  v4.2 -changes - withContent now attempts several parsing passes.  The order of attempted parsing is JSON -> FormData -> text (fallback).  Thus if sending JSON (and well-formed), request.content will be parsed as JSON, if sending FormData, request.content will be parsed as FormData, etc.
+</p>
+
+See example:
 
 ### `withContent(): void`
 

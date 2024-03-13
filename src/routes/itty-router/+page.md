@@ -9,7 +9,7 @@
   />
 
 <div class="byline">
-  A ~450 byte router, designed to make beautiful APIs <em>anywhere</em>.
+  A ~460 byte router, designed to make beautiful APIs <em>anywhere</em>.
 </div>
 
 [![Version](https://img.shields.io/npm/v/itty-router.svg?style=flat-square)](https://npmjs.com/package/itty-router)
@@ -34,47 +34,31 @@ With over a million downloads a year, itty has been hardened and tested by dozen
 ### Example Usage
 
 ```js
-import { 
-  error,              // creates error Responses
-  json,               // creates JSON Responses
-  Router,             // the Router itself
-  withParams,         // middleware to extract params into the Request itself
-} from 'itty-router'
-
-// we'll start with some fake data
-const todos = [
-  { id: '1', message: 'Pet the puppy'. },
-  { id: '2', message: 'Pet the kitty'. },
-]
+import { error, json, text, Router } from 'itty-router'
 
 const router = Router()
 
-router
-  // GET todos - just return some data!
-  .get('/todos', () => todos)
+// json routes
+router.get('/json', () => json({ foo: 'bar' }))
 
-  // GET single todo
-  .get('/todos/:id', withParams, 
-    ({ id }) => {
-      const todo = todos.find(t => t.id === id)
+// text & route params
+router.get('/hello/:name', ({ params }) => text(`Hello, ${params.name}!`))
 
-      return todo || error(404, 'That todo was not found!')
-    }
-  )
+// catch-all 404
+router.all('*', () => error(404))
 
-  // *any* HTTP method works, even ones you make up
-  .puppy('/secret', () => 'Because why not?')
+// CF Worker/Bun syntax: router contains { fetch } signature
+export default router
+```
 
-  // return a 404 for anything else
-  .all('*', () => error(404))
+or shorthand...
+```js
+import { error, json, text, Router } from 'itty-router'
 
-// Example showing Cloudflare module syntax
-export default {
-  fetch: (req, env, ctx) => router
-                              .handle(req, env, ctx)
-                              .then(json)
-                              .catch(error)
-}
+export default Router()
+                .get('/json', () => json({ foo: 'bar' }))
+                .get('/hello/:name', ({ params }) => text(`Hello, ${params.name}!`))
+                .all('*', () => error(404))
 ```
 
 # What's different about itty? <a name="a-different-kind-of-router"></a>
