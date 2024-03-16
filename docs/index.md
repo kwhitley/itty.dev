@@ -1,28 +1,18 @@
-<script>
-  import SEO from '~/components/SEO.svelte'
-</script>
-
-<!-- MARKUP -->
-<SEO
-  title="Welcome to itty.dev"
-  description="Official documentation and learning site for the itty JavaScript libraries (itty-router, itty-fetcher, itty-time, and itty-durable)."
-  />
-
 # welcome to <span class="accent">itty</span>.dev
 
-The itty ecosystem was born from a fun little experiment:  To create the world's smallest, full-featured JavaScript microrouter for use in edge/client environments where bundle size matters.  Thus [itty-router](/itty-router) was born. 
+In serverless API design, bytes matter.
+Simply put, the less JS you load, the faster your invocations are.
 
-Each of the additional libraries were later developed to support other elements of API generation.
 
-> We remove boilerplate noise through high-impact, low-calorie microlibraries.
 
-By creating minimalist (yet flexible) versions of common patterns, we've made low-cost alternatives to many current larger libraries we all use.  Some of these we've written countless times in our own projects (e.g. [**itty-fetcher**](/itty-fetcher) or [**itty-time**](/itty-time)), as certainly you've done as well.  
+> Itty libraries do powerful things, using fewer bytes. <cite>probably someone</cite>
 
-The catch?  We also aim to make them *even smaller* than you might write yourself, making them a guiltless inclusion within each project!
+Here they are:
 
-# the lineup:
+<br />
+<!-- # the lineup: -->
 
-## [itty-router](/itty-router) - [![itty-router](https://img.shields.io/npm/dw/itty-router?style=for-the-badge&logo=npm&color=ded&label=itty-router)](https://npmjs.com/package/itty-router)
+# [itty-router](/itty-router) [![itty-router](https://img.shields.io/npm/dw/itty-router?style=for-the-badge&logo=npm&color=ded&label=itty-router)](https://npmjs.com/package/itty-router)
 
 At only ~460 bytes, itty-router is arguably the world's smallest, feature-rich router, designed for use in nearly *any* environment or runtime.  It has two goals in mind: 1. have nearly zero impact on your bundle sizes, and 2. keep your API code looking tiny and beautiful.
 
@@ -58,7 +48,9 @@ export default {
 }
 ```
 
-## [itty-fetcher](/itty-fetcher) - [![itty-fetcher](https://img.shields.io/npm/dw/itty-fetcher?style=for-the-badge&logo=npm&color=ded&label=itty-fetcher)](https://npmjs.com/package/itty-fetcher)
+<hr />
+
+# [itty-fetcher](/itty-fetcher) [![itty-fetcher](https://img.shields.io/npm/dw/itty-fetcher?style=for-the-badge&logo=npm&color=ded&label=itty-fetcher)](https://npmjs.com/package/itty-fetcher)
 
 The same boilerplate native Fetch API helper you've probably written dozens of times - just hopefully a bit smaller, allowing you to write your fetch calls like this:
 
@@ -73,7 +65,9 @@ const data = await api.get('/my/json/api')
 await api.post('/my/collection', { foo: 'bar' })
 ```
 
-## [itty-time](/itty-time) - [![itty-time](https://img.shields.io/npm/dw/itty-time?style=for-the-badge&logo=npm&color=ded&label=itty-time)](https://npmjs.com/package/itty-time)
+<hr />
+
+# [itty-time](/itty-time) [![itty-time](https://img.shields.io/npm/dw/itty-time?style=for-the-badge&logo=npm&color=ded&label=itty-time)](https://npmjs.com/package/itty-time)
 
 So you've written an API but need to calculate max-age, expirations, etc.  This library simplifies the process, allowing you to write durations such as "1 week, 2 days, and 4 hours" instead of... 1000 \* 60 \* 60 \* 24 \* 7 + 1000 \* 60 \* 60 \* 24 \* 2 + 1000 \* 60 \* 60... well, you get the point.  All this is done in about 500 bytes.
 
@@ -88,7 +82,9 @@ const expiration = datePlus('1 week')
 const expiration = datePlus('1 week', datePlus('1 year'))
 ```
 
-## [itty-durable](/itty-durable) - [![itty-durable](https://img.shields.io/npm/dw/itty-durable?style=for-the-badge&logo=npm&color=ded&label=itty-durable)](https://npmjs.com/package/itty-durable)
+<hr />
+
+# [itty-durable](/itty-durable) [![itty-durable](https://img.shields.io/npm/dw/itty-durable?style=for-the-badge&logo=npm&color=ded&label=itty-durable)](https://npmjs.com/package/itty-durable)
 
 A bit of an experimental package, designed to allow a [much] more direct usage of [Cloudflare Durable Object](https://developers.cloudflare.com/workers/learning/using-durable-objects/).  This library removes virtually all boilerplate when working with DOs, leaving your code tiny, readable, and powerful.
 
