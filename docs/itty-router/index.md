@@ -7,6 +7,68 @@
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-router?style=flat-square)](https://npmjs.com/package/itty-router)
 [![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
+## Example Usage
+
+::: code-group
+
+
+
+```ts [AutoRouter (1kB)]
+import { AutoRouter, text } from 'itty-router'
+
+const router = AutoRouter()
+
+router
+  .get('/text', () => text('Hey there!'))
+  .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
+  .get('/params/:id', ({ id }) => id)
+
+export default router
+```
+
+
+```ts [Router (550 bytes)]
+import { Router, error, json, withParams } from 'itty-router'
+
+const router = Router({
+  before: [withParams],
+  onError: [error],
+  after: [json],
+})
+
+router
+  .get('/text', () => text('Hey there!'))
+  .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
+  .get('/params/:id', ({ id }) => id)
+  .all('*', () => error(404))
+
+export default router
+```
+
+
+```ts [IttyRouter (460 bytes)]
+import { IttyRouter, error, json, withParams } from 'itty-router'
+
+const router = IttyRouter()
+
+router
+  .all('*', withParams)
+  .get('/text', () => text('Hey there!'))
+  .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
+  .get('/params/:id', ({ id }) => id)
+  .all('*', () => error(404))
+
+export default {
+  fetch: (request, ...args) => 
+    router
+      .fetch(request, ...args)
+      .then(json)
+      .catch(error)
+}
+```
+
+:::
+
 ### Use Anywhere
 Itty is, at its heart, a completely environment-agnostic microrouter.  This means you can use it _anywhere_ (e.g. [Cloudflare Workers](/itty-router/runtimes#Cloudflare%20Workers), [Bun](/itty-router/runtimes#Bun), [Node](/itty-router/runtimes#Node), in Service Workers, or even in the browser).
 
@@ -19,34 +81,16 @@ We're not just talking about bundle size here.  We like seeing tiny, readable ro
 ### Battle-Ready
 With over a million downloads a year, itty has been hardened and tested by dozens of contributors over several years. It currently handles many millions of requests daily across an assortment of production APIs, with an enormous battery of tests (100% coverage) to ensure it stays stable across releases.
 
-### Example Usage
+## Example Usage
 
 ```js
-import { error, json, text, Router } from 'itty-router'
+import { AutoRouter } from 'itty-router'
 
-const router = Router()
+const router = AutoRouter()
 
-// json routes
-router.get('/json', () => json({ foo: 'bar' }))
+router.get('/', () => ({ foo: 'bar' }))
 
-// text & route params
-router.get('/hello/:name', ({ params }) => text(`Hello, ${params.name}!`))
-
-// catch-all 404
-router.all('*', () => error(404))
-
-// CF Worker/Bun syntax: router contains { fetch } signature
 export default router
-```
-
-or shorthand...
-```js
-import { error, json, text, Router } from 'itty-router'
-
-export default Router()
-                .get('/json', () => json({ foo: 'bar' }))
-                .get('/hello/:name', ({ params }) => text(`Hello, ${params.name}!`))
-                .all('*', () => error(404))
 ```
 
 # What's different about itty? <a name="a-different-kind-of-router"></a>
@@ -121,7 +165,7 @@ We only require one argument in itty - a Request-like object with **url** and **
 
 **Superpower**: Every argument you pass to `route.handle` is given to each handler, in the same order.
 
-> ### This makes itty one of the most platform-agnostic routers, *period*, as it's able to match up to any platform's signature.
+> This makes itty one of the most platform-agnostic routers, *period*, as it's able to match up to any platform's signature.
 
 Here's an example using [Cloudflare Worker](https://workers.cloudflare.com/) arguments:
 ```ts

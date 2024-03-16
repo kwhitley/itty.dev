@@ -20,6 +20,9 @@ export default defineConfig({
   themeConfig: {
     logo: '/images/logo-small.png',
     siteTitle: 'itty.dev',
+    search: {
+      provider: 'local'
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/kwhitley/itty.dev' },
       { icon: 'discord', link: 'https://discord.gg/MQcpj9SA4G' },
@@ -31,7 +34,7 @@ export default defineConfig({
     },
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2024+ Itty Industries, llc.'
+      copyright: 'Copyright © 2024+ Itty Industries, LLC.'
     },
     nav: [
       { text: 'Docs', link: '/docs/' },
