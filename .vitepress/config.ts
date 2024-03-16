@@ -20,14 +20,9 @@ export default defineConfig({
   themeConfig: {
     logo: '/images/logo-small.png',
     siteTitle: 'itty.dev',
-    // algolia: {
-    //   appId: '1GIFSU1REV',
-    //   apiKey: '6a9bb2036e456356e224ece74546ca14',
-    //   indexName: 'hono',
-    // },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/kwhitley/itty.dev' },
-      // { icon: 'discord', link: 'https://discord.gg/KMh2eNSdxV' },
+      { icon: 'discord', link: 'https://discord.gg/MQcpj9SA4G' },
       { icon: 'x', link: 'https://twitter.com/kevinrwhitley' },
     ],
     editLink: {
@@ -46,13 +41,5 @@ export default defineConfig({
       '/itty-router/': sidebarIttyRouter,
     },
   },
-  // head: [
-  //   ['meta', { property: 'og:image', content: 'https://hono.dev/images/hono-title.png' }],
-  //   ['meta', { property: 'og:type', content: 'website' }],
-  //   ['meta', { property: 'twitter:domain', content: 'hono.dev' }],
-  //   ['meta', { property: 'twitter:image', content: 'https://hono.dev/images/hono-title.png' }],
-  //   ['meta', { property: 'twitter:card', content: 'summary_large_image' }],
-  //   ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
-  // ],
   titleTemplate: ':title - itty.dev',
 })
