@@ -106,7 +106,6 @@
     #47caff 50%
   );
   --vp-home-hero-image-filter: blur(44px);
-  --vp-home-hero-name-color: var(--accent-color);
 }
 
 @media (min-width: 640px) {
@@ -121,11 +120,12 @@
   }
 }
 
-.VPNav .title, .accent {
-  color: var(--accent-color);
-}
-
-.VPSidebarItem.level-1.is-active a:not(#foo) * {
+.VPNav .title,
+.accent,
+.VPSidebarItem.level-0.is-active > div:first-child a:not(#foo) *,
+.VPSidebarItem.level-1.is-active > div > a:not(#foo) *,
+.VPSidebarItem.level-2.is-active a:not(#foo) *
+{
   color: var(--accent-color);
 }
 
@@ -168,7 +168,7 @@ cite {
 .vp-doc blockquote > p {
   font-size: 2.5rem;
   letter-spacing: -0.03em;
-  line-height: 1em;
+  line-height: 1.2em;
 
 }
 
@@ -221,4 +221,24 @@ h2 > .VPBadge.tip {
   letter-spacing: -0.08em;
   line-height: 0.8em;
   margin: 1em 0;
+}
+
+.image-bg {
+  opacity: 0.2;
+}
+
+.VPHero h1 em {
+  -webkit-text-fill-color: var(--accent-color);
+  font-style: normal;
+}
+
+.VPNavBarTitle span:after {
+  content: '.dev';
+  color: var(--vp-c-text-2);
+  color: var(--vp-home-hero-name-color);
+}
+
+.VPNavBarTitle span {
+  background-clip: text !important;
+  background: var(--vp-home-hero-name-background);
 }

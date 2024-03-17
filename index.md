@@ -3,9 +3,12 @@
 layout: home
 
 hero:
-  name: "itty.dev"
+  name: "<em>itty</em>.dev"
   text: "mighty [tiny] API design"
   tagline: In serverless, fewer bytes === faster.
+  image:
+    src: /itty-square.256.png
+    alt: itty.dev
   actions:
     - theme: brand
       text: Explore the Docs

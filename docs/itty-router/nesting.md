@@ -1,9 +1,9 @@
 # Nesting Routers
-To create a nested API, simply use a child router's `router.handle` as a route handler in a parent router, typically on a wildcard route.  
+To create a nested API, simply use a child router's `router.fetch` as a route handler in a parent router, typically on a wildcard route.  
 
-### Requirements
+## Requirements
 1. <u>Each subrouter needs to explicity declare its ENTIRE base path</u>, not just the relative path. While unlike most routers, this is the small price we pay for keeping itty so tiny.
-1. Pass the `subrouter.handle` function to a route on the parent router.  This is typically in a wildcard route on the `.all` channel (if the subrouter needs access to multiple HTTP methods).  Adjust to suite your requirements.
+1. Pass the `subrouter.fetch` function to a route on the parent router.  This is typically in a wildcard route on the `.all` channel (if the subrouter needs access to multiple HTTP methods).  Adjust to suite your requirements.
 
 The following example shows a simple nested router:
 
@@ -23,7 +23,7 @@ router
 
 export default {
   fetch: (...args) => router
-                        .handle(...args)
+                        .fetch(...args)
                         .then(json)
                         .catch(error)
 }
@@ -41,7 +41,7 @@ router
   .get('/item', () => 'API v1 item')
 ```
 
-### Things to consider
+## Things to consider
 - To preserve the incredibly small size of itty-router, we do not include any sort of automatic path-building like other routers have.  This means each child router must include a `base` option to prefix every route within that router (optionally, each route can simply define itself from the root).  In the example above, please note that the base of the child router MUST match the base of the route (wildcard aside) it was registered for in the parent router.
 
 - You may nest any number of routers, but be sure to keep track of the required base path.

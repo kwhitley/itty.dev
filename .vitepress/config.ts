@@ -18,8 +18,8 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    logo: '/public/favicon.png',
-    siteTitle: 'itty.dev',
+    logo: '/itty-square.256.png',
+    siteTitle: 'itty',
     search: {
       provider: 'local'
     },
@@ -44,6 +44,6 @@ export default defineConfig({
       '/itty-router/': sidebarIttyRouter,
     },
   },
-  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
+  head: [['link', { rel: 'icon', href: '/itty-square.256.png' }]],
   titleTemplate: ':title - itty.dev',
 })

@@ -66,6 +66,10 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         link: `${BASE}/tree-shaking`,
       },
       {
+        text: 'Performance',
+        link: `${BASE}/performance`,
+      },
+      {
         text: 'Runtimes',
         link: `${BASE}/runtimes/`,
         collapsed: true,
