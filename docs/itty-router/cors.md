@@ -1,15 +1,4 @@
-<script>
-  import SEO from '~/components/SEO.svelte'
-</script>
-
-<!-- MARKUP -->
-<SEO
-  title="itty-router"
-  subtitle="Using CORS"
-  description="Building CORS-enabled APIs using itty-router."
-  />
-
-## CORS
+# CORS
 
 Everyone's favorite topic.
 

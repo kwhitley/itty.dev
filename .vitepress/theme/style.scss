@@ -125,6 +125,10 @@
   color: var(--accent-color);
 }
 
+.VPSidebarItem.level-1.is-active a:not(#foo) * {
+  color: var(--accent-color);
+}
+
 /**
  * Component: Custom Block
  * -------------------------------------------------------------------------- */
@@ -154,6 +158,7 @@
 cite {
   font-size: 0.5em;
   letter-spacing: -0.025em;
+  white-space: nowrap;
 
   &:before {
     content: '~ ';
@@ -194,8 +199,11 @@ h2 > .VPBadge.tip {
   font-size: 0.8rem;
 }
 
-.vp-doc h1 {
-  font-size: 2.5rem;
+.vp-doc h1:not(#foo) {
+  font-size: 3rem;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.8em;
+  line-height: 0.8em;
 }
 
 .vp-doc h2 {
@@ -206,4 +214,11 @@ h2 > .VPBadge.tip {
 .vp-doc p > a > img {
   display: inline-block;
   margin-right: 0.3em;
+}
+
+.hero {
+  font-size: 5rem;
+  letter-spacing: -0.08em;
+  line-height: 0.8em;
+  margin: 1em 0;
 }

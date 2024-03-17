@@ -1,15 +1,4 @@
-<script>
-  import SEO from '~/components/SEO.svelte'
-</script>
-
-<!-- MARKUP -->
-<SEO
-  title="itty-router"
-  subtitle="Middleware"
-  description="Building and using middleware within itty-router."
-  />
-
-## Middleware
+# Middleware
 Technically, any function within itty-router can be considered middlware, and you may attach any number of these to a given route.
 
 These follow a few simple rules:

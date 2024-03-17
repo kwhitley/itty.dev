@@ -1,15 +1,4 @@
-<script>
-  import SEO from '~/components/SEO.svelte'
-</script>
-
-<!-- MARKUP -->
-<SEO
-  title="itty-router"
-  subtitle="Error Handling"
-  description="Complete guide to error handling within itty-router."
-  />
-
-## Handling Errors
+# Errors
 Errors in itty are pretty simple, using either `error` or `StatusError`, depending on your use case.
 
 

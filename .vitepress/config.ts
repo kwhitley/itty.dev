@@ -18,7 +18,7 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    logo: '/images/logo-small.png',
+    logo: '/public/favicon.png',
     siteTitle: 'itty.dev',
     search: {
       provider: 'local'
@@ -44,5 +44,6 @@ export default defineConfig({
       '/itty-router/': sidebarIttyRouter,
     },
   },
+  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   titleTemplate: ':title - itty.dev',
 })

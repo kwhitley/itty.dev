@@ -11,12 +11,97 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
     text: 'itty-router',
     items: [
       {
-        text: 'Intro',
-        link: `${BASE}/intro`,
-      },
-      {
         text: 'Getting Started',
         link: `${BASE}/getting-started`,
+      },
+      {
+        text: 'Routers',
+        link: `${BASE}/routers/`,
+        collapsed: true,
+        items: [
+          {
+            text: 'Comparison',
+            link: `${BASE}/routers/`,
+          },
+          {
+            text: 'IttyRouter (~460 bytes)',
+            link: `${BASE}/routers/ittyrouter`,
+          },
+          {
+            text: 'Router (~550 bytes)',
+            link: `${BASE}/routers/router`,
+          },
+          {
+            text: 'AutoRouter (~1kB)',
+            link: `${BASE}/routers/autorouter`,
+          },
+        ],
+      },
+      {
+        text: 'CORS',
+        link: `${BASE}/cors`,
+      },
+      {
+        text: 'Nesting',
+        link: `${BASE}/nesting`,
+      },
+      {
+        text: 'Errors',
+        link: `${BASE}/errors`,
+      },
+      {
+        text: 'Middleware',
+        link: `${BASE}/middleware`,
+      },
+      {
+        text: 'Responses',
+        link: `${BASE}/responses`,
+      },
+      {
+        text: 'Route Patterns',
+        link: `${BASE}/route-patterns`,
+      },
+      {
+        text: 'Tree-Shaking',
+        link: `${BASE}/tree-shaking`,
+      },
+      {
+        text: 'Runtimes',
+        link: `${BASE}/runtimes/`,
+        collapsed: true,
+        items: [
+          {
+            text: 'Cloudflare Workers',
+            link: `${BASE}/runtimes/cloudflare-workers`,
+          },
+          {
+            text: 'Bun',
+            link: `${BASE}/runtimes/bun`,
+          },
+          {
+            text: 'Node.js',
+            link: `${BASE}/runtimes/node`,
+          },
+          {
+            text: 'Next.js',
+            link: `${BASE}/runtimes/next`,
+          },
+        ],
+      },
+      {
+        text: 'TypeScript',
+        link: `${BASE}/typescript`,
+      },
+      {
+        text: 'Migrations',
+        link: `${BASE}/migrations/`,
+        collapsed: true,
+        items: [
+          {
+            text: '3.0x to 4.0x',
+            link: `${BASE}/migrations/3.0x-4.0x`,
+          }
+        ],
       },
       {
         text: 'API',

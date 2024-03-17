@@ -1,15 +1,4 @@
-<script>
-  import SEO from '~/components/SEO.svelte'
-</script>
-
-<!-- MARKUP -->
-<SEO
-  title="itty-router"
-  subtitle="TypeScript Guide"
-  description="Complete guide to TypeScript implementation in itty-router."
-  />
-
-## TypeScript
+# TypeScript
 
 Let's just get this out there.  Making itty play nicely with user-friendly types was HARD.  We've obviously tried a few times, with very valid complaints springing up each time. In fact, the entire reason v4.x has sat so long on the @next tag is the incomplete (and inadequate) state of the types.
 

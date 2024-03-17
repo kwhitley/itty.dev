@@ -1,15 +1,4 @@
-<script>
-  import SEO from '~/components/SEO.svelte'
-</script>
-
-<!-- MARKUP -->
-<SEO
-  title="itty-router"
-  subtitle="Performance Tuning"
-  description="A few notes on performance/tuning within itty-router."
-  />
-
-## Performance
+# Performance
 
 By their nature, virtually *all* modern routers are extremely performant, and itty-router is no different.  Some routers avoid internal matching loops in favor of lookup tables and trees, and are thus able to achieve higher ops/sec than a linear loop-based router such as itty, but depending on your environment... that may not matter at all.  
 

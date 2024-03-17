@@ -1,15 +1,4 @@
-<script>
-  import SEO from '~/components/SEO.svelte'
-</script>
-
-<!-- MARKUP -->
-<SEO
-  title="itty-router"
-  subtitle="Route Matching Patterns"
-  description="How to effectively use route patterns within itty-router."
-  />
-
-## Route Patterns
+# Route Patterns
 Below we'll list some of the common route-matching patterns supported by itty-router.  By default, all matched route params are accessible in the handlers as `request.params`, unless using the [`withParams`](/itty-router/api#withParams) middleware.
 
 ### 1. Fixed routes
