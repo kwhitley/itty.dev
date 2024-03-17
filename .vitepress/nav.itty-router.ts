@@ -51,7 +51,26 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
       },
       {
         text: 'Middleware',
-        link: `${BASE}/middleware`,
+        link: `${BASE}/middleware/`,
+        collapsed: true,
+        items: [
+          {
+            text: 'Creating Your Own',
+            link: `${BASE}/middleware/`,
+          },
+          {
+            text: 'withContent',
+            link: `${BASE}/middleware/withcontent`,
+          },
+          {
+            text: 'withCookies',
+            link: `${BASE}/middleware/withcookies`,
+          },
+          {
+            text: 'withParams',
+            link: `${BASE}/middleware/withparams`,
+          },
+        ],
       },
       {
         text: 'Responses',

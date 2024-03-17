@@ -10,7 +10,7 @@ These follow a few simple rules:
 
 Execution of each matched function will proceed until the list is exhausted (no match), or one of them returns *anything at all*.  This is fundamentally different from say, Express.js, where middleware must call a `next()` function to continue.  In itty, just omit a return to continue.  This creates fantastically small middleware/route code.
 
-Every handler/middleware has the following signature, where `...args` are whatever you passed into the `router.handle(request, ..args)` function.
+Every handler/middleware has the following signature, where `...args` are whatever you passed into the `router.fetch(request, ..args)` function.
 ### `(request: IRequest, ...args): any`
 
 ### Example 1 - simple middleware

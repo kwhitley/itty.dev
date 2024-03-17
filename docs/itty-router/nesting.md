@@ -16,7 +16,7 @@ const router = Router({ base: '/api' })
 
 router
   // register the child router
-  .all('/v1/*', routerV1.handle)
+  .all('/v1/*', routerV1.fetch)
 
   // 404 for all misses
   .all('*', () => error(404))

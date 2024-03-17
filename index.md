@@ -13,9 +13,9 @@ hero:
     - theme: brand
       text: Explore the Docs
       link: /docs/
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+    # - theme: alt
+    #   text: API Examples
+    #   link: /api-examples
 
 features:
   - icon: 🚀

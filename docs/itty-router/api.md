@@ -23,7 +23,7 @@ router
 
 export default {
   fetch: (...args) => router
-                        .handle(...args)
+                        .fetch(...args)
                         .then(json)
 
                         // embed corsify downstream to attach CORS headers
@@ -100,9 +100,9 @@ Constructor function, returning a router Proxy (object).
 
 The router itself has essentially two properties:
 
-- ### The "handle"
-  ### `router.handle(request: IRequest, ...args): Promise<any>`
-  The handle function takes a request-like argument, returning a Promise.  This will resolve to anything returned from a matching route, or nothing at all (if no route returns).
+- ### The fetch method
+  ### `router.fetch(request: IRequest, ...args): Promise<any>`
+  The fetch function takes a request-like argument, returning a Promise.  This will resolve to anything returned from a matching route, or nothing at all (if no route returns).
 - ### The route registers
   ### `router[method: string](route: string, ...handlers): Router`
   Any other property accessed off the router object maps to the corresponding uppercase HTTP method (even non-standard ones), returning a function that takes a path (string) and any number of handlers/middleware, and returns the router again (for optional declaration chaining).

@@ -242,3 +242,12 @@ h2 > .VPBadge.tip {
   background-clip: text !important;
   background: var(--vp-home-hero-name-background);
 }
+
+h1 .VPBadge:not(#foo) {
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.nowrap {
+  white-space: nowrap;
+}

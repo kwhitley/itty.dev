@@ -14,12 +14,11 @@
 
 
 ```ts [AutoRouter (1kB)]
-import { AutoRouter, text } from 'itty-router'
+import { AutoRouter } from 'itty-router'
 
 const router = AutoRouter()
 
 router
-  .get('/text', () => text('Hey there!'))
   .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
   .get('/params/:id', ({ id }) => id)
 
@@ -37,7 +36,6 @@ const router = Router({
 })
 
 router
-  .get('/text', () => text('Hey there!'))
   .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
   .get('/params/:id', ({ id }) => id)
   .all('*', () => error(404))
@@ -53,7 +51,6 @@ const router = IttyRouter()
 
 router
   .all('*', withParams)
-  .get('/text', () => text('Hey there!'))
   .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
   .get('/params/:id', ({ id }) => id)
   .all('*', () => error(404))

@@ -67,7 +67,7 @@ router
 
 export default {
   fetch: (...args) => router
-                        .handle(...args)
+                        .fetch(...args)
                         .then(json) // <-- add the JSON transform downstream
                         .catch(error)
 }
