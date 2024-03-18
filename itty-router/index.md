@@ -21,7 +21,6 @@ export default AutoRouter()
   .get('/params/:id', ({ id }) => id)
 ```
 
-
 ```ts [Router (550 bytes)]
 import { Router, error, json, withParams } from 'itty-router'
 

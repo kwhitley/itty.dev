@@ -35,7 +35,7 @@ hero:
 
 <!-- # Test -->
 
-<!-- We really mean it. -->
+We really mean it. For example...
 
 ## An edge-ready API in 1 kilobyte, all-in:
 
