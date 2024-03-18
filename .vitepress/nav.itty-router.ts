@@ -1,15 +1,23 @@
 import type { DefaultTheme } from 'vitepress'
 
-const BASE = '/docs/itty-router'
+const BASE = '/itty-router'
 
 export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
   {
     text: '<-- back',
-    link: `${BASE}/docs`,
+    link: `/docs`,
   },
   {
     text: 'itty-router',
+    link: `${BASE}/`,
     items: [
+      {
+        text: `World's smallest, full-featured serverless microrouter, with router options ranging from ~450 bytes to 1kB.`
+      },
+      {
+        text: 'How does it work?',
+        link: `${BASE}/how-it-works`,
+      },
       {
         text: 'Getting Started',
         link: `${BASE}/getting-started`,
@@ -24,7 +32,7 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
             link: `${BASE}/routers/`,
           },
           {
-            text: 'IttyRouter (~460 bytes)',
+            text: 'IttyRouter (~450 bytes)',
             link: `${BASE}/routers/ittyrouter`,
           },
           {

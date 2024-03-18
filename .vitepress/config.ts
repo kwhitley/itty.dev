@@ -37,7 +37,7 @@ export default defineConfig({
       copyright: 'Copyright © 2024+ Itty Industries, LLC.'
     },
     nav: [
-      { text: 'Docs', link: '/docs/' },
+      { text: 'Docs', link: '/docs' },
     ],
     sidebar: {
       '/': sidebarRoot,

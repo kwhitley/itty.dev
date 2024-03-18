@@ -149,15 +149,41 @@
 }
 
 .vp-doc blockquote {
+  // font-family: Georgia, "Times New Roman", Times, serif;
+  // font-style: italic;
+  // border-left: 4px solid var(--accent-color);
+  // padding: 0.8rem 0 0.7rem 1.5rem;
+
   font-family: Georgia, "Times New Roman", Times, serif;
+  quotes: "“" "”" "‘" "’";
+  font-size: 1.5rem;
+  line-height: 1.4em;
   font-style: italic;
-  border-left: 4px solid var(--accent-color);
-  padding: 0.8rem 0 0.7rem 1.5rem;
+  letter-spacing: -0.01em;
+  background: var(--vp-c-default-soft);
+  border-left: .5rem solid var(--vp-c-default-1);
+  margin: 1.5em 0px;
+  padding: 1em 1em 1em;
+
+  & > p:first-child:before {
+    color: #ccc;
+    color: var(--vp-c-text-3);
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0;
+    margin-right: 0.15em;
+    vertical-align: -0.4em;
+  }
 }
 
 cite {
-  font-size: 0.5em;
-  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.7em;
+  color: var(--vp-c-text-2);
+  font-size: 0.6em;
+  letter-spacing: -0.01em;
   white-space: nowrap;
 
   &:before {
@@ -166,15 +192,21 @@ cite {
 }
 
 .vp-doc blockquote > p {
-  font-size: 2.5rem;
+  font-size: 1em;
   letter-spacing: -0.03em;
   line-height: 1.2em;
+  font-weight: 400;
+  color: var(--vp-c-text-1);
 
 }
 
 .vp-doc hr {
   margin: 3rem 0 2rem;
   border-top: 3px dotted var(--vp-c-divider)
+}
+
+.VPSidebarItem:not(.is-link) + .VPSidebarItem.is-link {
+  margin-top: 1rem;
 }
 
 .VPSidebarItem.level-1:not(:has(a)) p:not(#foo) {
@@ -250,4 +282,16 @@ h1 .VPBadge:not(#foo) {
 
 .nowrap {
   white-space: nowrap;
+}
+
+h3:has(code) + h3:has(code) {
+  position: relative;
+  top: -1.5em;
+  margin-bottom: -0.7em !important;
+
+  &:after {
+    content: '(overload)';
+    font-size: 0.7em;
+    font-weight: 400;
+  }
 }

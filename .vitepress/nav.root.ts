@@ -1,37 +1,48 @@
 import type { DefaultTheme } from 'vitepress'
 import { sidebarIttyRouter } from './nav.itty-router'
 
-const BASE = '/docs'
+const BASE = ''
 
 export const sidebarRoot: DefaultTheme.SidebarItem[] = [
+  {
+    text: 'Welcome to itty.dev.  Below are the currently-support itty libraries.'
+  },
   {
     text: 'itty-router',
     link: `${BASE}/itty-router/`,
     collapsed: false,
-    items: sidebarIttyRouter[1].items,
+    items: [
+      ...sidebarIttyRouter[1].items
+    ],
   },
   {
     text: 'itty-fetcher',
-    collapsed: true,
+    link: `${BASE}/itty-fetcher/`,
+    // collapsed: true,
     items: [
-      { text: 'Intro', link: `${BASE}/itty-fetcher/` },
-      { text: 'API', link: `${BASE}/itty-fetcher/api` },
+      {
+        text: `700 byte wrapper around native fetch that simplifies API fetches, saving you bytes with every call.`
+      },
     ],
   },
   {
     text: 'itty-durable',
-    collapsed: true,
+    link: `${BASE}/itty-durable/`,
+    // collapsed: true,
     items: [
-      { text: 'Intro', link: `${BASE}/itty-durable/` },
-      { text: 'API', link: `${BASE}/itty-durable/api` },
+      {
+        text: `Allows you to create (and use) the incredibly-powerful Cloudflare Durable Objects in only a few lines of code.`
+      },
     ],
   },
   {
     text: 'itty-time',
-    collapsed: true,
+    link: `${BASE}/itty-time/`,
+    // collapsed: true,
     items: [
-      { text: 'Intro', link: `${BASE}/itty-time/` },
-      { text: 'API', link: `${BASE}/itty-time/api` },
+      {
+        text: `Tiny library to simplify TTL and date math for your APIs.`
+      },
     ],
   },
 ]
