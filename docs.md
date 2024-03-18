@@ -17,3 +17,5 @@ Each itty package is carefully crafted for the perfect balance of power, control
 We don't try to solve *ALL* the problems - we just target the major ones... at a low cost to filesize.
 
 When size matters, come see us. <3
+
+### [Get Started Here](/itty-router/)

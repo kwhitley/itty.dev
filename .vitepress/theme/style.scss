@@ -290,7 +290,7 @@ h3:has(code) + h3:has(code) {
   margin-bottom: -0.7em !important;
 
   &:after {
-    content: '(overload)';
+    content: '(alternative)';
     font-size: 0.7em;
     font-weight: 400;
   }

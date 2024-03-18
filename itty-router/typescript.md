@@ -12,9 +12,7 @@ But I think we've got it this time.
 
 Have consistent request types?  Choose [uniform routers](#uniform-routers) and save some boilerplate.  Have a bunch of custom middleware that modify the request?  Probably go with the default [non-uniform routers](#non-uniform-routers).
 
-<a name="uniform-routers"></a>
-
-### Uniform Routers <small class="new">new in v4.x</small>
+## Uniform Routers <Badge type="warning" text="v4.x+" />
 When you have a consistent signature and arguments throughout the routes of a given router, pass your types to the Router itself to avoid repeated defintions on routes downstream.
 
 The first argument (RequestType) is the one you'll most commonly need to modify.  The second can be left alone (allowing anything to be passed, untyped, as additional arguments), unless you want to explicitly type the additional arguments as well.
@@ -68,9 +66,7 @@ router
   })
 ```
 
-<a name="non-uniform-routers"></a>
-
-### Non-uniform Routers <small class="new">new in v4.x</small>
+## Non-uniform Routers <Badge type="warning" text="v4.x+" />
 By default, itty assumes this - the most flexible pattern.
 
 To custom type routes using this method, either pass generics to the route handler, 
@@ -125,12 +121,10 @@ router
 
 ---
 
-### Exposed Types
+## Exposed Types
 There are two useful types exposed by Itty to make your life easier (along with many other internal ones that you'll likely never need):
 
-<a name="IRequestStrict"></a>
-
-### `IRequestStrict` <small class="new">new in v4.x</small>
+### `IRequestStrict` <Badge type="warning" text="v4.x+" />
 This is a Request, with the additional props of `method`, `url`, `route`, `params`, and `query` defined.  This differs from `IRequest` (more common), in that it specifically does not include `GenericTraps` (which allows any undefined attributes as `any`).  We recommend `IRequest` for developing fast, then locking down to `IRequestStrict` for tighter control.
 
 ```ts
@@ -148,9 +142,7 @@ type IRequestStrict = {
 } & Request
 ```
 
-<a name="IRequest"></a>
-
-### `IRequest`
+### `IRequest` <Badge type="warning" text="v3.x+" />
 Just like `IRequestStrict`, but with `GenericTraps` added for convenience when dealing with large quantities of unknown params coming in from outside middleware.  This is used by default within itty for greatest flexibility, at the expense of strict typing.
 
 <p class="new">

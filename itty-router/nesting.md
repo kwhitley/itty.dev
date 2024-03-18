@@ -9,36 +9,21 @@ The following example shows a simple nested router:
 
 #### Parent/Root Router:
 ```js
-import { Router, error, json } from 'itty-router'
-import { router as routerV1 } from './api/v1'
+import { AutoRouter } from 'itty-router'
+import { router as childRouter } from './api/v1'
 
-const router = Router({ base: '/api' })
-
-router
-  // register the child router
-  .all('/v1/*', routerV1.fetch)
-
-  // 404 for all misses
-  .all('*', () => error(404))
-
-export default {
-  fetch: (...args) => router
-                        .fetch(...args)
-                        .then(json)
-                        .catch(error)
-}
+export default AutoRouter({ base: '/api' })
+  .all('/child/*', childRouter.fetch) // register child router
+  .get('/', () => 'Hello from the parent!')
 ```
 
 #### Child Router:
 ```js
-import { Router } from 'itty-router'
+import { AutoRouter } from 'itty-router'
 
 // NOTE: this base must include the *complete* base path
-export const router = Router({ base: '/api/v1' })
-
-router
-  .get('/', () => 'API v1 root')
-  .get('/item', () => 'API v1 item')
+export default AutoRouter({ base: '/api/v1' })
+  .get('/', () => 'Hello from the child!')
 ```
 
 ## Things to consider
