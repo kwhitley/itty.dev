@@ -15,15 +15,15 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         text: `World's smallest, full-featured serverless microrouter, with router options ranging from ~450 bytes to 1kB.`
       },
       {
-        text: 'How does it work?',
-        link: `${BASE}/how-it-works`,
-      },
-      {
         text: 'Getting Started',
         link: `${BASE}/getting-started`,
       },
       {
-        text: 'Routers',
+        text: 'How does it work?',
+        link: `${BASE}/how-it-works`,
+      },
+      {
+        text: 'The Routers',
         link: `${BASE}/routers/`,
         collapsed: true,
         items: [
@@ -88,16 +88,24 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         text: 'Route Patterns',
         link: `${BASE}/route-patterns`,
       },
+
       {
-        text: 'Tree-Shaking',
-        link: `${BASE}/tree-shaking`,
+        text: 'Performance-Tuning',
+        link: `${BASE}/performance/speed`,
+        collapsed: true,
+        items: [
+          {
+            text: 'for Speed',
+            link: `${BASE}/performance/speed`,
+          },
+          {
+            text: 'for Size',
+            link: `${BASE}/performance/size`,
+          },
+        ]
       },
       {
-        text: 'Performance',
-        link: `${BASE}/performance`,
-      },
-      {
-        text: 'Runtimes',
+        text: 'Runtime Support',
         link: `${BASE}/runtimes/`,
         collapsed: true,
         items: [
@@ -124,18 +132,26 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         link: `${BASE}/typescript`,
       },
       {
+        text: 'Community Resources',
+        link: `${BASE}/community-resources`,
+      },
+      {
         text: 'Migrations',
         link: `${BASE}/migrations/`,
         collapsed: true,
         items: [
           {
+            text: '4.0x to 4.3x',
+            link: `${BASE}/migrations/4.0x-4.3x`,
+          },
+          {
             text: '3.0x to 4.0x',
             link: `${BASE}/migrations/3.0x-4.0x`,
-          }
+          },
         ],
       },
       {
-        text: 'API',
+        text: 'API Reference',
         link: `${BASE}/api`,
         collapsed: true,
         items: [

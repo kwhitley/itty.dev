@@ -10,9 +10,9 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
   {
     text: 'itty-router',
     link: `${BASE}/itty-router/`,
-    collapsed: false,
+    // collapsed: false,
     items: [
-      ...sidebarIttyRouter[1].items
+      sidebarIttyRouter[1].items[0]
     ],
   },
   {

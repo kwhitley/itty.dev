@@ -26,7 +26,7 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/kwhitley/itty.dev' },
       { icon: 'discord', link: 'https://discord.gg/MQcpj9SA4G' },
-      { icon: 'x', link: 'https://twitter.com/kevinrwhitley' },
+      { icon: 'x', link: 'https://twitter.com/ittydev' },
     ],
     editLink: {
       pattern: 'https://github.com/itty.dev/edit/main/:path',

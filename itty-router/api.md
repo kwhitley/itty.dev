@@ -1,5 +1,38 @@
 # API Reference
 
+## AutoRouter <Badge type="warning" text="v4.3+" />
+
+A batteries-included version of [`Router`](/itty-router/routers/router), with included default behaviors, and additional fine-grained controls.  While ~1kB, this includes `withParams`, `json` and `error`.
+
+### `AutoRouter(options?: AutoRouterOptions): RouterType`
+
+### AutoRouterOptions
+| Name | Type(s) | Default Value | Description
+| --- | --- | --- | ---
+| <span class="nowrap">**after** <Badge type="warning" text="v4.3+" /></span> | `ResponseHandler[]` | `[]` | An array of response handlers to execute on any response after route-matching is complete
+| **base** | `string` | | Prefixes all routes with this string. For example, `Router({ base: '/docs' })` would prefix all route matches with `/docs`.
+| <span class="nowrap">**before** <Badge type="warning" text="v4.3+" /></span> | `RouteHandler[]` | `[]` | An array of route handlers/middleware to execute on requests before any route-matching
+| <span class="nowrap">**catch** <Badge type="warning" text="v4.3+" /></span> | `ErrorHandler` | `error` | A single error handler to catch any thrown error.  This may be used to return a Response, log errors, etc. If thrown during the `before` stage or route-matching, the `after` stage will still be applied after this catch. Conversely, if an error is thrown *during* the `after` stage, this will still fire, but none of the `after` stage handlers will be applied to it.
+| <span class="nowrap">**format** <Badge type="warning" text="v4.3+" /></span> | `Response Handler` | `json` | The default formatter for unformatted responses.  This may be replaced (e.g. with `text`) or set to a no-op `() => {}` to avoid formatting altogether.
+| <span class="nowrap">**missing** <Badge type="warning" text="v4.3+" /></span> | `RouteHandler` | `() => error(404)` | The default 404 message.  To prevent a 404, enter a no-op `() => {}`.
+| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | `[]` | Array of manual routes for preloading 
+| **...other** <Badge type="warning" text="v4.1+" /> | `any` | | Any other object attributes that don't conflict with methods will be embedded in the final Router object.  This is useful for attaching additional information to the router for exporting.  For example: `Router({ port: 3001 })` could be used to control the port in a Bun setup.
+
+### Example
+```ts
+import { AutoRouter } from 'itty-router'
+
+const router = AutoRouter()
+
+router
+  .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
+  .get('/params/:id', ({ id }) => id)
+
+export default router
+```
+
+---
+
 ## createCors 
 Creates a `preflight` middleware and `corsify` Response-handler.  Used together, this handles both OPTIONS requests as well as appends the appropriate CORS headers to created Responses.
 
@@ -59,14 +92,27 @@ Returns an error Response
 
 ---
 
-## html <Badge type="tip" text="v4.0+" />
+## html <Badge type="warning" text="v4.0+" />
 Returns an HTML Response
 
 ### `html(string, options?: ResponseInit): Response`
 
+--- 
+
+## IttyRouter <Badge type="warning" text="v4.3+" />
+
+### `IttyRouter(options?: IttyRouterOptions): RouterType`
+
+### IttyRouterOptions
+| Name | Type(s) | Description
+| --- | --- | ---
+| **base** | `string` | Prefixes all routes with this string. For example, `Router({ base: '/docs' })` would prefix all route matches with `/docs`.
+| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | Array of manual routes for preloading 
+| **...other** | `any` | Any other object attributes that don't conflict with methods will be embedded in the final Router object.  This is useful for attaching additional information to the router for exporting.  For example: `Router({ port: 3001 })` could be used to control the port in a Bun setup.
+
 ---
 
-## jpeg <Badge type="tip" text="v4.0+" />
+## jpeg <Badge type="warning" text="v4.0+" />
 Returns a JPEG Response
 
 ### `jpeg(data, options?: ResponseInit): Response`
@@ -80,23 +126,44 @@ Returns a JSON Response
 
 --- 
 
-## png <Badge type="tip" text="v4.0+" />
+## png <Badge type="warning" text="v4.0+" />
 Returns a PNG Response
 
 ### `png(data, options?: ResponseInit): Response`
 
 ---
 
-## Router 
-Constructor function, returning a router Proxy (object).
+## Router <Badge type="warning" text="updated in v4.3" />
+The basic `Router` factory function.
 
 ### `Router(options?: RouterOptions): RouterType`
 
-### Options
-| Name | Type(s) | Description
-| --- | --- | ---
-| `base` | `string` | prefixes all routes with this string
-| `routes` | `RouteEntry[]` | array of manual routes for preloading
+### RouterOptions
+| Name | Type(s) | Default Value | Description
+| --- | --- | --- | ---
+| <span class="nowrap">**after** <Badge type="warning" text="v4.3+" /></span> | `ResponseHandler[]` | `[]` | An array of response handlers to execute on any response after route-matching is complete
+| **base** | `string` | | Prefixes all routes with this string. For example, `Router({ base: '/docs' })` would prefix all route matches with `/docs`.
+| <span class="nowrap">**before** <Badge type="warning" text="v4.3+" /></span> | `RouteHandler[]` | `[]` | An array of route handlers/middleware to execute on requests before any route-matching
+| <span class="nowrap">**catch** <Badge type="warning" text="v4.3+" /></span> | `ErrorHandler` | | A single error handler to catch any thrown error.  This may be used to return a Response, log errors, etc. If thrown during the `before` stage or route-matching, the `after` stage will still be applied after this catch. Conversely, if an error is thrown *during* the `after` stage, this will still fire, but none of the `after` stage handlers will be applied to it.
+| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | `[]` | Array of manual routes for preloading 
+| **...other** <Badge type="warning" text="v4.1+" /> | `any` | | Any other object attributes that don't conflict with methods will be embedded in the final Router object.  This is useful for attaching additional information to the router for exporting.  For example: `Router({ port: 3001 })` could be used to control the port in a Bun setup.
+
+### Example
+```ts
+import { Router, json, error, withParams } from 'itty-router'
+
+const router = Router({
+  before: [withParams],
+  after: [json],
+  catch: error,
+})
+
+router
+  .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
+  .get('/params/:id', ({ id }) => id)
+
+export default router
+```
 
 The router itself has essentially two properties:
 
@@ -166,14 +233,14 @@ Returns a text Response
 
 ---
 
-## webp <Badge type="tip" text="v4.0+" />
+## webp <Badge type="warning" text="v4.0+" />
 Returns a webp Response
 
 ### `webp(data, options?: ResponseInit): Response`
 
 ---
 
-## withContent <Badge type="warning" text="middleware" /> <Badge type="tip" text="updated in v4.2" />
+## withContent <Badge type="info" text="middleware" /> <Badge type="warning" text="updated in v4.2" />
 If a request body is attached, this middleware attempts to parse it, embedding the results within the Request as `request.content`. 
 
 <p class="new">
@@ -200,7 +267,7 @@ router
 
 ---
 
-## withCookies <Badge type="warning" text="middleware" />
+## withCookies <Badge type="info" text="middleware" />
 Extracts cookies from the headers into a `cookies` object on the Request. See example:
 
 ### `withCookies(): void`
@@ -223,7 +290,7 @@ router
 ```
 
 ---
-## withParams <Badge type="warning" text="middleware" />
+## withParams <Badge type="info" text="middleware" />
 Extracts route params into the Request itself, for convenience.  The example shows route params with and without this middleware.  This becomes more useful with more route params, or when using `withParams` as a global upstream middleware, to avoid middleware duplication within each route.
 
 ### `withParams(): void`
