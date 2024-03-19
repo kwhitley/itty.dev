@@ -37,7 +37,7 @@ hero:
 
 We really mean it. For example...
 
-## An edge-ready API in 1 kilobyte, all-in:
+## An edge-ready API in ~1 kB:
 
 ```ts [Cloudflare Workers or Bun]
 import { AutoRouter } from 'itty-router' // ~1kB
