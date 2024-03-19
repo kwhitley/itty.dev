@@ -26,8 +26,8 @@ import { Router, error, json, withParams } from 'itty-router'
 
 const router = Router({
   before: [withParams],
-  after: [json],
   catch: error,
+  finally: [json],
 })
 
 router

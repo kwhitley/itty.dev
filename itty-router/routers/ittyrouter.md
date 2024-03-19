@@ -3,7 +3,7 @@
 
 ### ~450 bytes [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter)
 
-This is the original router; the smallest and least-feature rich one.  It will naturally have the highest performance simply from the lack of `before`, `after`, and `catch` stages introduced in [`Router`](/docs/itty-router/routers/router).  That said, to modify the response after a call to `router.fetch` requires tapping into the `.then()` blocks (see example).
+This is the original router; the smallest and least-feature rich one.  It will naturally have the highest performance simply from the lack of stages introduced in [`Router`](/docs/itty-router/routers/router).  That said, to modify the response after a call to `router.fetch` requires tapping into the `.then()` blocks (see example).
 
 ## Example
 ```ts

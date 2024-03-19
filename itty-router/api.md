@@ -9,10 +9,10 @@ A batteries-included version of [`Router`](/itty-router/routers/router), with in
 ### AutoRouterOptions
 | Name | Type(s) | Default Value | Description
 | --- | --- | --- | ---
-| <span class="nowrap">**after** <Badge type="warning" text="v4.3+" /></span> | `ResponseHandler[]` | `[]` | An array of response handlers to execute on any response after route-matching is complete
 | **base** | `string` | | Prefixes all routes with this string. For example, `Router({ base: '/docs' })` would prefix all route matches with `/docs`.
 | <span class="nowrap">**before** <Badge type="warning" text="v4.3+" /></span> | `RouteHandler[]` | `[]` | An array of route handlers/middleware to execute on requests before any route-matching
-| <span class="nowrap">**catch** <Badge type="warning" text="v4.3+" /></span> | `ErrorHandler` | `error` | A single error handler to catch any thrown error.  This may be used to return a Response, log errors, etc. If thrown during the `before` stage or route-matching, the `after` stage will still be applied after this catch. Conversely, if an error is thrown *during* the `after` stage, this will still fire, but none of the `after` stage handlers will be applied to it.
+| <span class="nowrap">**catch** <Badge type="warning" text="v4.3+" /></span> | `ErrorHandler` | `error` | A single error handler to catch any thrown error.  This may be used to return a Response, log errors, etc. If thrown during the `before` stage or route-matching, the `finally` stage will still be applied after this catch. Conversely, if an error is thrown *during* the `finally` stage, this will still fire, but none of the `finally` stage handlers will be applied to it.
+| <span class="nowrap">**finally** <Badge type="warning" text="v4.3+" /></span> | `ResponseHandler[]` | `[]` | An array of response handlers to execute on any response after route-matching is complete
 | <span class="nowrap">**format** <Badge type="warning" text="v4.3+" /></span> | `Response Handler` | `json` | The default formatter for unformatted responses.  This may be replaced (e.g. with `text`) or set to a no-op `() => {}` to avoid formatting altogether.
 | <span class="nowrap">**missing** <Badge type="warning" text="v4.3+" /></span> | `RouteHandler` | `() => error(404)` | The default 404 message.  To prevent a 404, enter a no-op `() => {}`.
 | <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | `[]` | Array of manual routes for preloading 
@@ -141,10 +141,10 @@ The basic `Router` factory function.
 ### RouterOptions
 | Name | Type(s) | Default Value | Description
 | --- | --- | --- | ---
-| <span class="nowrap">**after** <Badge type="warning" text="v4.3+" /></span> | `ResponseHandler[]` | `[]` | An array of response handlers to execute on any response after route-matching is complete
 | **base** | `string` | | Prefixes all routes with this string. For example, `Router({ base: '/docs' })` would prefix all route matches with `/docs`.
 | <span class="nowrap">**before** <Badge type="warning" text="v4.3+" /></span> | `RouteHandler[]` | `[]` | An array of route handlers/middleware to execute on requests before any route-matching
-| <span class="nowrap">**catch** <Badge type="warning" text="v4.3+" /></span> | `ErrorHandler` | | A single error handler to catch any thrown error.  This may be used to return a Response, log errors, etc. If thrown during the `before` stage or route-matching, the `after` stage will still be applied after this catch. Conversely, if an error is thrown *during* the `after` stage, this will still fire, but none of the `after` stage handlers will be applied to it.
+| <span class="nowrap">**catch** <Badge type="warning" text="v4.3+" /></span> | `ErrorHandler` | | A single error handler to catch any thrown error.  This may be used to return a Response, log errors, etc. If thrown during the `before` stage or route-matching, the `finally` stage will still be applied after this catch. Conversely, if an error is thrown *during* the `finally` stage, this will still fire, but none of the `finally` stage handlers will be applied to it.
+| <span class="nowrap">**finally** <Badge type="warning" text="v4.3+" /></span> | `ResponseHandler[]` | `[]` | An array of response handlers to execute on any response after route-matching is complete
 | <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | `[]` | Array of manual routes for preloading 
 | **...other** <Badge type="warning" text="v4.1+" /> | `any` | | Any other object attributes that don't conflict with methods will be embedded in the final Router object.  This is useful for attaching additional information to the router for exporting.  For example: `Router({ port: 3001 })` could be used to control the port in a Bun setup.
 
@@ -154,8 +154,8 @@ import { Router, json, error, withParams } from 'itty-router'
 
 const router = Router({
   before: [withParams],
-  after: [json],
   catch: error,
+  finally: [json],
 })
 
 router
