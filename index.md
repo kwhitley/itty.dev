@@ -45,4 +45,5 @@ import { AutoRouter } from 'itty-router' // ~1kB
 export default AutoRouter()
   .get('/hello/:name', ({ name = 'World' }) => `Hello ${name}!`)
   .get('/json', () => [1,2,3])
+  .get('/promises', () => Promise.resolve('foo'))
 ```
