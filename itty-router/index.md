@@ -7,7 +7,7 @@
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-router?style=flat-square)](https://npmjs.com/package/itty-router)
 [![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
-Itty delivers tiny, powerful APIs when bytes matter (your code + ours).
+`itty-router` delivers tiny, powerful APIs when bytes matter (your code + ours).
 
 ## Example Usage
 
@@ -61,14 +61,13 @@ export default {
 
 :::
 
-### Use Anywhere
-Itty is, at its heart, a completely environment-agnostic microrouter.  This means you can use it _anywhere_ (e.g. [Cloudflare Workers](/itty-router/runtimes#Cloudflare%20Workers), [Bun](/itty-router/runtimes#Bun), [Node](/itty-router/runtimes#Node), in Service Workers, or even in the browser).
+### Ultra-Light
+We include routers ranging from ~450 bytes to ~1kB based on your needs.  Beyond that, we allow _your_ code to stay tiny too.  Every bit helps!
 
 ### Ultra-Flexible
-Itty makes zero underlying assumptions of how or where you'll use it.  By maintaining a simple signature, and following Web Standards/Fetch API, it can be used in virtually all modern environments, and easily adapted to others.
+Itty is environment-agnostic, so you can use it _anywhere_ (e.g. [Cloudflare Workers](/itty-router/runtimes/cloudflare-workers), [Bun](/itty-router/runtimes/bun), [Node](/itty-router/runtimes/node), in Service Workers, or even in the browser). Additionally, with a simple and highly-extensible design, itty gives you *complete* control over the API flow, from start to finish.
 
-### Ultra-Light
-We're not just talking about bundle size here.  We like seeing tiny, readable route code too.  Itty helps with that!
+### Battle-Tested
+With over two millions downloads each year, itty has been hardened and tested by dozens of contributors over several years. It currently handles many millions of requests daily across an assortment of production APIs, with an enormous battery of tests (100% coverage) to ensure it stays stable across releases.
 
-### Battle-Ready
-With over a million downloads a year, itty has been hardened and tested by dozens of contributors over several years. It currently handles many millions of requests daily across an assortment of production APIs, with an enormous battery of tests (100% coverage) to ensure it stays stable across releases.
+We also take *great pains* to evolve the library slowly, with every byte being weighed for value to the typical user.  Edge cases need not apply here.
