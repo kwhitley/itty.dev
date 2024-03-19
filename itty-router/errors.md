@@ -20,7 +20,7 @@ error(404, 'Are you sure about that?')
 
 ## Throwing Errors
 ### `throw new StatusError(statusCode?: number, message?: string | object)`
-To throw an error (with a status code) anywhere in your application, simply throw a new `StatusError`.  Downstream handlers (e.g. in the outermost `router.handle(request).catch()` block) can then turn this into a valid Response.
+To throw an error (with a status code) anywhere in your application, simply throw a new `StatusError`.  Downstream handlers (e.g. in the outermost `router.fetch(request).catch()` block) can then turn this into a valid Response.
 
 ```js
 import { StatusError } from 'itty-router'

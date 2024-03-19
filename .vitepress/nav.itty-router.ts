@@ -136,8 +136,8 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         link: `${BASE}/community-resources`,
       },
       {
-        text: 'Migrations',
-        link: `${BASE}/migrations/`,
+        text: 'Migration Guides',
+        link: `${BASE}/migrations/4.0x-4.3x`,
         collapsed: true,
         items: [
           {

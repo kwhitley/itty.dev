@@ -1,7 +1,7 @@
 #### Routers
 # Router <Badge type="warning" text="updated in version 4.3" />
 
-### ~550 bytes
+### ~550 bytes [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/Router&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/Router)
 
 This is the core functionality of [`IttyRouter`](/docs/itty-router/routers/ittyrouter), with the addition of `before`, `after`, and `onError` stages for configuration-based flow control.  This allows batteries-included routers like [`AutoRouter`](/docs/itty-router/routers/autorouter) to function.
 

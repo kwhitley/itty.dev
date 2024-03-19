@@ -1,7 +1,7 @@
 #### Routers
 # AutoRouter <Badge type="warning" text="new in version 4.3+" />
 
-### ~1 kB (includes `error`, `json`, and `withParams`)
+### ~1 kB (includes `error`, `json`, and `withParams`) [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter)
 
 AutoRouter is a batteries-included thin-wrapper of [`Router`](/docs/itty-router/routers/router), with the following behaviors:
 
