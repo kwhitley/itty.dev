@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "<em>itty</em>.dev"
   text: "mighty [tiny] API design"
-  tagline: With serverless, fewer bytes === faster.
+  tagline: <span>With serverless, fewer bytes === <a class="accent" rel="noopener" target="_blank" href="https://github.com/TigersWay/cloudflare-playground"><em>faster</em></a>.<span>
   image:
     src: /itty-square.256.png
     alt: itty.dev
