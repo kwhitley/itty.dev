@@ -12,7 +12,7 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
     link: `${BASE}/`,
     items: [
       {
-        text: `World's smallest, full-featured serverless microrouter, with router options ranging from ~450 bytes to 1kB.`
+        text: `Our smallest, full-featured serverless API microrouter, with router options ranging from ~450 bytes to 1kB.`
       },
       {
         text: 'Getting Started',
