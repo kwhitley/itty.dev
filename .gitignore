@@ -6,3 +6,7 @@ node_modules
 .env
 .env.*
 !.env.example
+
+# vitepress
+.vitepress/cache
+.vitepress/dist
