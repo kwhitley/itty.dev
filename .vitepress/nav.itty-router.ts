@@ -4,7 +4,7 @@ const BASE = '/itty-router'
 
 export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
   {
-    text: '<-- back',
+    text: '<-- Back to Home',
     link: `/docs`,
   },
   {
