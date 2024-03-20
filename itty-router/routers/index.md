@@ -11,10 +11,10 @@ to the latest batteries-included [`AutoRouter`](/itty-router/routers/autorouter)
 | **[Relative Speed](/itty-router/performance/speed#ultra-tuning)** | 🚀🚀🚀🚀🚀 | 🚀🚀 | 🚀 |
 | **`base` & nesting** | ✅ | ✅ | ✅ |
 | **object passthrough** | ✅ | ✅ | ✅ |
-| **`before` stage** | ❌ | ✅ | ✅ |
-| **`after` stage** | ❌ | ✅ | ✅ |
-| **`catch` stage** | ❌ | ✅ | ✅ |
-| **`missing`** (default 404 handler) | ❌ | ❌ | ✅ |
-| **`format`** (default response formatter) | ❌ | ❌ | ✅ |
-| **includes `withParams`** | ❌ | ❌ | ✅ |
+| **`before` stage** (executes before route-matching) | ❌ | ✅ | ✅ |
+| **`catch` stage** (catch any thrown errors) | ❌ | ✅ | ✅ |
+| **`finally` stage** (executes after everything) | ❌ | ✅ | ✅ |
+| **`missing`** (includes 404 handler) | ❌ | ❌ | ✅ |
+| **`format`** (response formatter, defaults to `json`) | ❌ | ❌ | ✅ |
+| **includes [`withParams`](/itty-router/middleware/withparams)** | ❌ | ❌ | ✅ |
 

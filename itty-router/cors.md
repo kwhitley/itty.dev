@@ -36,7 +36,7 @@ const { preflight, corsify } = createCors()
 
 const router = AutoRouter({
   before: [preflight],
-  after: [corsify],
+  finally: [corsify],
 })
 
 const response = await router.fetch(request) // JSON and CORS-enabled
@@ -49,8 +49,8 @@ const { preflight, corsify } = createCors()
 
 const router = Router({
   before: [preflight],
-  after: [json, corsify],
   catch: error,
+  finally: [json, corsify],
 })
 
 const response = await router.fetch(request) // JSON and CORS-enabled

@@ -64,8 +64,8 @@ await router.fetch(request)
 import { Router, error, json } from 'itty-router'
 
 const router = Router({
-  after: [json],
   catch: error,
+  finally: [json],
 })
 
 // ... register routes

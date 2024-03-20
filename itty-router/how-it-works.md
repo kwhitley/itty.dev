@@ -51,7 +51,7 @@ We `await` every handler, looking for a return value.  If we get one, we break t
 
 
 ## 4. You don't have to format a response in each route handler.
-Since itty doesn't care what you return, we can format everything at once, downstream in the `.then()` block (or `after` stage if using [`Router`](/itty-router/routers/router) or [`AutoRouter`](/itty-router/routers/autorouter)). This even works for async external calls (that eventually return data).
+Since itty doesn't care what you return, we can format everything at once, downstream in the `.then()` block (or `finally` stage if using [`Router`](/itty-router/routers/router) or [`AutoRouter`](/itty-router/routers/autorouter)). This even works for async external calls (that eventually return data).
 
 ::: code-group 
 
@@ -69,7 +69,7 @@ router
 
 ```ts [Router]
 const router = Router({
-  after: [json],
+  finally: [json],
 })
 
 router
