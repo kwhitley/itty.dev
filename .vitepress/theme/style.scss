@@ -295,3 +295,21 @@ h3:has(code) + h3:has(code) {
     font-weight: 400;
   }
 }
+
+.VPBadge > p {
+  font-size: 0.8rem;
+  line-height: 1.6em;
+  margin: 1em 0.6em;
+}
+
+.VPBadge > p+p {
+  margin-top: 1.8em;
+}
+
+// .VPBadge > p:first-child {
+//   margin-top: 0.5em;
+// }
+
+// .VPBadge > p:last-child {
+//   margin-bottom: 0.5em;
+// }

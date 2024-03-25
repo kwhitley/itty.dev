@@ -1,103 +1,153 @@
-# CORS
+# CORS <Badge type="danger" text="breaking changes in v5" />
+### ~470 bytes [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/cors&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/cors)
 
-Everyone's favorite topic.
+v5.x includes an all-new CORS solution replacing the previous `createCors`.  v5 `cors` is very similar (it still creates a [`preflight`](#preflight) and [`corsify`](#corsify) pair), but the options have all been replaced with industry standard ones, such as those used in express.js.
 
-Handling CORS requests in itty is a little different than many traditional routers, since we don't build the Response over a series of middlewares and handlers.  Because of that, our `createCors(options?)` helper returns a pair of handlers, `preflight` and `corsify`.
-
-## preflight <Badge type="info" text="middleware" />
-### `preflight(request: IRequest): Response | void`
-
-We recommend embedding this upstream on the `.all('*')` path of any CORS-enabled router/branch, or in the `before` stage if using [`AutoRouter`](/itty-router/routers/autorouter) or [`Router`](/itty-router/routers/router).  Doing so handles all OPTIONS and preflight requests.
-
-## corsify <Badge type="info" text="response transformer" />
-
-This function simply adds the appropriate CORS headers to any Response.
-
-### `corsify(response: Response): Response`
-
-```js
-// creates a JSON Response *without* CORS headers
-json({ foo: 'bar' })
-
-// creates a JSON Response *with* CORS headers
-corsify(json({ foo: 'bar' }))
-```
-
-While you *can* wrap any specific Response with the `corsify` function, we recommend simply adding this downstream onto the outermost `router.fetch` chain, transforming all Responses on their way out of the API.
+<h2>
+  <code>cors(<a href="#corsoptions">CorsOptions?</a>) => { 
+    <a href="#preflight">preflight</a>, <a href="#corsify">corsify</a> 
+  }</code>
+</h2>
 
 ### Example
+```ts
+import { AutoRouter, cors } from 'itty-router'
+
+// get preflight and corsify pair
+const { preflight, corsify } = cors()
+
+const router = AutoRouter({
+  before: [preflight],  // add preflight upstream
+  finally: [corsify],   // and corsify downstream
+})
+
+router.get('/', () => 'Hello World!')
+
+export default router
+```
+
+## How It Works
+The `cors` function returns an upstream middleware (`preflight`) and downstream response handler (`corsify`).
+
+```ts
+const { preflight, corsify } = cors()
+```
+
+## preflight <Badge type="tip" text="middleware" />
+#### `(request: IRequest): Response | void` 
+Responds to `OPTIONS` requests.  Include this as upstream middleware.
 
 ::: code-group
 
-```ts [AutoRouter]
-import { AutoRouter, createCors } from 'itty-router'
+```ts [Using Stages]
+import { Router, cors } from 'itty-router'
 
-const { preflight, corsify } = createCors()
-
-const router = AutoRouter({
-  before: [preflight],
-  finally: [corsify],
-})
-
-const response = await router.fetch(request) // JSON and CORS-enabled
-```
-
-```ts [Router]
-import { Router, createCors, error, json } from 'itty-router'
-
-const { preflight, corsify } = createCors()
+const { preflight, corsify } = cors()
 
 const router = Router({
-  before: [preflight],
-  catch: error,
-  finally: [json, corsify],
+  before: [preflight], // <-- add to "before" stage
 })
-
-const response = await router.fetch(request) // JSON and CORS-enabled
 ```
 
-```ts [IttyRouter (manual)]
-import { IttyRouter, createCors, error, json } from 'itty-router'
+```ts [Manually]
+import { Router, cors } from 'itty-router'
 
-const { preflight, corsify } = createCors()
+const { preflight, corsify } = cors()
 
-const router = IttyRouter()
+const router = Router()
 
 router
-  .all('*', preflight) // upstream preflight middleware
-  // other routes
-
-// manually control the creation of the response 
-// using the native Promise chain
-const response = await router
-                          .fetch(request)
-                          .then(json)
-                          .catch(error)
-                          .finally(corsify)
+  .options('*', preflight) // <-- add to "options" or "all" channel
 ```
 
 :::
 
-## Configuring CORS
-In order to facilitate different CORS setups, all the usual CORS options are available when using `createCors` to create your CORS pair.  The following table describes the available options:
+## corsify <Badge type="tip" text="response handler" /> <Badge type="warning" text="changed in v5" />
+#### `(response: Response, request?: IRequest): Response`
+Adds the CORS headers to existing `Responses` (e.g. as created by `json` or `text`).  Include this at the very end of your response chain, as it should occur *after* any errors are caught.
 
-| Name | Type(s) | Default | Description
+<Badge type="warning">
+  <p>
+    The new <code>corsify</code> function now optionally accepts a `Request` as a second argument, allowing origin-reflection when required. In order to use <code>{ credentials: true, origin: '*' }</code>, the `Request` argument will be required.
+  </p>
+</Badge>
+
+::: code-group
+
+```ts [Using Stages]
+import { Router, cors } from 'itty-router'
+
+const { preflight, corsify } = cors()
+
+const router = Router({
+  before: [preflight],
+  finally: [corsify],
+})
+```
+
+```ts [Manually]
+import { Router, cors, json, error } from 'itty-router'
+
+const { preflight, corsify } = cors()
+
+const router = Router()
+
+router
+  .options('*', preflight) // .all() channel also works
+
+export default {
+  fetch: (request, ...args) =>
+    router
+      .fetch(request, ...args)
+      .then(json)
+      .catch(error)
+      .finally((r) => corsify(r, request)) // <-- add corsify at the end
+}
+```
+
+:::
+
+## CorsOptions <Badge type="danger" text="new in v5" />
+| Name (Default Value) | Description | Supported Format | Example
 | --- | --- | --- | ---
-| **origins** | `string[]` | `["*"]` | the list of acceptable origins
-| **methods** | `string[]` | `["GET"]` | list of CORS-allowed HTTP methods
-| **maxAge** | `number` | `undefined` | max-age, in seconds, for CORS headers
-| **headers** | `object` | `undefined` | list of headers to manually inject into all CORS Responses (via both `preflight` and `corsify`)
+| **origin** (`"*"`) | Controls `Access-Control-Allow-Origin` header.  Defaults to wildcard. | `string` | `"https://foo.bar"`
+| | If a match is found, request origin is reflected. | `string[]` | `["https://foo.bar", "http://cat.dog"]`
+| | If set to `true`, request origin is reflected. | `true` | `true`
+| | If `RegExp` matches origin, request origin is reflected. | `RegExp` | `/\.example.com$/`
+| | Sets allowed origin to whatever the function returns. | `(origin: string) => string \| void` | `(o) => o.endsWith('.com') ? o : undefined`
+| **credentials** (`undefined`)  | Set to `true` to allow credentials to be sent (`Access-Control-Allow-Credentials`) | `true` | `true`
+| **allowMethods** (`"*"`) | Controls `Access-Control-Allow-Methods` header.  Defaults to wildcard (all methods supported). | `string` | `"GET, POST"`
+| | Array format will be joined automatically. | `string[]` | `["GET, "POST"]`
+| **allowHeaders** (`undefined`) | Controls `Access-Control-Allow-Headers` header, allowing custom headers to be sent by the request. | `string` | `"x-foo,x-bar"`
+| | Array format will be joined automatically. | `string[]` | `["x-foo, "x-bar"]`
+| **exposeHeaders** (`undefined`) | Controls `Access-Control-Expose-Headers` header, allowing custom headers to be read. | `string` | `"x-foo,x-bar"`
+| | Array format will be joined automatically. | `string[]` | `["x-foo, "x-bar"]`
+| **maxAge** (`undefined`) | Controls `Access-Control-Max-Age` header, controlling how long (in seconds) preflight responses are cached in the browser. | `number` | `84600`
 
-### Configuration Example
-```js
-import { createCors } from 'itty-router'
+### Example (Options)
+```ts
+import { Router, cors } from 'itty-router'
 
-// create the CORS pair
-const { preflight, corsify } = createCors({
-  methods: ['GET', 'PATCH', 'POST'],
-  origins: ['http://localhost:3000'],
-  headers: {
-    'my-funky-header': 'is pretty funky indeed',
-  },
+const { preflight, corsify } = cors({
+  origin: '*',
+  origin: true,
+  origin: 'https://foo.bar',
+  origin: ['https://foo.bar', 'https://dog.cat'],
+  origin: /oo.bar$/,
+  origin: (origin) => origin.endsWith('foo.bar') ? origin : undefined,
+  credentials: true,
+  allowMethods: '*',
+  allowMethods: 'GET, POST',
+  allowMethods: ['GET', 'POST'],
+  allowHeaders: 'x-foo, x-bar',
+  allowHeaders: ['x-foo', 'x-bar'],
+  exposeHeaders: 'x-foo, x-bar',
+  exposeHeaders: ['x-foo', 'x-bar'],
+  maxAge: 84600,
+})
+
+const router = Router({
+  before: [preflight],
+  finally: [corsify],
 })
 ```

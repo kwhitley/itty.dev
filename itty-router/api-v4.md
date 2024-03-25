@@ -33,25 +33,37 @@ export default router
 
 ---
 
-## [cors](/itty-router/cors)
-Creates a `preflight` middleware and `corsify` Response-handler.  Used together, this handles both OPTIONS requests as well as appends the appropriate CORS headers to existing Responses.
+## createCors 
+Creates a `preflight` middleware and `corsify` Response-handler.  Used together, this handles both OPTIONS requests as well as appends the appropriate CORS headers to created Responses.
 
-### `cors(options?: CorsOptions) => { preflight, corsify }`
+### `createCors(options)`
 
-### Example
-```ts
-import { AutoRouter, cors } from 'itty-router'
+```js
+import { Router, createCors, error, json } from 'itty-router'
 
-const { preflight, corsify } = cors()
-
-const router = AutoRouter({
-  before: [preflight],  // <-- put preflight upstream
-  finally: [corsify],   // <-- put corsify downstream
+const { preflight, corsify } = createCors({
+  origins: ['*'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
 })
 
-export default router
-```
+const router = Router()
 
+router
+  // embed preflight upstream to handle all OPTIONS requests
+  .all('*', preflight)
+
+  .get('/foo', () => 'bar')
+
+export default {
+  fetch: (...args) => router
+                        .fetch(...args)
+                        .then(json)
+
+                        // embed corsify downstream to attach CORS headers
+                        .then(corsify)
+                        .catch(error)
+}
+```
 
 ---
 

@@ -4,7 +4,7 @@ const BASE = '/itty-router'
 
 export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
   {
-    text: '<-- back',
+    text: '<-- back to Home',
     link: `/docs`,
   },
   {
@@ -137,16 +137,16 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
       },
       {
         text: 'Migration Guides',
-        link: `${BASE}/migrations/4.0x-4.3x`,
+        link: `${BASE}/migrations/v4-v5`,
         collapsed: true,
         items: [
           {
-            text: '4.0x to 4.3x',
-            link: `${BASE}/migrations/4.0x-4.3x`,
+            text: 'v4 to v5',
+            link: `${BASE}/migrations/v4-v5`,
           },
           {
-            text: '3.0x to 4.0x',
-            link: `${BASE}/migrations/3.0x-4.0x`,
+            text: 'v3 to v4',
+            link: `${BASE}/migrations/v3-v4`,
           },
         ],
       },

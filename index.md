@@ -42,8 +42,12 @@ We really mean it. For example...
 ```ts [Cloudflare Workers or Bun]
 import { AutoRouter } from 'itty-router' // ~1kB
 
-export default AutoRouter()
+export const router = AutoRouter()
+
+router
   .get('/hello/:name', ({ name = 'World' }) => `Hello ${name}!`)
   .get('/json', () => [1,2,3])
   .get('/promises', () => Promise.resolve('foo'))
+
+export default router
 ```
