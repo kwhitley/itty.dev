@@ -3,21 +3,20 @@
 
 To integrate itty router openapi with Next.js, you can create a custom API route that captures all requests. For instance, you might have a route like app/api/gpt/[slug].ts.
 
-In Next.js 14, to intercept GET and POST requests and pass them to itty router, you need to set up your API routes to forward these requests to therouter. This can be done by returning router.handle(req) within your API route handlers.
+In Next.js 14, to intercept GET and POST requests and pass them to itty router, you need to set up your API routes to forward these requests to therouter. This can be done by returning router.fetch(req) within your API route handlers.
 
 ```ts
-import { Router } from 'itty-router'
+import { AutoRouter, withContent } from 'itty-router'
 
-const router = Router()
+const router = AutoRouter()
 
-router.get('/', () => 'Success!')
-router.all('*', () => new Response('404 Not Found...', { status: 200 }))
+router
+  .get('/', () => 'Success!')
+  .post('/', withContent, ({ content }) => ({
+    success: true,
+    postedContent: content,
+  }))
 
-export async function POST(req) {
-  return router.handle(req)
-}
-
-export async function GET(req) {
-  return router.handle(req)
-}
+export const GET = router.fetch
+export const POST = router.fetch
 ```
