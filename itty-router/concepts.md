@@ -109,5 +109,6 @@ Itty is, at its core, a linear flow that **you** control 100%. There's no magic 
 - Want to return something other than a `Response`?  Go for it.
 - Want to break out of deep code?  Throw a [`StatusError`](/itty-router/api#statuserror).
 
+If there's something you don't understand, [ask us on Discord](https://discord.gg/53vyrZAu9u)!  We'll do our best to help you, and then make sure we document it properly here for others!
 
 <sub>1: Except for the Proxy dark-magic that makes itty so small. That doesn't count.</sub>
