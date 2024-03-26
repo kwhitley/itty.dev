@@ -1,23 +1,4 @@
-# TypeScript
-
-Let's just get this out there.  Making itty play nicely with user-friendly types was HARD.  We've obviously tried a few times, with very valid complaints springing up each time. In fact, the entire reason v4.x has sat so long on the @next tag is the incomplete (and inadequate) state of the types.
-
-But I think we've got it this time.
-
-
-### There are 2 main ways to type in itty:
-
-1. **[Uniform Routers](#uniform-routers)**. A single Request-type and args for an entire router.  This saves a lot of per-route typing, but is only appropriate if all the routes on a given router have the same request signature.  Triggered by passing generics to the Router itself.
-2. **[Non-uniform Routers](#non-uniform-routers)**.  Each route will default to (IRequest, ...args), and may be overriden with generics, or simply by casting arguments in the handlers.  This style is enabled by default for greatest flexibility.  To disable, simply pass generics to the Router itself (and remove any downstream).
-
-Have consistent request types?  Choose [uniform routers](#uniform-routers) and save some boilerplate.  Have a bunch of custom middleware that modify the request?  Probably go with the default [non-uniform routers](#non-uniform-routers).
-
-## Uniform Routers <Badge type="warning" text="v4.x+" />
-When you have a consistent signature and arguments throughout the routes of a given router, pass your types to the Router itself to avoid repeated defintions on routes downstream.
-
-The first argument (RequestType) is the one you'll most commonly need to modify.  The second can be left alone (allowing anything to be passed, untyped, as additional arguments), unless you want to explicitly type the additional arguments as well.
-
-This removes the ability to easily modify indifidual routes, in favor of a single convenient method to type the whole thing.
+# TypeScript <Badge type="warning" text="updated in v5" />
 
 ```ts
 import { Router, IRequest } from 'itty-router'

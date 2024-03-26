@@ -123,8 +123,10 @@
 .VPNav .title,
 .accent,
 .VPSidebarItem.level-0.is-active > div:first-child a:not(#foo) *,
+.VPSidebarItem.level-1.is-active > div:first-child a:not(#foo) *,
 .VPSidebarItem.level-1.is-active > div > a:not(#foo) *,
-.VPSidebarItem.level-2.is-active a:not(#foo) *
+.VPSidebarItem.level-2.is-active > div > a:not(#foo) *,
+.VPSidebarItem.level-3.is-active a:not(#foo) *
 {
   color: var(--accent-color);
 }
@@ -313,3 +315,24 @@ h3:has(code) + h3:has(code) {
 // .VPBadge > p:last-child {
 //   margin-bottom: 0.5em;
 // }
+
+.VPSidebarItem.level-1.collapsible {
+  padding: 0.4rem 0;
+}
+
+.VPSidebarItem.level-1.collapsible:not(:last-child) {
+  // border-bottom: 1px dotted var(--vp-c-default-2);
+}
+
+.VPSidebarItem.level-1 h3:not(#foo) {
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+}
+
+.vp-doc h3:first-child {
+  margin-top: 0;
+}
+
+.VPSidebarItem.level-0:first-child {
+  padding-bottom: 0.7rem;
+}

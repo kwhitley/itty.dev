@@ -7,8 +7,8 @@ to the latest batteries-included [`AutoRouter`](/itty-router/routers/autorouter)
 
 | Feature or Option | [**`IttyRouter`**](/itty-router/routers/ittyrouter) | [**`Router`**](/itty-router/routers/router) | [**`AutoRouter`**](/itty-router/routers/autorouter)
 | ---:|:---:|:---:|:---:
-| **Latest Size** | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/Router) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter) |
-| **[Relative Speed](/itty-router/performance/speed#ultra-tuning)** | 🚀🚀🚀🚀🚀 | 🚀🚀 | 🚀 |
+| **Latest Size** | **~460 bytes** | **~550 bytes** | **~970 bytes** |
+| **[Relative Speed](/itty-router/performance/speed#ultra-tuning)** | 🚀🚀🚀 | 🚀🚀 | 🚀🚀 |
 | **`base` & nesting** | ✅ | ✅ | ✅ |
 | **object passthrough** | ✅ | ✅ | ✅ |
 | **`before` stage** (executes before route-matching) | ❌ | ✅ | ✅ |
@@ -18,3 +18,5 @@ to the latest batteries-included [`AutoRouter`](/itty-router/routers/autorouter)
 | **`format`** (response formatter, defaults to `json`) | ❌ | ❌ | ✅ |
 | **includes [`withParams`](/itty-router/middleware/withparams)** | ❌ | ❌ | ✅ |
 
+
+<!-- | **Latest Size** | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/Router) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter) | -->

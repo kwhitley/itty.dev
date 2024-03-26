@@ -1,3 +1,4 @@
+### Routing Basics
 # Responses
 
 To create Responses easily, itty-router includes several response helpers, as well as exposing the utility function [`createResponse`](#creating-your-own-response-helpers) to make your own custom types:

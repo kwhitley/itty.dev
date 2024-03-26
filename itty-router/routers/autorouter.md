@@ -3,11 +3,11 @@
 
 ### ~1 kB (includes `error`, `json`, and `withParams`) [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter)
 
-AutoRouter is a batteries-included thin-wrapper of [`Router`](/docs/itty-router/routers/router), with the following behaviors:
+AutoRouter is a batteries-included thin-wrapper of [`Router`](/itty-router/routers/router), with the following behaviors:
 
-- [`withParams`](/docs/itty-router/api#withparams) middleware is included by default, upstream of any other `before` stage handlers.
-- [`json`](/docs/itty-router/api#json) response formatter is included by default. By default, all non-Responses will be converted to JSON. Override by setting the `format` option.
-- [`error`](/docs/itty-router/api#error) <Badge type="tip" text="response formatter" /> is included by default as `catch: error` to catch uncaught errors (returning with a generic 500).
+- [`withParams`](/itty-router/api#withparams) middleware is included by default, upstream of any other `before` stage handlers.
+- [`json`](/itty-router/api#json) response formatter is included by default. By default, all non-Responses will be converted to JSON. Override by setting the `format` option.
+- [`error`](/itty-router/api#error) is included by default as `catch: error` to catch uncaught errors (returning with a generic 500, unless a specific [`StatusError`](/itty-router/api#statuserror) is thrown).
 - A generic 404 will be returned on any un-matched route.  This is equivalent to adding `router.all('*', () => error(404))` to your routes, and may be overridden using the `missing` option (below).
 
 ## Example

@@ -1,6 +1,6 @@
+### Routing Basics
 # Errors
 Errors in itty are pretty simple, using either returning `error(statuscode, message?)` or throwing a `StatusError`, depending on your use case.
-
 
 ## Creating an Error Response
 ### `error(code: number, body?: string | object): Response`

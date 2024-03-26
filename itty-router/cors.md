@@ -1,3 +1,4 @@
+### Routing Basics
 # CORS <Badge type="danger" text="breaking changes in v5" />
 ### ~470 bytes [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/cors&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/cors)
 
@@ -74,15 +75,31 @@ Adds the CORS headers to existing `Responses` (e.g. as created by `json` or `tex
 
 ::: code-group
 
-```ts [Using Stages]
-import { Router, cors } from 'itty-router'
+```ts [Using Stages (AutoRouter)]
+import { AutoRouter, cors } from 'itty-router'
+
+const { preflight, corsify } = cors()
+
+const router = AutoRouter({
+  before: [preflight],
+  finally: [corsify],
+})
+
+export default router
+```
+
+```ts [Using Stages (Router)]
+import { Router, cors, error, json } from 'itty-router'
 
 const { preflight, corsify } = cors()
 
 const router = Router({
   before: [preflight],
-  finally: [corsify],
+  catch: error,
+  finally: [json, corsify],
 })
+
+export default router
 ```
 
 ```ts [Manually]

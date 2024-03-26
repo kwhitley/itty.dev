@@ -1,3 +1,4 @@
+### Routing Basics
 # Nesting Routers
 To create a nested API, simply use a child router's `router.fetch` as a route handler in a parent router, typically on a wildcard route.  
 
