@@ -90,8 +90,8 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         collapsed: true,
         items: [
           {
-            text: '1. Install Itty',
-            link: `${BASE}/getting-started#_1-install-itty`,
+            text: '1. Install',
+            link: `${BASE}/getting-started#_1-install`,
           },
           {
             text: '2. Create a Router',
@@ -101,17 +101,21 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
             text: '3. Register Routes',
             link: `${BASE}/getting-started#_3-register-routes`,
           },
+          // {
+          //   text: '4. Handle Requests',
+          //   link: `${BASE}/getting-started#_4-handle-requests`,
+          // },
+          // {
+          //   text: '5. Transform Responses',
+          //   link: `${BASE}/getting-started#_5-optional-transform-responses`,
+          // },
           {
-            text: '4. Handle Requests',
-            link: `${BASE}/getting-started#_4-handle-requests`,
+            text: '4. Export Router',
+            link: `${BASE}/getting-started#_4-export-router`,
           },
           {
-            text: '5. Transform Responses',
-            link: `${BASE}/getting-started#_5-optional-transform-responses`,
-          },
-          {
-            text: '6. Export Router',
-            link: `${BASE}/getting-started#_6-export-router`,
+            text: 'Complete Example',
+            link: `${BASE}/getting-started#complete-example`,
           },
         ]
       },
