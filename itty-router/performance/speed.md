@@ -27,4 +27,4 @@ Need to squeeze every ounce of performance out of your API?  We got you - but th
 
 1. **Don't use [`Router`](/itty-router/routers/router) either** - If you're going for max performance, the additions of the `before`, `catch`, and `finally` stages are slower than... none of that.
 
-1. **Use the OG [`IttyRouter`](/itty-router/routers/ittyrouter) instead** - The smallest router happens to be the fastest, by simply not including extra processing steps.
+1. **Use the original [`IttyRouter`](/itty-router/routers/ittyrouter) instead** - The smallest router happens to be the fastest, by simply not including extra processing steps.

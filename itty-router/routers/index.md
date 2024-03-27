@@ -1,6 +1,6 @@
 # Routers <Badge type="warning" text="v5" /> 
 
-The itty ecosystem has grown to include three (3) routers, spanning everything from the absolute minimalist OG [`IttyRouter`](/itty-router/routers/ittyrouter)
+The itty ecosystem has grown to include three (3) routers, spanning everything from the absolute minimalist  [`IttyRouter`](/itty-router/routers/ittyrouter)
 to the latest batteries-included [`AutoRouter`](/itty-router/routers/autorouter).
 
 ## Comparison
