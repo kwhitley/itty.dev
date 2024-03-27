@@ -1,7 +1,9 @@
 #### Runtimes 
 # Bun
 
-For standalone, stateful servers, we highly recommend Bun as an alternative to Node.  Given that Bun is a web-standards router, it works automatically with itty.  Leverage the pass-through nature of itty-router options to control the port (or anything else).
+For standalone, stateful servers, we highly recommend [Bun](https://bun.sh) as an alternative to Node.  Given that [Bun](https://bun.sh)'s server uses Web Standards, it works automatically with itty.  
+
+Leverage the pass-through nature of itty-router options to control the port (or anything else).
 
 ```js
 import { AutoRouter } from 'itty-router'

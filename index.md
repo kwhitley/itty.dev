@@ -40,7 +40,7 @@ We really mean it. For example...
 ## An edge-ready API in ~1 kB:
 
 ```ts [Cloudflare Workers or Bun]
-import { AutoRouter } from 'itty-router' // ~1kB
+import { AutoRouter } from 'itty-router' // ~970 bytes
 
 export const router = AutoRouter()
 

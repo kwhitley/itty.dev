@@ -7,11 +7,11 @@ We believe less is more (our code + yours).
 
 While other libraries may suffer from feature creep/bloat in order to please a wider audience, we painfully consider **every single byte** added to itty. Our router options range from ~450 bytes to ~970 bytes for a batteries-included version with built-in defaults, error handling, formatting, etc.
 
-On top of that, the following concepts aim to keep *YOUR* code tiny (and readable) as well.  We believe that simpler code is objectively better than more complicated code.
+On top of that, the following concepts aim to keep *YOUR* code tiny (and readable) as well:
 
 ## We have simpler handlers.
 
-There's no `(request, response, next)` here.  The *only* thing universal to every handler/middleware is a `request` argument.  
+There's no `(request, response, next)` here.  The *only* thing universal to every handler/middleware is a single `request` argument.  
 
 The rest is whatever you pass in to `router.fetch(request, ...args)`.  We'll get to that later.
 
@@ -27,13 +27,13 @@ const withUser = (request) => {
 
 ## Handlers and middleware are the same thing.
 
-In itty, a handler is any function(s) passed to a route.  These receive a `request`, and may or may not return anything.  If it doesn't return anything, we call it 'middleware', because the next function automatically continues.
+In itty, a handler is any function passed to a route (you can have many).  These handlers receive a `request`, and may or may not return anything.  If it doesn't return anything, we call it "[middleware](/itty-router/middleware/)", because the next handler automatically is called, and so on, until one of them returns.
 
-You can have as many handlers as you want on each route.
+Which leads us to...
 
 ## The first thing returned is your response.
 
-The first time *any handler* returns *anything* (other than undefined), that is the response value to your `router.fetch` call, and all matching and handler-execution ends.
+The first time *any handler* returns *anything at all* (other than undefined), that is the response value to your `router.fetch()` call, and all matching and handler-execution ends.
 
 This can be anything at all (we intentionally don't enforce types on this).
 
@@ -43,7 +43,7 @@ This means any handler can be sync or async - it's all the same to us.
 
 ## Whatever you pass to `router.fetch()` goes to the handlers.
 
-`router.fetch(request, ...args)` is an asynchronous function that takes a `Request` and any additional arguments, then sends them to every matching route/handler.
+`router.fetch(request, ...args)` is an asynchronous function that takes a `request` and any additional arguments, then sends them to every matching route/handler.
 
 Want to use your own context? Pass additional information? Just add it to the `.fetch()`.
 
@@ -76,9 +76,9 @@ router
   .get('/numbers', () => 15)
   .get('/promises-to-data', () => Promise.resolve({ foo: 'bar' }))
 
-await router
-  .fetch(request)
-  .then(json) // <-- format any non-Responses here
+const response = await router
+                        .fetch(request)
+                        .then(json) // <-- format any non-Responses here
 ```
 
 ```ts[Using Router stages]
@@ -94,7 +94,7 @@ router
   .get('/numbers', () => 15)
   .get('/promises-to-data', () => Promise.resolve({ foo: 'bar' }))
 
-await router.fetch(request)
+const response = await router.fetch(request)
 ```
 
 :::

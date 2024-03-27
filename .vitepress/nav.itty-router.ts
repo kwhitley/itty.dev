@@ -105,7 +105,7 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
       },
       {
         text: 'Routing Basics',
-        link: `${BASE}/basics`,
+        link: `${BASE}/route-patterns`,
         collapsed: true,
         items: [
           {
@@ -157,10 +157,34 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
           },
           {
             text: 'TypeScript',
-            link: `${BASE}/typescript`,
+            link: `${BASE}/typescript/`,
           },
         ],
       },
+      {
+        text: 'Runtime Guides',
+        link: `${BASE}/guides/`,
+        collapsed: true,
+        items: [
+          {
+            text: 'Cloudflare Workers',
+            link: `${BASE}/guides/cloudflare-workers`,
+          },
+          {
+            text: 'Bun',
+            link: `${BASE}/guides/bun`,
+          },
+          {
+            text: 'Node.js',
+            link: `${BASE}/guides/node`,
+          },
+          {
+            text: 'Next.js',
+            link: `${BASE}/guides/next`,
+          },
+        ],
+      },
+
       {
         text: 'API',
         link: `${BASE}/api`,
@@ -227,29 +251,6 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
             link: `${BASE}/api#withparams`
           },
         ]
-      },
-      {
-        text: 'Runtime Guides',
-        link: `${BASE}/guides/`,
-        collapsed: true,
-        items: [
-          {
-            text: 'Cloudflare Workers',
-            link: `${BASE}/guides/cloudflare-workers`,
-          },
-          {
-            text: 'Bun',
-            link: `${BASE}/guides/bun`,
-          },
-          {
-            text: 'Node.js',
-            link: `${BASE}/guides/node`,
-          },
-          {
-            text: 'Next.js',
-            link: `${BASE}/guides/next`,
-          },
-        ],
       },
       {
         text: 'Extra',
