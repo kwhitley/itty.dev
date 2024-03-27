@@ -58,7 +58,7 @@ router
 ```
 
 ### Notes
-- These functions the router itself, allowing chaining route definitions for convenience (see example).
+- These functions return the router itself, allowing chaining route definitions for convenience (see example).
 - The `router.all()` channel matches to ALL methods.
 - Route-definitions are the same across all router types.
 <!-- 
