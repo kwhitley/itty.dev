@@ -26,12 +26,9 @@ export default {
 }
 ```
 
-
-## API
-
+## IttyRouterOptions
 ### `IttyRouter(options?: IttyRouterOptions): RouterType`
 
-### IttyRouterOptions
 | Name | Type(s) | Description
 | --- | --- | ---
 | **base** | `string` | Prefixes all routes with this string. For example, `Router({ base: '/docs' })` would prefix all route matches with `/docs`.

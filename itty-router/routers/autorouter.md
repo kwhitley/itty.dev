@@ -23,11 +23,9 @@ router
 export default router
 ```
 
-## API
-
+## AutoRouterOptions
 ### `AutoRouter(options?: AutoRouterOptions): RouterType`
 
-### AutoRouterOptions
 | Name | Type(s) | Default Value | Description
 | --- | --- | --- | ---
 | **base** | `string` | | Prefixes all routes with this string. For example, `Router({ base: '/docs' })` would prefix all route matches with `/docs`.

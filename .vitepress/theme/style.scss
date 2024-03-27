@@ -294,16 +294,20 @@ h1 .VPBadge:not(#foo) {
   white-space: nowrap;
 }
 
-h3:has(code) + h3:has(code) {
-  position: relative;
-  top: -1.5em;
-  margin-bottom: -0.7em !important;
+// stacked h3+code signatures
+.vp-doc h3:has(code) + h3:has(code) {
+  margin-top: 0;
 
   &:after {
     content: '(alternative)';
     font-size: 0.7em;
     font-weight: 400;
   }
+}
+
+// h2 + h3+code signature
+.vp-doc h2 + h3:has(code) {
+  margin-top: 0;
 }
 
 .VPBadge > p {

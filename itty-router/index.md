@@ -2,72 +2,38 @@
 
 [![Version](https://img.shields.io/npm/v/itty-router.svg?style=flat-square)](https://npmjs.com/package/itty-router)
 [![Bundle Size](https://deno.bundlejs.com/?q=itty-router/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/Router)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/kwhitley/itty-router/verify.yml?branch=v4.x&style=flat-square)](https://github.com/kwhitley/itty-router/actions/workflows/verify.yml)
 [![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-router/v4.x?style=flat-square)](https://coveralls.io/github/kwhitley/itty-router?branch=v4.x)
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-router?style=flat-square)](https://npmjs.com/package/itty-router)
 [![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
-`itty-router` delivers tiny, powerful APIs when bytes matter (your code + ours).
+An ultra-tiny API microrouter, for use when [size matters](https://github.com/TigersWay/cloudflare-playground) (e.g. [Cloudflare Workers](https://developers.cloudflare.com/workers/)).
 
-## Example Usage
+---
 
-::: code-group
+## Features
 
-```ts [AutoRouter (1kB)]
-import { AutoRouter } from 'itty-router'
+- Tiny. Routers from [~450 bytes](https://itty.dev/itty-router/routers/ittyrouter) to a [~970 bytes](https://itty.dev/itty-router/routers/autorouter) batteries-included version (~240-500x smaller than Express.js).
+- Web Standards. Use it [anywhere, in any environment](https://itty.dev/itty-router/runtimes).
+- No assumptions. Return anything; pass in anything.
+- Dead-simple user-code.  We want _your_ code to be tiny too.
+- Future-proof.  HTTP methods not-yet-invented already work with it.
+- [Route-parsing](https://itty.dev/itty-router/route-patterns) & [query parsing](https://itty.dev/itty-router/route-patterns#query).
+- [Middleware](https://itty.dev/itty-router/middleware) - use ours or write your own.
+- [Supports Nesting](https://itty.dev/itty-router/nesting).
 
-export default AutoRouter()
-  .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
-  .get('/params/:id', ({ id }) => id)
-```
+## Example
 
-```ts [Router (550 bytes)]
-import { Router, error, json, withParams } from 'itty-router'
+```js
+import { AutoRouter } from 'itty-router' // ~1kB
 
-const router = Router({
-  before: [withParams],
-  catch: error,
-  finally: [json],
-})
+const router = AutoRouter()
 
 router
-  .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
-  .get('/params/:id', ({ id }) => id)
-  .all('*', () => error(404))
+  .get('/hello/:name', ({ name }) => `Hello, ${name}!`)
+  .get('/json', () => [1,2,3])
+  .get('/promises', () => Promise.resolve('foo'))
 
 export default router
+
+// that's it ^-^
 ```
-
-
-```ts [IttyRouter (460 bytes)]
-import { IttyRouter, error, json, withParams } from 'itty-router'
-
-const router = IttyRouter()
-
-router
-  .all('*', withParams)
-  .get('/json', () => ({ foo: 'bar', array: [1,2,3] }))
-  .get('/params/:id', ({ id }) => id)
-  .all('*', () => error(404))
-
-export default {
-  fetch: (request, ...args) => 
-    router
-      .fetch(request, ...args)
-      .then(json)
-      .catch(error)
-}
-```
-
-:::
-
-### Ultra-Light
-We include routers ranging from ~450 bytes to ~1kB based on your needs.  Beyond that, we allow _your_ code to stay tiny too.  Every bit helps!
-
-### Ultra-Flexible
-Itty is environment-agnostic, so you can use it _anywhere_ (e.g. [Cloudflare Workers](/itty-router/runtimes/cloudflare-workers), [Bun](/itty-router/runtimes/bun), [Node](/itty-router/runtimes/node), in Service Workers, or even in the browser). Additionally, with a simple and highly-extensible design, itty gives you *complete* control over the API flow, from start to finish.
-
-### Battle-Tested
-With over two millions downloads each year, itty has been hardened and tested by dozens of contributors over several years. It currently handles many millions of requests daily across an assortment of production APIs, with an enormous battery of tests (100% coverage) to ensure it stays stable across releases.
-
-We also take *great pains* to evolve the library slowly, with every byte being weighed for value to the typical user.  Edge cases need not apply here.

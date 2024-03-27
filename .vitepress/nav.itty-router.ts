@@ -62,25 +62,6 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         ]
       },
       {
-        text: 'Getting Started',
-        link: `${BASE}/getting-started`,
-        collapsed: true,
-        items: [
-          {
-            text: '1. Choose a Router',
-            link: `${BASE}/getting-started#choose-a-router`,
-          },
-          {
-            text: 'Design Principles',
-            link: `${BASE}/getting-started`,
-          },
-          {
-            text: 'How does it work?',
-            link: `${BASE}/how-it-works`,
-          },
-        ]
-      },
-      {
         text: 'The 3 Routers',
         link: `${BASE}/routers/`,
         collapsed: true,
@@ -102,6 +83,37 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
             link: `${BASE}/routers/autorouter`,
           },
         ],
+      },
+      {
+        text: 'Getting Started',
+        link: `${BASE}/getting-started`,
+        collapsed: true,
+        items: [
+          {
+            text: '1. Install Itty',
+            link: `${BASE}/getting-started#_1-install-itty`,
+          },
+          {
+            text: '2. Create a Router',
+            link: `${BASE}/getting-started#_2-create-a-router`,
+          },
+          {
+            text: '3. Register Routes',
+            link: `${BASE}/getting-started#_3-register-routes`,
+          },
+          {
+            text: '4. Handle Requests',
+            link: `${BASE}/getting-started#_4-handle-requests`,
+          },
+          {
+            text: '5. Transform Responses',
+            link: `${BASE}/getting-started#_5-optional-transform-responses`,
+          },
+          {
+            text: '6. Export Router',
+            link: `${BASE}/getting-started#_6-export-router`,
+          },
+        ]
       },
       {
         text: 'Routing Basics',
