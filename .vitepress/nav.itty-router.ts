@@ -174,6 +174,13 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
           {
             text: 'TypeScript',
             link: `${BASE}/typescript/`,
+            collapsed: true,
+            items: [
+              {
+                text: 'API',
+                link: `${BASE}/typescript/api`
+              }
+            ]
           },
         ],
       },

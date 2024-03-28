@@ -348,3 +348,19 @@ h1 .VPBadge:not(#foo) {
 .VPSidebarItem.level-0:first-child {
   padding-bottom: 0.7rem;
 }
+
+.vp-adaptive-theme + blockquote {
+  font-size: 0.85em;
+  background-color: transparent;
+  border-left: none;
+  padding-left: 0;
+  margin-top: -0.8rem;
+  text-align: right;
+
+  & > p:first-child:before {
+    content: 'references: ';
+    font-size: inherit;
+    vertical-align: inherit;
+    color: inherit;
+  }
+}
