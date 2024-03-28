@@ -171,18 +171,18 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
             text: 'Query Params',
             link: `${BASE}/query-params`,
           },
-          {
-            text: 'TypeScript',
-            link: `${BASE}/typescript/`,
-            collapsed: true,
-            items: [
-              {
-                text: 'API',
-                link: `${BASE}/typescript/api`
-              }
-            ]
-          },
         ],
+      },
+      {
+        text: 'TypeScript',
+        link: `${BASE}/typescript/`,
+        collapsed: true,
+        items: [
+          {
+            text: 'API',
+            link: `${BASE}/typescript/api`
+          }
+        ]
       },
       {
         text: 'Runtime Guides',
