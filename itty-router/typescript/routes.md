@@ -20,9 +20,9 @@ type FooRequest = {
 
 const router = Router()
 
-router.get('/', (request: FooRequest) => {
-  request.foo // valid
-  request.bar // NOT valid
+router.get('/', (request: FooRequest) => { // [!code ++]
+  request.foo // foo is valid
+  request.bar // [!code error] // but bar is not
 })
 ```
 
@@ -37,16 +37,16 @@ type FooRequest = {
 
 const router = Router()
 
-router.get<FooRequest>('/', (request) => {
-  request.foo // valid
-  request.bar // NOT valid
+router.get<FooRequest>('/', (request) => { // [!code ++]
+  request.foo // foo is valid
+  request.bar // [!code error] // but bar is not
 })
 ```
 
 ## 3. At the router level (using generics)
 And finally, we can define the default request type for the *entire router*, again using a generic at the router creation.
 ```ts
-import { IRequest, Router } from 'itty-router'
+import { IRequestStrict, Router } from 'itty-router'
 
 type FooRequest = {
   foo: string
@@ -56,17 +56,17 @@ type BarRequest = {
   bar: string
 } & IRequestStrict
 
-const router = Router<FooRequest>()
+const router = Router<FooRequest>() // [!code ++] // router-level generic
 
 router
   .get('/', (request) => {
-    request.foo // valid
-    request.bar // NOT valid
+    request.foo // foo is valid
+    request.bar // [!code error] // but bar is not
   })
 
   // use a route-level generic to override the router-level one
-  .get<BarRequest>('/', (request) => {
-    request.bar // valid
-    request.foo // NOT valid
+  .get<BarRequest>('/', (request) => { // [!code ++] // route-level override
+    request.foo // [!code error] // now foo is not valid
+    request.bar // but bar is
   })
 ```

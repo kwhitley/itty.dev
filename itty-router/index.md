@@ -12,14 +12,14 @@ An ultra-tiny API microrouter, for use when [size matters](https://github.com/Ti
 
 ## Features
 
-- Tiny. Routers from [~450 bytes](https://itty.dev/itty-router/routers/ittyrouter) to a [~970 bytes](https://itty.dev/itty-router/routers/autorouter) batteries-included version (~240-500x smaller than Express.js).
-- Web Standards. Use it [anywhere, in any environment](https://itty.dev/itty-router/runtimes).
+- Tiny, with zero dependencies. Routers from [~450 bytes](/itty-router/routers/ittyrouter) to a [~970 bytes](/itty-router/routers/autorouter) batteries-included version (~240-500x smaller than Express.js).
+- [TypeScript](/itty-router/typescript). Powerfully (and flexibly) typed for any environment.
+- [Route-parsing](/itty-router/route-patterns) & [query parsing](/itty-router/route-patterns#query).
+- [Middleware](/itty-router/middleware). Use ours or write your own.
+- [100% Test Coverage](https://coveralls.io/github/kwhitley/itty-router?branch=v5.x). Bulletproof for production peace-of-mind.
+- Web Standards. Use it [anywhere, in any environment](/itty-router/runtimes).
 - No assumptions. Return anything; pass in anything.
-- Dead-simple user-code.  We want _your_ code to be tiny too.
 - Future-proof.  HTTP methods not-yet-invented already work with it.
-- [Route-parsing](https://itty.dev/itty-router/route-patterns) & [query parsing](https://itty.dev/itty-router/route-patterns#query).
-- [Middleware](https://itty.dev/itty-router/middleware) - use ours or write your own.
-- [Supports Nesting](https://itty.dev/itty-router/nesting).
 
 ## Example
 

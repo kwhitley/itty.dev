@@ -179,7 +179,7 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         collapsed: true,
         items: [
           {
-            text: 'Basic Request Types',
+            text: 'Request Types',
             link: `${BASE}/typescript/request-types`
           },
           {
@@ -193,6 +193,10 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
           {
             text: 'Response Handlers',
             link: `${BASE}/typescript/response-handlers`
+          },
+          {
+            text: 'Additional Arguments',
+            link: `${BASE}/typescript/additional-arguments`
           },
           {
             text: 'API',
