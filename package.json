@@ -1,47 +1,17 @@
 {
   "name": "itty.dev",
-  "version": "0.8.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-kit sync && svelte-check",
-    "check:watch": "svelte-kit sync && svelte-check --watch",
-    "lint": "prettier --check . && eslint .",
-    "format": "prettier --write .",
-    "release": "release --push --nopublish --patch",
-    "postbuild": "npx svelte-sitemap --domain https://itty.dev"
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
-    "@sveltejs/kit": "next",
-    "@typescript-eslint/eslint-plugin": "^5.54.1",
-    "@typescript-eslint/parser": "^5.54.1",
-    "eslint": "^8.35.0",
-    "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-svelte3": "^4.0.0",
-    "mdsvex": "^0.10.6",
-    "prettier": "^2.8.4",
-    "prettier-plugin-svelte": "^2.9.0",
-    "sass": "^1.58.3",
-    "svelte": "^3.55.1",
-    "svelte-check": "^3.1.0",
-    "svelte-preprocess": "^5.0.1",
-    "svelte-sitemap": "^2.6.0",
-    "tslib": "^2.5.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.4",
-    "yarn-release": "^1.10.5"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "release": "release --push --nopublish --patch"
   },
   "type": "module",
-  "dependencies": {
-    "@fontsource/ibm-plex-mono": "^4.5.13",
-    "itty-fetcher": "^0.8.1",
-    "node-html-parser": "^6.1.5",
-    "shiki": "^0.14.1",
-    "svelte-navlink-action": "^0.2.0",
-    "svelte-seo": "^1.5.3",
-    "svelte-shiki": "^0.0.6"
+  "devDependencies": {
+    "sass": "^1.72.0",
+    "vitepress": "^1.0.0-rc.42",
+    "yarn-release": "^1.10.6"
   }
 }
