@@ -1,5 +1,5 @@
 ### TypeScript
-# TypeScript API
+# TypeScript API <u>- itty-router</u>
 
 ## AutoRouterOptions
 Options for [`AutoRouter`](/itty-router/routers/autorouter)

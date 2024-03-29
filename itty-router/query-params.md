@@ -1,5 +1,5 @@
 ### Routing Basics
-# Query Params
+# Query Params <u>- itty-router</u>
 
 To access query params, simply use `request.query` from the request passed to any handler/middleware.
 

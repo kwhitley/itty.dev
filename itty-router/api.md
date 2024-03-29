@@ -1,4 +1,4 @@
-# API Reference
+# API Reference <u>- itty-router</u>
 
 ## AutoRouter <Badge type="warning" text="v5" />
 

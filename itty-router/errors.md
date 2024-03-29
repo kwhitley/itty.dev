@@ -1,5 +1,5 @@
 ### Routing Basics
-# Handling Errors
+# Handling Errors <u>- itty-router</u>
 Errors in itty are pretty simple, using either returning `error(statuscode, message?)` or throwing a `StatusError`, depending on your use case.
 
 ## Creating an Error Response

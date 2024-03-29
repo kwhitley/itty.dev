@@ -1,5 +1,5 @@
 #### Routers
-# AutoRouter <Badge type="warning" text="new in v5" />
+# AutoRouter <u>- itty-router</u> <Badge type="warning" text="new in v5" />
 
 ### ~1 kB (includes `error`, `json`, and `withParams`) [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter)
 

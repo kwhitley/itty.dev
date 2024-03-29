@@ -1,5 +1,5 @@
 ### Routing Basics
-# CORS <Badge type="danger" text="breaking changes in v5" />
+# CORS <u>- itty-router</u> <Badge type="danger" text="breaking changes in v5" />
 ### ~470 bytes [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/cors&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/cors)
 
 v5.x includes an all-new CORS solution replacing the previous `createCors`.  v5 `cors` is very similar (it still creates a [`preflight`](#preflight) and [`corsify`](#corsify) pair), but the options have all been replaced with industry standard ones, such as those used in express.js.

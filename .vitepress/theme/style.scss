@@ -368,3 +368,7 @@ h1 .VPBadge:not(#foo) {
     content: 'references: ';
   }
 }
+
+h1 > u {
+  display: none;
+}

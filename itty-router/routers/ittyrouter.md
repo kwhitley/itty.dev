@@ -1,5 +1,5 @@
 #### Routers
-# IttyRouter <Badge type="warning" text="new in v5" />
+# IttyRouter <u>- itty-router</u> <Badge type="warning" text="new in v5" />
 
 ### ~450 bytes [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter)
 

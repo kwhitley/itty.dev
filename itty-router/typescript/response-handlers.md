@@ -1,5 +1,5 @@
 ### TypeScript
-# Response Handlers
+# <u>TypeScript -</u> Response Handlers <u>- itty-router</u>
 
 These are specific to the `finally` stage in [`AutoRouter`](/itty-router/routers/autorouter) and [`Router`](/itty-router/routersrouter).  Each `ResponseHandler` has access to a response, a request, and any additional arguments provided to the router's `.fetch()` method.  Override defaults using generics (see example).
 
