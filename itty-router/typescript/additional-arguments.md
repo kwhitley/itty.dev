@@ -1,5 +1,5 @@
 ### TypeScript
-# <u>TypeScript -</u> Additional Arguments <u>- itty-router</u>
+# <u>TypeScript ></u> Additional Arguments <u>- itty-router</u>
 
 One of the powerful things about itty is our strict requirement of only a single argument, the `request`.  Beyond that, any arguments you pass to a router's `.fetch()` method also *pass along to every single handler downstream*.
 

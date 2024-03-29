@@ -1,5 +1,5 @@
 ### Performance-Tuning
-# <u>Performance-Tuning -</u> Speed <u>- itty-router</u>
+# <u>Performance-Tuning ></u> Speed <u>- itty-router</u>
 
 By their nature, virtually *all* modern routers are extremely performant, and itty-router is no different.  When you see benchmarks measuring routers in ops/sec, keep in mind that all of these effectively translate to ~0ms per request - for example, a router that handles 100,000 ops/sec roughly adds only 0.01ms per request.
 

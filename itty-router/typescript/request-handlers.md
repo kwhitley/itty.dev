@@ -1,5 +1,5 @@
 ### TypeScript
-# <u>TypeScript -</u> Request Handlers & Middleware <u>- itty-router</u>
+# <u>TypeScript ></u> Request Handlers & Middleware <u>- itty-router</u>
 
 To type handlers/middleware use the [`RequestHandler<RequestType, Args>`](/itty-router/typescript/api#requesthandler) type.  By default, `RequestType` is set to the generic [`IRequest`](/itty-router/typescript/api#irequest).
 

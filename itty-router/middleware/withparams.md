@@ -1,5 +1,5 @@
 ### Middleware
-# <u>Middleware -</u> withParams <u>- itty-router</u>
+# <u>Middleware ></u> withParams <u>- itty-router</u>
 
 `withParams` simply allows you to request route params directly from the Request itself, rather than through `request.params`.  It does this by adding a fallback - if `request['your param name']` isn't found, it tries again from `request.params['your param name']`.
 
