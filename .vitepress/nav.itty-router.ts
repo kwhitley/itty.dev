@@ -175,9 +175,25 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
       },
       {
         text: 'TypeScript',
-        link: `${BASE}/typescript/api`,
+        link: `${BASE}/typescript/`,
         collapsed: true,
         items: [
+          {
+            text: 'Basic Request Types',
+            link: `${BASE}/typescript/request-types`
+          },
+          {
+            text: 'Routes & Routers',
+            link: `${BASE}/typescript/routes`
+          },
+          {
+            text: 'Request Handlers & Middleware',
+            link: `${BASE}/typescript/request-handlers`
+          },
+          {
+            text: 'Response Handlers',
+            link: `${BASE}/typescript/response-handlers`
+          },
           {
             text: 'API',
             link: `${BASE}/typescript/api`

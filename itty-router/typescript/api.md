@@ -76,10 +76,10 @@ type IttyRouterOptions = {
 ## IttyRouterType <Badge type="info" text="internal" />
 Hopefully you'll never need to use this.
 ```ts
-type IttyRouterType<R = IRequest, A extends any[] = any[], Output = any> = {
+type IttyRouterType<R = IRequest, A extends any[] = any[], ResponseType = any> = {
   __proto__: IttyRouterType<R>
   routes: RouteEntry[]
-  fetch: <Args extends any[] = A>(request: RequestLike, ...extra: Args) => Promise<Output>
+  fetch: <Args extends any[] = A>(request: RequestLike, ...extra: Args) => Promise<ResponseType>
   all: Route<R, A>
   delete: Route<R, A>
   get: Route<R, A>
@@ -133,14 +133,14 @@ type ResponseHandler<
 > [`IRequest`](#irequest)
 
 ## Route <Badge type="info" text="internal" />
-Bonus points if you can follow this one.
+This allows you to overwrite request/args using generics at the route-level.  Bonus points if you can follow this.
 ```ts
 type Route<
   R = IRequest,
-  A extends Array<any> = any[]
+  A extends Array<any> = any[],
 > = <
   RequestType = R,
-  Args extends Array<any> = A
+  Args extends Array<any> = A,
 >(
   path: string,
   ...handlers: RequestHandler<RequestType, Args>[]
@@ -173,10 +173,10 @@ type RouterOptions = {
 ## RouterType
 Type for [`Router`](/itty-router/routers/router).  This adds a `before`, `catch`, and `finally` stage to [`IttyRouterType`](#ittyroutertype). 
 ```ts
-type RouterType<R = IRequest, Args extends any[] = any[]> = {
+type RouterType<R = IRequest, Args extends any[] = any[], ResponseType = any> = {
   before?: RequestHandler<any>[]
   catch?: ErrorHandler
   finally?: ResponseHandler[]
-} & IttyRouterType<R, Args>
+} & IttyRouterType<R, Args, ResponseType>
 ```
 > [`RequestHandler`](#requesthandler), [`ErrorHandler`](#errorhandler), [`ResponseHandler`](#responsehandler), [`IttyRouterType`](#ittyroutertype)

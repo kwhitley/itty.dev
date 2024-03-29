@@ -358,9 +358,13 @@ h1 .VPBadge:not(#foo) {
   text-align: right;
 
   & > p:first-child:before {
-    content: 'references: ';
+    content: '';
     font-size: inherit;
     vertical-align: inherit;
     color: inherit;
+  }
+
+  & > p:first-child:has(a):before {
+    content: 'references: ';
   }
 }
