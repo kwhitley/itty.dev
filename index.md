@@ -10,12 +10,12 @@ hero:
     src: /itty-square.256.png
     alt: itty.dev
   actions:
-    - theme: brand
+    - theme: alt
       text: Explore the Docs
       link: /docs
-    # - theme: alt
-    #   text: API Examples
-    #   link: /api-examples
+    - theme: brand
+      text: Get Started
+      link: /itty-router/getting-started
 
 # features:
 #   - icon: 🚀
