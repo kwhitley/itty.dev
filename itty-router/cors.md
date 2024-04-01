@@ -118,7 +118,7 @@ export default {
       .fetch(request, ...args)
       .then(json)
       .catch(error)
-      .finally((r) => corsify(r, request)) // <-- add corsify at the end
+      .then((r) => corsify(r, request)) // <-- add corsify at the end
 }
 ```
 
