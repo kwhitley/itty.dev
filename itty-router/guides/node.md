@@ -10,12 +10,12 @@ import { AutoRouter } from 'itty-router'
 
 const router = AutoRouter()
 
-router.get('/', () => 'Success!')
+router.get('/', () => ({ message: 'Hello, from itty-router v5.' }))
 
 // create a @whatwg-node/server
 const ittyServer = createServerAdapter(router.fetch)
 
-// Then use it in any environment
+// then pass that to Node
 const httpServer = createServer(ittyServer)
 httpServer.listen(3001)
 ```

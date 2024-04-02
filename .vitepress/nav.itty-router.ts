@@ -234,8 +234,12 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
         collapsed: true,
         items: [
           {
-            text: 'createCors',
-            link: `${BASE}/api#createcors`
+            text: 'AutoRouter',
+            link: `${BASE}/api#autorouter`
+          },
+          {
+            text: 'cors',
+            link: `${BASE}/api#cors`
           },
           {
             text: 'createResponse',
@@ -244,6 +248,10 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
           {
             text: 'error',
             link: `${BASE}/api#error`
+          },
+          {
+            text: 'IttyRouter',
+            link: `${BASE}/api#ittyrouter`
           },
           {
             text: 'html',
