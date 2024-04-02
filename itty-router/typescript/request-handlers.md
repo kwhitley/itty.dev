@@ -70,3 +70,31 @@ export const withUser: RequestHandler<IRequest, CFArgs> = // [!code ++]
   }
 ```
 > ^ assumes Cloudflare Worker environment
+
+## Example: Multiple Middleware/Handlers
+TypeScript doesn't play nice with an array of handlers that can each be typed differently (and modify the input of subsequent handlers).
+
+In order to get around this barrier, pass a union of the request types as a generic to the route/router.  With this, the request-type for the entire chain will have been modified.
+
+```ts
+type A = { a: string } & IRequestStrict
+type B = { b: number } & IRequestStrict
+
+// middleware 1 expects A
+const withA = (request: A) => { a = 'foo' }
+
+// middleware 2 expects B (but not A)
+const withB = (request: B) => { b = 12345 }
+
+// withB will complain that the incoming request types don't match
+router.get('/', withA, withB, (request) => { // [!code --]
+  request.a // OK
+  request.b // won't find it // [!code --]
+})
+
+// but passing the union allows both withA & withB to pass, plus the request
+router.get<A & B>('/', withA, withB, (request) => { // [!code ++]
+  request.a // OK
+  request.b // OK // [!code ++]
+})
+```
