@@ -44,7 +44,8 @@
  * -------------------------------------------------------------------------- */
 
  :root {
-  --accent-color: #f0c;
+  --accent-color-p3: color(display-p3 1 0 0.81);
+  --accent-color: var(--accent-color-p3, #f0c);
 
   --vp-c-default-1: var(--vp-c-gray-1);
   --vp-c-default-2: var(--vp-c-gray-2);
