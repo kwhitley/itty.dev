@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
+    "postbuild": "cp _worker.js .vitepress/dist",
     "preview": "vitepress preview",
     "release": "release --push --nopublish --patch"
   },
