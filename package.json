@@ -13,5 +13,8 @@
     "sass": "^1.72.0",
     "vitepress": "^1.0.0-rc.42",
     "yarn-release": "^1.10.6"
+  },
+  "dependencies": {
+    "itty-router": "^5.0.9"
   }
 }
