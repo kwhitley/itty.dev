@@ -14,7 +14,7 @@ export default router // see note below
 ```
 
 <Badge type="danger">
-  <p>Currently, there's a <a href="https://github.com/cloudflare/workers-sdk/issues/5420">bug in Wrangler</a> that affects local development using `wrangler dev` when trying to export the router directly.  We're working with the Cloudflare folks to get this fixed ASAP.</p>
+  <p>Currently, there's a <a href="https://github.com/cloudflare/workers-sdk/issues/5420">bug in Wrangler</a> that affects local development using <code>wrangler dev</code> when trying to export the router directly.  We're working with the Cloudflare folks to get this fixed ASAP.</p>
 
   <p>In the meantime, destructure your root router like this to avoid the issue:</p>
 
