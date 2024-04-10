@@ -29,11 +29,10 @@ export default defineConfig({
       { icon: 'x', link: 'https://twitter.com/ittydev' },
     ],
     editLink: {
-      pattern: 'https://github.com/itty.dev/edit/main/:path',
+      pattern: 'https://github.com/kwhitley/itty.dev/edit/main/:path',
       text: 'Edit this page on GitHub',
     },
     footer: {
-      message: 'Released under the MIT License.',
       copyright: 'Copyright © 2024+ Itty Industries, LLC.'
     },
     nav: [
