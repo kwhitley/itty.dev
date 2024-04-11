@@ -1,7 +1,7 @@
 #### Routers
 # Router <u>- itty-router</u> <Badge type="warning" text="updated in v5" />
 
-### ~550 bytes [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/Router&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/Router)
+### [![Bundle Size](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/Router&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router/Router)
 
 This is the core functionality of [`IttyRouter`](/docs/itty-router/routers/ittyrouter), with the addition of `before`, `finally`, and `catch` stages for configuration-based flow control.  This allows batteries-included routers like [`AutoRouter`](/docs/itty-router/routers/autorouter) to function.
 

@@ -7,7 +7,7 @@ to the latest batteries-included [`AutoRouter`](/itty-router/routers/autorouter)
 
 | Feature or Option | [**`IttyRouter`**](/itty-router/routers/ittyrouter) | [**`Router`**](/itty-router/routers/router) | [**`AutoRouter`**](/itty-router/routers/autorouter)
 | ---:|:---:|:---:|:---:
-| **Latest Size** | **~460 bytes** | **~550 bytes** | **~970 bytes** |
+| **Latest Size** | [![~450 bytes](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/IttyRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/IttyRouter) |[![~530 bytes](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/Router) | [![~970 bytes](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/AutoRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/AutoRouter) |
 | **[Relative Speed](/itty-router/performance/speed#ultra-tuning)** | 🚀🚀🚀 | 🚀🚀 | 🚀🚀 |
 | **`base` & nesting** | ✅ | ✅ | ✅ |
 | **object passthrough** | ✅ | ✅ | ✅ |
@@ -19,4 +19,4 @@ to the latest batteries-included [`AutoRouter`](/itty-router/routers/autorouter)
 | **includes [`withParams`](/itty-router/middleware/withparams)** | ❌ | ❌ | ✅ |
 
 
-<!-- | **Latest Size** | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/Router) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router@next/AutoRouter) | -->
+<!-- | **Latest Size** | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router/IttyRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/IttyRouter) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/Router) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router/AutoRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/AutoRouter) | -->

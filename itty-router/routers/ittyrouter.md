@@ -1,7 +1,7 @@
 #### Routers
 # IttyRouter <u>- itty-router</u> <Badge type="warning" text="new in v5" />
 
-### ~450 bytes [![Bundle Size](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router@next/IttyRouter)
+### [![Bundle Size](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/IttyRouter&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router/IttyRouter)
 
 This is the original router; the smallest and least-feature rich one.  It will naturally have the highest performance simply from the lack of stages introduced in [`Router`](/docs/itty-router/routers/router).  That said, to modify the response after a call to `router.fetch` requires tapping into the `.then()` blocks (see example).
 

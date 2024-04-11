@@ -1,6 +1,8 @@
 ### Middleware
 # <u>Middleware ></u> withCookies <u>- itty-router</u>
 
+[![Bundle Size](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/withCookies&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router/withCookies)
+
 This middleware creates a convenient `request.cookies` object from any cookies found the `request.headers`.
 
 ### Example

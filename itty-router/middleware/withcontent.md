@@ -1,6 +1,8 @@
 ### Middleware
 # <u>Middleware ></u> withContent <u>- itty-router</u>
 
+### [![Bundle Size](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/withContent&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router/withContent)
+
 This middleware attempts to parse out the `request.body` into `request.content` using the following waterfall.
 
 `JSON` --> `FormData` --> `Text`

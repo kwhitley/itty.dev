@@ -1,6 +1,8 @@
 ### Middleware
 # <u>Middleware ></u> withParams <u>- itty-router</u>
 
+### [![Bundle Size](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/withParams&badge&badge-style=for-the-badge)](https://deno.bundlejs.com/?q=itty-router/withParams)
+
 `withParams` simply allows you to request route params directly from the Request itself, rather than through `request.params`.  It does this by adding a fallback - if `request['your param name']` isn't found, it tries again from `request.params['your param name']`.
 
 That's all it does.
