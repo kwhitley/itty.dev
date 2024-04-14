@@ -18,5 +18,4 @@ to the latest batteries-included [`AutoRouter`](/itty-router/routers/autorouter)
 | **`format`** (response formatter, defaults to `json`) | ❌ | ❌ | ✅ |
 | **includes [`withParams`](/itty-router/middleware/withparams)** | ❌ | ❌ | ✅ |
 
-
 <!-- | **Latest Size** | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router/IttyRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/IttyRouter) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/Router) | [![Bundle Size](https://deno.bundlejs.com/?q=itty-router/AutoRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/AutoRouter) | -->

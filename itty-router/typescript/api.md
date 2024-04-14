@@ -5,15 +5,30 @@
 Options for [`AutoRouter`](/itty-router/routers/autorouter)
 
 ```ts
-type AutoRouterOptions = {
-  missing?: RequestHandler
+type AutoRouterOptions<
+  RequestType,
+  Args extends any[],
+> = {
+  missing?: RequestHandler<RequestType, Args>
   format?: ResponseHandler
-} & RouterOptions
+} & RouterOptions<RequestType, Args>
 ```
 > [`RequestHandler`](#requesthandler), [`ResponseHandler`](#responsehandler), [`RouterOptions`](#routeroptions)
 
-<!-- ## CustomRoutes -->
-<!-- ## ErrorFormatter -->
+## AutoRouterType
+Type definition for [`AutoRouter`](/itty-router/routers/autorouter).
+
+```ts
+type AutoRouterType<
+  RequestType = IRequest,
+  Args extends any[] = any[],
+  ResponseType = any
+> = {
+  missing?: RequestHandler<RequestType, Args>
+  format?: ResponseHandler
+} & RouterType<RequestType, Args, ResponseType>
+```
+> [`RequestHandler`](#requesthandler), [`ResponseHandler`](#responsehandler), [`RouterType`](#routertype)
 
 ## ErrorHandler
 An advanced error handler, used as the `catch` stage in [`AutoRouter`](/itty-router/routers/autorouter) and [`Router`](/itty-router/routersrouter).  Unlike a normal error handler attached to the `.catch(err)` block of a Promise chain, this one has access to the original `Error` as well as the `Request` (and other args) passed to the `.fetch()` of the router.  This allows for controlled logging of thrown errors.
@@ -64,7 +79,7 @@ type IRequestStrict = {
 ```
 
 ## IttyRouterOptions
-Options for [`IttyRouter`](/itty-router/routers/ittyrouter).  The generic traps are used to allow any instantiated router to accept unknown properties (which will remain on the route itself).  With this, you can export the router itself, while adding expected properites from your runtime (e.g. `{ port: 3000 }` and such).
+Options for [`IttyRouter`](/itty-router/routers/ittyrouter).  The generic traps are used to allow any instantiated router to accept unknown properties (which will remain on the route itself).  With this, you can the router itself, while adding expected properites from your runtime (e.g. `{ port: 3000 }` and such).
 ```ts
 type IttyRouterOptions = {
   base?: string
@@ -76,34 +91,40 @@ type IttyRouterOptions = {
 ## IttyRouterType <Badge type="info" text="internal" />
 Hopefully you'll never need to use this.
 ```ts
-type IttyRouterType<R = IRequest, A extends any[] = any[], ResponseType = any> = {
-  __proto__: IttyRouterType<R>
+type IttyRouterType<
+  RequestType = IRequest,
+  Args extends any[] = any[],
+  ResponseType = any,
+> = {
+  __proto__: IttyRouterType<RequestType, Args, ResponseType>
   routes: RouteEntry[]
-  fetch: <Args extends any[] = A>(request: RequestLike, ...extra: Args) => Promise<ResponseType>
-  all: Route<R, A>
-  delete: Route<R, A>
-  get: Route<R, A>
-  head: Route<R, A>
-  options: Route<R, A>
-  patch: Route<R, A>
-  post: Route<R, A>
-  put: Route<R, A>
-} & CustomRoutes<Route<R, A>> & GenericTraps
+  fetch: <A extends any[] = Args>(request: RequestLike, ...extra: A) => Promise<ResponseType>
+  all: Route<RequestType, Args>
+  delete: Route<RequestType, Args>
+  get: Route<RequestType, Args>
+  head: Route<RequestType, Args>
+  options: Route<RequestType, Args>
+  patch: Route<RequestType, Args>
+  post: Route<RequestType, Args>
+  put: Route<RequestType, Args>
+} & CustomRoutes<Route<RequestType, Args>> & GenericTraps
 ```
 > [`IRequest`](#irequest), [`RequestLike`](#requestlike), [`Route`](#route), [`CustomRoutes`](#customroutes), [`GenericTraps`](#generictraps)
 
 ## RequestHandler
 A generic request handler, as used in route definitions, middleware, and the `before` stage of [`AutoRouter`](/itty-router/routers/autorouter) and [`Router`](/itty-router/routersrouter).
 ```ts
-type RequestHandler<R = IRequest, Args extends Array<any> = any[]> =
-  (request: R, ...args: Args) => any
+type RequestHandler<
+  RequestType = IRequest,
+  Args extends Array<any> = any[]
+> = (request: RequestType, ...args: Args) => any
 ```
 > [`IRequest`](#irequest)
 
 ## RequestLike <Badge type="info" text="internal" />
 The bare minimum object type for use in the router's `.fetch()` method.
 ```ts
-export type RequestLike = {
+type RequestLike = {
   method: string
   url: string
 } & GenericTraps
@@ -113,7 +134,7 @@ export type RequestLike = {
 ## ResponseFormatter <Badge type="info" text="internal" />
 Used to format content into a valid [`Response`]() object within [`createResponse()`](/itty-router/api#createresponse).
 ```ts
-export type ResponseFormatter =
+type ResponseFormatter =
   (body?: any, options?: ResponseInit) => Response
 ```
 
@@ -144,39 +165,55 @@ type Route<
 >(
   path: string,
   ...handlers: RequestHandler<RequestType, Args>[]
-) => IttyRouterType<RequestType, Args>
+) => IttyRouterType<R, A>
 ```
 
 ## RouteEntry <Badge type="danger" text="advanced" />
 If you plan to manually modify the `.routes` collection on a router manually, this is the format you'll need for each entry.
 ```ts
-type RouteEntry = [
+type RouteEntry<RequestType = IRequest, Args extends any[] = any[]> = [
   httpMethod: string,
   match: RegExp,
-  handlers: RequestHandler[],
+  handlers: RequestHandler<RequestType, Args>[],
   path?: string,
 ]
 ```
-> [`RequestHandler`](#requesthandler)
+> [`RequestHandler`](#requesthandler), [`IRequest`](#irequest)
 
 ## RouterOptions
 Options for [`Router`](/itty-router/routers/router).  This adds a `before`, `catch`, and `finally` stage to [`IttyRouterOptions`](#ittyrouteroptions). 
 ```ts
-type RouterOptions = {
-  before?: RequestHandler<any>[]
-  catch?: ErrorHandler
-  finally?: ResponseHandler[]
+type RouterOptions<
+  RequestType = IRequest,
+  Args extends any[] = [],
+> = {
+  before?: RequestHandler<RequestType, Args>[]
+  catch?: ErrorHandler<StatusError, RequestType, Args>
+  finally?: ResponseHandler<any, RequestType, Args>[]
 } & IttyRouterOptions
 ```
-> [`RequestHandler`](#requesthandler), [`ErrorHandler`](#errorhandler), [`ResponseHandler`](#responsehandler), [`IttyRouterOptions`](#ittyrouteroptions)
+> [`RequestHandler`](#requesthandler), [`ErrorHandler`](#errorhandler), [`ResponseHandler`](#responsehandler), [`IttyRouterOptions`](#ittyrouteroptions), [`StatusError`](#statuserror)
 
 ## RouterType
 Type for [`Router`](/itty-router/routers/router).  This adds a `before`, `catch`, and `finally` stage to [`IttyRouterType`](#ittyroutertype). 
 ```ts
-type RouterType<R = IRequest, Args extends any[] = any[], ResponseType = any> = {
-  before?: RequestHandler<any>[]
-  catch?: ErrorHandler
-  finally?: ResponseHandler[]
-} & IttyRouterType<R, Args, ResponseType>
+type RouterType<
+  RequestType = IRequest,
+  Args extends any[] = any[],
+  ResponseType = any
+> = {
+  before?: RequestHandler<RequestType, Args>[]
+  catch?: ErrorHandler<StatusError, RequestType, Args>
+  finally?: ResponseHandler<any, RequestType, Args>[]
+} & IttyRouterType<RequestType, Args, ResponseType>
 ```
-> [`RequestHandler`](#requesthandler), [`ErrorHandler`](#errorhandler), [`ResponseHandler`](#responsehandler), [`IttyRouterType`](#ittyroutertype)
+> [`RequestHandler`](#requesthandler), [`ErrorHandler`](#errorhandler), [`ResponseHandler`](#responsehandler), [`IttyRouterType`](#ittyroutertype), [`StatusError`](#statuserror)
+
+## StatusError
+Type for [`StatusError`](/itty-router/api#statuserror)
+```ts
+type StatusError = {
+  status: number
+  [key: string]: any
+} & Error
+```
