@@ -151,6 +151,8 @@ In the example, [`Router`](/itty-router/routers/router) uses stages to create `R
 ```ts [AutoRouter]
 import { AutoRouter } from 'itty-router'
 
+const router = AutoRouter()
+
 router
   .get('/hello/:name', ({ name }) => `Hello, ${name}!`)
   .get('/json', () => ({ foo: 'bar' }))
