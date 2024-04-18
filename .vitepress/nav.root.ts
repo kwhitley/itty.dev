@@ -21,7 +21,7 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     // collapsed: true,
     items: [
       {
-        text: `Ultra-small (~450 bytes) library for simplifying date math and TTLs.`
+        text: `Ultra-small (~460 bytes) library for simplifying date math and TTLs.`
       },
     ],
   },

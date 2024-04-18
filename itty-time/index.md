@@ -6,13 +6,13 @@
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-time?style=flat-square)](https://npmjs.com/package/itty-time)
 [![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
-Ultra-small (~450 bytes) library for simplifying date math and TTLs.
+Ultra-small (~460 bytes) library for simplifying date math and TTLs.
 
 ---
 
 ## Features
 
-- Tiny. The entire library is ~450 bytes, or take only what you need.
+- Tiny. The entire library is ~460 bytes, or take only what you need.
 - Works anywhere, period.
 - Use plain text strings to describe durations.
 - Get future dates and TTLs.
