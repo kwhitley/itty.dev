@@ -29,7 +29,7 @@ Ultra-small (~450 bytes) library for simplifying date math and TTLs.
 
 <sup>1: minified and gzipped</sup> &nbsp;
 <sup>2: smaller is better</sup> &nbsp;
-<sup>3: Luke is superhuman</sup>
+<sup>3: [Luke](https://github.com/lukeed) is still a superhuman</sup>
 
 ---
 
