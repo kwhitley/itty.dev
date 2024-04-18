@@ -243,9 +243,9 @@ h2 > .VPBadge.tip {
 }
 
 .vp-doc h1:not(#foo) {
-  font-size: 3rem;
+  font-size: clamp(2.7rem, 12vw, 3.8rem);
   letter-spacing: -0.04em;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.6em;
   line-height: 0.8em;
 }
 

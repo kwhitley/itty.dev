@@ -1,67 +1,95 @@
 # itty-time
 
-## What is it?
-This tiny utility library simplifies TTL math and date calculations (typically for... TTL math).  Ever find yourself adding things like this to your API code?
+[![Version](https://img.shields.io/npm/v/itty-time.svg?style=flat-square)](https://npmjs.com/package/itty-time)
+[![Bundle Size](http://itty.ing/https://deno.bundlejs.com/?q=itty-time&badge&badge-style=flat-square)](http://itty.ing/https://deno.bundlejs.com/?q=itty-time)
+[![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-time/v5.x?style=flat-square)](https://coveralls.io/github/kwhitley/itty-time?branch=v5.x)
+[![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-time?style=flat-square)](https://npmjs.com/package/itty-time)
+[![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
-```js
-60 * 24 * 30 * 6 // expire in 6 months
+Ultra-small (~450 bytes) library for simplifying date math and TTLs.
+
+---
+
+## Features
+
+- Tiny. The entire library is ~450 bytes, or take only what you need.
+- Use plain text strings to describe durations.
+- Get future dates and TTLs.
+- Get human-readable string durations from numeric (ms) durations.
+- Fully Typed/TypeScript support.
+- [100% Test Coverage](https://coveralls.io/github/kwhitley/itty-time?branch=v1.x). Bulletproof for production peace-of-mind.
+
+## toSeconds/toMs
+<h4>
+  <code>toSeconds(duration: string) => number</code><br />
+  <code>toMs(duration: string) => number</code><br />
+</h4>
+
+TTL math is a maintenance nightmare. It's a pain to write, a pain to read, and when you update the math later, you'll probably forget to update the comment, causing all sorts of mayhem.
+
+```ts
+const TTL = 2 * 7 * 24 * 60 * 60 * 1000 // 2 weeks, right?
 ```
 
-Yeah?  We do too.
+Here's a better way.
 
-Now you don't have to.  This library has only two primary tasks:
+```ts
+import { toMs, toSeconds } from 'itty-time'
 
-### 1. Getting the number of seconds from a human-readable string duration:
-This is useful when creating max-age headers, TTL for cache-expirations, etc.  We literally use this all the time.
-```js
-getSeconds('1 day, 4 hours, and 36 minutes') // 102960
+// to seconds
+toSeconds('2 weeks')
+
+// to milliseconds
+toMs('2 weeks')
+
+// handles elaborate inputs :)
+toMs('3 days, 2.5 hours, and 1 minute')
 ```
 
-### 2. Adding durations to dates:
-Sometimes you need the actual expiration date, not just the TTL (seconds).  This function does that thing.
-```js
-datePlus('2 months') // 2022-12-23T00:11:58.534Z
+## toDuration
+<h4>
+  <code>toDuration(ms: number) => string</code>
+</h4>
+
+Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?  
+
+You could build it yourself, or import the fantastic [humanize-duration](https://www.npmjs.com/package/humanize-duration) library that inspired this, but at 6.3kB<sup>1</sup>, it's 20x the size of this function (300 bytes).
+
+<sup>1: of course [humanize-duration](https://www.npmjs.com/package/humanize-duration) can also do much, much more.</sup>
+
+```ts
+import { toDuration } from 'itty-time'
+
+// string durations
+toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000)
+// "1 hour, 2 minutes, 30 seconds"
+
+// limit number of segments
+toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { parts: 2 })
+// "1 hour, 2 minutes"
+
+// change the delimiter
+toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: '|' })
+// "1 hour|2 minutes|30 seconds"
+
+// or get the raw components
+toDuration(1 * 60 * 60 * 1000 + 2.5 * 60 * 1000, { join: false })
+// [['hour', 1],['minutes', 2],['seconds', 30]]
 ```
 
-#### ...or other dates
-```js
-datePlus('2 months', datePlus('5 months'))
-```
+## datePlus
+<h4>
+  <code>datePlus(duration: string, from = new Date) => Date</code>
+</h4>
 
-#### Ok, we lied... it has one more use: 
-### 3. Dividing durations!
-This has limited use, we admit - but sometimes you need to create time batches, or figure out how many X in a Y.  The cool thing is, each duration is parsed to the second, allowing complicated durations to be divided by complicated durations. Well, *we* think it's cool anyway!
+Sometimes you need a TTL for some point in the future, but sometimes you need the actual date.  You could convert it all yourself... or use this.
 
 ```js
-divide('1 day').by('3 hours') // 8
-```
+import { datePlus } from 'itty-time'
 
-## Example
-```js
-import { getSeconds, divide, datePlus } from 'itty-time'
+// from right now
+datePlus('2 months, 1 week') // 2024-12-23T00:11:58.534Z
 
-// Easily get TTL in seconds
-getSeconds('3 hours') // 10800
-
-// Complicated bits?  No problem.  (Oxford comma optional)
-getSeconds('1 day, 4 hours, and 36 minutes') // 102960
-
-// Need an expiration date?
-datePlus('5 seconds') // 2022-10-22T23:10:11.824Z
-datePlus('1 minutes') // 2022-10-22T23:11:06.824Z
-datePlus('2 months') // 2022-12-23T00:11:58.534Z
-datePlus('4 years') // 2026-10-22T23:11:58.534Z
-
-// Add time to other dates
-datePlus('4 years', datePlus('2 years')) // 2028-10-22T23:11:58.534Z
-
-// Want to find out how many X are in Y?
-divide('1 week').by('days') // 7
-divide('2 minutes').by('seconds') // 120
-divide('3 days').by('hours') // 72
-divide('1 day').by('3 hours') // 8
-divide('1 week').by('seconds') // 604800
-divide('24 hours').by('minutes') // 1440
-divide('3 days').by('hours') // 72
-divide('1 day, 30 minutes').by('hours') // 24.5
+// or from a different date
+datePlus('2 months', datePlus('1 week')) // 2024-12-23T00:11:58.534Z
 ```
