@@ -16,16 +16,6 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-time',
-    link: `${BASE}/itty-time/`,
-    // collapsed: true,
-    items: [
-      {
-        text: `Ultra-small (~460 bytes) library for simplifying date math and TTLs.`
-      },
-    ],
-  },
-  {
     text: 'itty-fetcher',
     link: `${BASE}/itty-fetcher/`,
     // collapsed: true,
@@ -42,6 +32,16 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     items: [
       {
         text: `Allows you to create (and use) the incredibly-powerful Cloudflare Durable Objects in only a few lines of code.`
+      },
+    ],
+  },
+  {
+    text: 'itty-time',
+    link: `${BASE}/itty-time/`,
+    // collapsed: true,
+    items: [
+      {
+        text: `Ultra-small (~450 bytes) library for simplifying date math and TTLs.`
       },
     ],
   },
