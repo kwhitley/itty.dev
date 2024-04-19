@@ -18,7 +18,7 @@ Ultra-small (~390 bytes) library for TTL date math and converting ms durations t
 ## Comparison to other top-rated libraries
 | library | string to ms | ms to string | date math | size<sup>1</sup>
 | --- | :-: | :-: | :-: | :-: |
-| [itty-time](https://www.npmjs.com/package/itty-time)<sup>3</sup> | ✅ | ✅ | ✅ | 386b |
+| [itty-time](https://www.npmjs.com/package/itty-time) | ✅ | ✅ | ✅ | 386b |
 | [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms) | ✅ | ✅ | ❌ | 435b |
 | [ms](https://www.npmjs.com/package/ms) | ✅ | ❌ | ❌ | 938b |
 | [pretty-ms](https://www.npmjs.com/package/pretty-ms) | ❌ | ✅ | ❌ | 1.04kB |
