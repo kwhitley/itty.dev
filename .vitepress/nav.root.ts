@@ -41,7 +41,7 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     // collapsed: true,
     items: [
       {
-        text: `Ultra-small (~450 bytes) library for simplifying date math and TTLs.`
+        text: `Ultra-small (~420 bytes) library for date math and converting durations to and from strings.`
       },
     ],
   },
