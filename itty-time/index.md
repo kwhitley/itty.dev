@@ -26,6 +26,16 @@ Ultra-small (~390 bytes) library for TTL date math and converting ms durations t
 
 <sup>1: minified and gzipped</sup> &nbsp;
 
+## Performance
+
+The only function most folks care about in terms of raw performance is string to ms conversion.  In this, itty stacks up pretty well, being significantly faster than [ms](https://www.npmjs.com/package/ms), but falling to the insanely-optimized [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms).  
+
+![image](https://github.com/kwhitley/itty-time/assets/865416/b8d41be9-13fc-4ee0-af74-7f2484cf2191)
+
+Moral of the story, probably don't use [ms](https://www.npmjs.com/package/ms).  
+
+Use Luke's if you want the absolute fastest parsing, or itty if you want some of the other functions as well.  If you're byte-counting, itty wins again, but if you're byte-counting that hard, you're probably better off with raw ms math if you can stomach it.
+
 ---
 
 ## seconds/ms
