@@ -6,27 +6,25 @@
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-time?style=flat-square)](https://npmjs.com/package/itty-time)
 [![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 
-Ultra-small (~400 bytes) library for TTL date math and converting ms durations to and from strings.
+Ultra-small (~390 bytes) library for TTL date math and converting ms durations to and from strings.
 
 ## Features
 
-- Tiny. The entire library is ~400 bytes, or take only what you need.
+- Tiny. The entire library is ~390 bytes, or take only what you need.
 - Convert string durations to ms/seconds.
 - Convert ms to human-readable string durations.
 - Add durations to dates.
 
 ## Comparison to other top-rated libraries
-| library | string to ms | ms to string | date math | size<sup>1</sup> | relative size<sup>2</sup> | 
-| --- | :-: | :-: | :-: | :-: | :-: |
-| [itty-time](https://www.npmjs.com/package/itty-time)<sup>3</sup> | ✅ | ✅ | ✅ | 395b | **1x** |
-| [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms) | ✅ | ✅ | ❌ | 435b | 1.1x |
-| [ms](https://www.npmjs.com/package/ms) | ✅ | ❌ | ❌ | 938b | 2.4x |
-| [pretty-ms](https://www.npmjs.com/package/pretty-ms) | ❌ | ✅ | ❌ | 1.04kB | 2.7x |
-| [humanize-duration](https://www.npmjs.com/package/humanize-duration) | ❌ | ✅ | ❌ | 6.74kB | 17.5x |
+| library | string to ms | ms to string | date math | size<sup>1</sup>
+| --- | :-: | :-: | :-: | :-: |
+| [itty-time](https://www.npmjs.com/package/itty-time)<sup>3</sup> | ✅ | ✅ | ✅ | 386b |
+| [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms) | ✅ | ✅ | ❌ | 435b |
+| [ms](https://www.npmjs.com/package/ms) | ✅ | ❌ | ❌ | 938b |
+| [pretty-ms](https://www.npmjs.com/package/pretty-ms) | ❌ | ✅ | ❌ | 1.04kB |
+| [humanize-duration](https://www.npmjs.com/package/humanize-duration) | ❌ | ✅ | ❌ | 6.74kB |
 
 <sup>1: minified and gzipped</sup> &nbsp;
-<sup>2: smaller is better</sup> &nbsp;
-<sup>3: we're including the entire library</sup> &nbsp;
 
 ---
 
