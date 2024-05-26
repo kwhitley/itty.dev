@@ -6,7 +6,7 @@ Technically, any function within itty-router can be considered middlware, and yo
 These follow a few simple rules:
 
 1. All route handlers are equal in itty.
-1. A handler becomes "middleware" simply by being upstream of subsequent handlers/routes and *not returning* (or returning undefined).
+1. A handler becomes "middleware" simply by being upstream of subsequent handlers/routes and *not returning* (or returning `undefined` or `null`).
 1. The return of each of each handler is "awaited", allowing any handler to use sync/async syntax.
 1. You may pass any number of handlers to a given route.
 
@@ -73,7 +73,7 @@ import { getUser } from './user-validation'
 const withAuthenticatedUser = (request) => {
   const token = request.headers.get('Authorization')
   const user = getUser(token)
-  
+
   // by returning early here, we cut off all future handlers
   if (!user) return error(401, 'Invalid user.')
 

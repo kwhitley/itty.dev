@@ -12,7 +12,7 @@ On top of that, the following concepts aim to keep *YOUR* code tiny (and readabl
 
 ## We have simpler handlers.
 
-There's no `(request, response, next)` here.  The *only* thing universal to every handler/middleware is a single `request` argument.  
+There's no `(request, response, next)` here.  The *only* thing universal to every handler/middleware is a single `request` argument.
 
 The rest is whatever you pass in to `router.fetch(request, ...args)`.  We'll get to that later.
 
@@ -34,7 +34,7 @@ Which leads us to...
 
 ## The first thing returned is your response.
 
-The first time *any handler* returns *anything at all* (other than undefined), that is the response value to your `router.fetch()` call, and all matching and handler-execution ends.
+The first time *any handler* returns *anything at all* (other than `undefined` or `null`), that is the response value to your `router.fetch()` call, and all matching and handler-execution ends.
 
 This can be anything at all (we intentionally don't enforce types on this).
 
@@ -104,8 +104,8 @@ const response = await router.fetch(request)
 
 Itty is, at its core, a linear flow that **you** control 100%. There's no magic here.
 
-- Want routes to connect before other routes?  List them first.  
-- Want to speed things up?  [Nest your routing](/itty-router/nesting).  
+- Want routes to connect before other routes?  List them first.
+- Want to speed things up?  [Nest your routing](/itty-router/nesting).
 - Want more things available to your handlers? Send them to `.fetch()`.
 - Want to return something other than a `Response`?  Go for it.
 - Want to break out of deep code?  Throw a [`StatusError`](/itty-router/api#statuserror).
