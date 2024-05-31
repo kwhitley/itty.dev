@@ -14,9 +14,13 @@ The following example shows a simple nested router:
 import { AutoRouter } from 'itty-router'
 import { router as childRouter } from './api/v1'
 
-export default AutoRouter()
+const router = AutoRouter()
+  
+router
   .all('/child/*', childRouter.fetch) // register child router
   .get('/', () => 'Hello from the parent!')
+
+export default router
 ```
 
 #### Child Router:
@@ -24,8 +28,9 @@ export default AutoRouter()
 import { AutoRouter } from 'itty-router'
 
 // NOTE: this base must include the *complete* base path
-export default AutoRouter({ base: '/child' })
-  .get('/', () => 'Hello from the child!')
+export const router = AutoRouter({ base: '/child' })
+
+router.get('/', () => 'Hello from the child!')
 ```
 
 ## Things to consider
