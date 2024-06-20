@@ -1,4 +1,5 @@
-# API Reference
+### Legacy Docs
+# API Reference v4
 
 ## AutoRouter <Badge type="warning" text="v5" />
 
@@ -15,7 +16,7 @@ A batteries-included version of [`Router`](/itty-router/routers/router), with in
 | <span class="nowrap">**finally** <Badge type="warning" text="v5" /></span> | `ResponseHandler[]` | `[]` | An array of response handlers to execute on any response after route-matching is complete
 | <span class="nowrap">**format** <Badge type="warning" text="v5" /></span> | `Response Handler` | `json` | The default formatter for unformatted responses.  This may be replaced (e.g. with `text`) or set to a no-op `() => {}` to avoid formatting altogether.
 | <span class="nowrap">**missing** <Badge type="warning" text="v5" /></span> | `RouteHandler` | `() => error(404)` | The default 404 message.  To prevent a 404, enter a no-op `() => {}`.
-| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | `[]` | Array of manual routes for preloading 
+| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | `[]` | Array of manual routes for preloading
 | **...other** <Badge type="warning" text="v4.1+" /> | `any` | | Any other object attributes that don't conflict with methods will be embedded in the final Router object.  This is useful for attaching additional information to the router for exporting.  For example: `Router({ port: 3001 })` could be used to control the port in a Bun setup.
 
 ### Example
@@ -33,7 +34,7 @@ export default router
 
 ---
 
-## createCors 
+## createCors
 Creates a `preflight` middleware and `corsify` Response-handler.  Used together, this handles both OPTIONS requests as well as appends the appropriate CORS headers to created Responses.
 
 ### `createCors(options)`
@@ -67,7 +68,7 @@ export default {
 
 ---
 
-## createResponse 
+## createResponse
 Creates a response helper from a MIME-type (string), and optionally, a body-transform (function).
 
 ### `createResponse(mimeType: string, transform?: Function): ResponseHelper`
@@ -84,7 +85,7 @@ json({ foo: 'bar' }) // creates JSON-formatted Response
 
 ---
 
-## error 
+## error
 Returns an error Response
 
 ### `error(code: number, body?: string | object): Response`
@@ -97,7 +98,7 @@ Returns an HTML Response
 
 ### `html(string, options?: ResponseInit): Response`
 
---- 
+---
 
 ## IttyRouter <Badge type="warning" text="v5" />
 
@@ -107,7 +108,7 @@ Returns an HTML Response
 | Name | Type(s) | Description
 | --- | --- | ---
 | **base** | `string` | Prefixes all routes with this string. For example, `Router({ base: '/docs' })` would prefix all route matches with `/docs`.
-| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | Array of manual routes for preloading 
+| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | Array of manual routes for preloading
 | **...other** | `any` | Any other object attributes that don't conflict with methods will be embedded in the final Router object.  This is useful for attaching additional information to the router for exporting.  For example: `Router({ port: 3001 })` could be used to control the port in a Bun setup.
 
 ---
@@ -119,12 +120,12 @@ Returns a JPEG Response
 
 ---
 
-## json 
+## json
 Returns a JSON Response
 
 ### `json(data, options?: ResponseInit): Response`
 
---- 
+---
 
 ## png <Badge type="warning" text="v4.0+" />
 Returns a PNG Response
@@ -145,7 +146,7 @@ The basic `Router` factory function.
 | <span class="nowrap">**before** <Badge type="warning" text="v5" /></span> | `RouteHandler[]` | `[]` | An array of route handlers/middleware to execute on requests before any route-matching
 | <span class="nowrap">**catch** <Badge type="warning" text="v5" /></span> | `ErrorHandler` | | A single error handler to catch any thrown error.  This may be used to return a Response, log errors, etc. If thrown during the `before` stage or route-matching, the `finally` stage will still be applied after this catch. Conversely, if an error is thrown *during* the `finally` stage, this will still fire, but none of the `finally` stage handlers will be applied to it.
 | <span class="nowrap">**finally** <Badge type="warning" text="v5" /></span> | `ResponseHandler[]` | `[]` | An array of response handlers to execute on any response after route-matching is complete
-| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | `[]` | Array of manual routes for preloading 
+| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | `RouteEntry[]` | `[]` | Array of manual routes for preloading
 | **...other** <Badge type="warning" text="v4.1+" /> | `any` | | Any other object attributes that don't conflict with methods will be embedded in the final Router object.  This is useful for attaching additional information to the router for exporting.  For example: `Router({ port: 3001 })` could be used to control the port in a Bun setup.
 
 ### Example
@@ -173,7 +174,7 @@ The router itself has essentially two properties:
 - ### The route registers
   ### `router[method: string](route: string, ...handlers): Router`
   Any other property accessed off the router object maps to the corresponding uppercase HTTP method (even non-standard ones), returning a function that takes a path (string) and any number of handlers/middleware, and returns the router again (for optional declaration chaining).
-  
+
   The one notable exception to this is the `.all()` channel, which matches to *any* HTTP method (similar to `.use()` in many other routers).
 
   ```js
@@ -185,26 +186,26 @@ The router itself has essentially two properties:
 
   router
     // this route will match *any* HTTP method, e.g. POST, PUT, GET
-    .all('/foo', 
+    .all('/foo',
       ({ method }) => `Accessed via the ${method} HTTP method`
     )
 
     // GET todos list or single todo
-    .get('/todos/:id?', withParams, 
+    .get('/todos/:id?', withParams,
       ({ id }) => id
                   ? (todos.getTodo(id) || error(404))
                   : todos.list()
     )
 
     // DELETE todo
-    .delete('/todos/:id', withParams, 
+    .delete('/todos/:id', withParams,
       ({ id }) => todos.remove(id)
     )
   ```
 
 ---
 
-## status 
+## status
 Returns a no-body response code.
 
 ### `status(code: number, options?: ResponseInit): Response`
@@ -215,7 +216,7 @@ return status(204) // returns a 204, without a body
 
 ---
 
-## StatusError 
+## StatusError
 Extends `Error`, adding an HTTP status code to the constructor.  Throwing this is identical to a standard Error, but allows downstream handlers to add context to the error Response.
 
 ### `StatusError(statusCode: number, message?: string): StatusError`
@@ -226,7 +227,7 @@ throw new StatusError(400, 'Incorrect number of parameters')
 
 ---
 
-## text 
+## text
 Returns a text Response
 
 ### `text(data, options?: ResponseInit): Response`
@@ -241,7 +242,7 @@ Returns a webp Response
 ---
 
 ## withContent <Badge type="info" text="middleware" /> <Badge type="warning" text="updated in v4.2" />
-If a request body is attached, this middleware attempts to parse it, embedding the results within the Request as `request.content`. 
+If a request body is attached, this middleware attempts to parse it, embedding the results within the Request as `request.content`.
 
 <p class="new">
   v4.2 -changes - withContent now attempts several parsing passes.  The order of attempted parsing is JSON -> FormData -> text (fallback).  Thus if sending JSON (and well-formed), request.content will be parsed as JSON, if sending FormData, request.content will be parsed as FormData, etc.
@@ -257,7 +258,7 @@ import { Router, withContent } from 'itty-router'
 const router = Router()
 
 router
-  .post('/foo', withContent, 
+  .post('/foo', withContent,
     ({ content }) => `Your bar is a ${content.bar}.`
   )
 
@@ -278,7 +279,7 @@ import { Router, error, withCookies } from 'itty-router'
 const router = Router()
 
 router
-  .get('/foo', withCookies, 
+  .get('/foo', withCookies,
     ({ cookies }) => {
       if (!cookies.Authorization) {
         return error(401)
@@ -303,7 +304,7 @@ const router = Router()
 router
   // accessing params from request.params
   .get('/:id', ({ params }) => `Your id is ${params.id}`
-  
+
   // access params directly from the request
   .get('/:id', withParams, ({ id }) => `Your id is ${id}`)
 ```
