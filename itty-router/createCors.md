@@ -32,7 +32,7 @@ While you *can* wrap any specific Response with the `corsify` function, we recom
 ```ts [AutoRouter]
 import { AutoRouter, createCors } from 'itty-router'
 
-const { preflight, corsify } = createCors()
+const { preflight, corsify } = cors()
 
 const router = AutoRouter({
   before: [preflight],
@@ -45,7 +45,7 @@ const response = await router.fetch(request) // JSON and CORS-enabled
 ```ts [Router]
 import { Router, createCors, error, json } from 'itty-router'
 
-const { preflight, corsify } = createCors()
+const { preflight, corsify } = cors()
 
 const router = Router({
   before: [preflight],
@@ -59,7 +59,7 @@ const response = await router.fetch(request) // JSON and CORS-enabled
 ```ts [IttyRouter (manual)]
 import { IttyRouter, createCors, error, json } from 'itty-router'
 
-const { preflight, corsify } = createCors()
+const { preflight, corsify } = cors()
 
 const router = IttyRouter()
 
