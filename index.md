@@ -11,10 +11,10 @@ hero:
     alt: itty.dev
   actions:
     - theme: alt
-      text: Explore the Docs
+      text: Explore the libraries
       link: /docs
     - theme: brand
-      text: Get Started
+      text: or jump stright to Itty Router
       link: /itty-router/getting-started
 
 # features:

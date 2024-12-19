@@ -1,21 +1,24 @@
 # welcome to <span class="accent">itty</span>.dev
 
-In serverless API design, bytes matter.
-Simply put, the less JS you load, the faster your responses are.
+###  Bytes matter.
+
+> If you give me less code, I'll be faster. 
+<cite>your serverless environment</cite>
+<cite>your browser client code</cite>
+<cite>your CICD pipeline</cite>
+<cite>your builds</cite>
 
 
-<!-- <section class="hero">
-  low size = high speed
-</section> -->
+The internet is fast, sure, but every line of code (yours or included packages) truly adds up.  You feel it when writing, when waiting on your pipelines to build.  Your users feel it when they load the request/page.
 
+Each itty library aims to simplify *your* code, while being *extremely* byte-optimized for final delivery. They simplify boilerplate or complex code to help keep your own code human-readable, ideally in fewer bytes than you'd spend writing the code yourself.
 
-<!-- > Itty libraries do powerful things, using fewer bytes. <cite>probably someone</cite> -->
-> If you give me less code, I'll respond faster. <cite>your serverless environment</cite>
-
-Each itty package is carefully crafted for the perfect balance of power, control, and minimal byte count.
-
-We don't try to solve *ALL* the problems - we just target the major ones... at a low cost to filesize.
-
-When size matters, come see us. <3
-
-### [Get Started Here](/itty-router/)
+<style>
+  cite {
+    margin-top: 1em;
+  }
+  
+  cite + cite {
+    margin-top: -0.5em;
+  }
+</style>
