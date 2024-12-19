@@ -321,6 +321,20 @@ h1 .VPBadge:not(#foo) {
   margin-top: 1.8em;
 }
 
+.VPSidebarItem .VPBadge {
+  letter-spacing: 0;
+  font-size: 0.6em;
+}
+
+.VPBadge.new {
+  color: var(--vp-badge-warning-text);
+  background-color: var(--vp-badge-warning-bg);
+}
+
+.VPSidebarItem.level-0.is-active .VPBadge {
+  color: var(--vp-badge-warning-text) !important;
+}
+
 // .VPBadge > p:first-child {
 //   margin-top: 0.5em;
 // }
@@ -369,6 +383,8 @@ h1 .VPBadge:not(#foo) {
     content: 'references: ';
   }
 }
+
+
 
 h1 > u {
   display: none;

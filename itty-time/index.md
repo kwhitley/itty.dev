@@ -1,8 +1,8 @@
 # itty-time
 
 [![Version](https://img.shields.io/npm/v/itty-time.svg?style=flat-square)](https://npmjs.com/package/itty-time)
-[![Bundle Size](http://itty.ing/https://deno.bundlejs.com/?q=itty-time&badge&badge-style=flat-square)](http://itty.ing/https://deno.bundlejs.com/?q=itty-time)
-[![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-time/v5.x?style=flat-square)](https://coveralls.io/github/kwhitley/itty-time?branch=v5.x)
+[![Bundle Size](https://deno.bundlejs.com/?q=itty-time&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-time)
+[![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-time/v1.x?style=flat-square)](https://coveralls.io/github/kwhitley/itty-time?branch=v1.x)
 [![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-time?style=flat-square)](https://npmjs.com/package/itty-time)
 [![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
 

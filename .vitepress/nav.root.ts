@@ -8,11 +8,20 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     text: 'Welcome to itty.dev.  Below are the currently-support itty libraries.'
   },
   {
-    text: 'itty-router <span class="VPBadge danger">updated to v5.x</span>',
+    text: 'itty-router',
     link: `${BASE}/itty-router/`,
     // collapsed: false,
     items: [
       sidebarIttyRouter[1].items[0]
+    ],
+  },
+  {
+    text: 'itty-chroma <span class="VPBadge new">new library</span>',
+    link: `${BASE}/itty-chroma/`,
+    items: [
+      {
+        text: `Powerful styling for the browser console in under 500 bytes.`
+      },
     ],
   },
   {
