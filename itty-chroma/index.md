@@ -144,6 +144,14 @@ warning('But this is a more serious warning text...')
 ```
 ![image](https://github.com/user-attachments/assets/58cdbcbb-51c3-4b67-8fe8-323bf3a094cd)
 
+## Play With It!
+
+For your convenience, `chroma` is available within [itty.dev](https://itty.dev) on the global `window` object.  This means you can play with it here, before you install it in your project!
+
+1. Open the browser console/DevTools.
+2. Type `chroma.magenta.log('hello')`
+3. See the result!
+
 <br />
 
 ## API / Supported Properties
