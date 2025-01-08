@@ -29,10 +29,10 @@ chroma.log(
 
 ## Features
 
-- Tiny. It's an itty library, after all.
 - Made specifically for the browser console.
 - Loads of styling options, with infinite combinations.
 - Simple and powerful API, designed for ease & readability.
+- Tiny. It's an itty library, after all.
 
 ## How it Works
 
