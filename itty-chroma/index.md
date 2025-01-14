@@ -117,7 +117,7 @@ chroma
 chroma.log(
   chroma.red('this will be red'),
   '...but so will this',
-  chroma.clear,
+  chroma.none,
   'back to unformatted text'
 )
 ```
