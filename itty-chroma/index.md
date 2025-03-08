@@ -29,10 +29,10 @@ chroma.log(
 
 ## Features
 
-- Tiny. It's an itty library, after all.
 - Made specifically for the browser console.
 - Loads of styling options, with infinite combinations.
 - Simple and powerful API, designed for ease & readability.
+- Tiny. It's an itty library, after all.
 
 ## How it Works
 
@@ -117,7 +117,7 @@ chroma
 chroma.log(
   chroma.red('this will be red'),
   '...but so will this',
-  chroma.clear,
+  chroma.none,
   'back to unformatted text'
 )
 ```
@@ -143,6 +143,14 @@ info('This is just a helpful bit of info!')
 warning('But this is a more serious warning text...')
 ```
 ![image](https://github.com/user-attachments/assets/58cdbcbb-51c3-4b67-8fe8-323bf3a094cd)
+
+## Play With It!
+
+For your convenience, `chroma` is available within [itty.dev](https://itty.dev) on the global `window` object.  This means you can play with it here, before you install it in your project!
+
+1. Open the browser console/DevTools.
+2. Type `chroma.magenta.log('hello')`
+3. See the result!
 
 <br />
 

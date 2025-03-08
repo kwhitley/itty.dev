@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "<em>itty</em>.dev"
   text: "mighty [tiny] libraries"
-  tagline: <span>We count <em>our</em> bytes to <span class="accent">keep</span> <span class="accent"><em>your</em> code small.</span><span>
+  tagline: <span>We count our bytes to <span class="accent">keep your code small.</span><span>
   image:
     src: /itty-square.256.png
     alt: itty.dev
@@ -14,7 +14,7 @@ hero:
       text: Explore the libraries
       link: /docs
     - theme: brand
-      text: or jump stright to Itty Router
+      text: or jump straight to Itty Router
       link: /itty-router/getting-started
 
 # features:

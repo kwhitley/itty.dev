@@ -43,6 +43,8 @@ export default defineConfig({
       '/itty-router/': sidebarIttyRouter,
     },
   },
-  head: [['link', { rel: 'icon', href: '/itty-square.256.png' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/itty-square.256.png' }],
+  ],
   titleTemplate: ':title - itty.dev',
 })
