@@ -12,3 +12,5 @@ router.get('/', () => 'Success!')
 
 export default router // see note below
 ```
+
+It's also possible to [setup proper types for the Worker environment and execution context](/itty-router/typescript/additional-arguments#typed-example-assumes-cloudflare-workers).
