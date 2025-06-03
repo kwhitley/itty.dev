@@ -7,7 +7,7 @@ to the latest batteries-included [`AutoRouter`](/itty-router/routers/autorouter)
 
 | Feature or Option | [**`IttyRouter`**](/itty-router/routers/ittyrouter) | [**`Router`**](/itty-router/routers/router) | [**`AutoRouter`**](/itty-router/routers/autorouter)
 | ---:|:---:|:---:|:---:
-| **Latest Size** | [![~450 bytes](https://deno.bundlejs.com/?q=itty-router/IttyRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/IttyRouter) |[![~530 bytes](https://itty.ing/https://deno.bundlejs.com/?q=itty-router/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/Router) | [![~970 bytes](https://deno.bundlejs.com/?q=itty-router/AutoRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/AutoRouter) |
+| **Latest Size** | [![~450 bytes](https://deno.bundlejs.com/?q=itty-router/IttyRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/IttyRouter) |[![~530 bytes](https://deno.bundlejs.com/?q=itty-router/Router&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/Router) | [![~970 bytes](https://deno.bundlejs.com/?q=itty-router/AutoRouter&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-router/AutoRouter) |
 | **[Relative Speed](/itty-router/performance/speed#ultra-tuning)** | 🚀🚀🚀 | 🚀🚀 | 🚀🚀 |
 | **`base` & nesting** | ✅ | ✅ | ✅ |
 | **object passthrough** | ✅ | ✅ | ✅ |
