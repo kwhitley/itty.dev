@@ -26,6 +26,7 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/kwhitley/itty.dev' },
       { icon: 'discord', link: 'https://discord.gg/MQcpj9SA4G' },
+      { icon: 'bluesky', link: 'https://bsky.app/profile/itty.dev' },
       { icon: 'x', link: 'https://twitter.com/ittydev' },
     ],
     editLink: {

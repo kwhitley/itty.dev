@@ -11,7 +11,7 @@
   "type": "module",
   "devDependencies": {
     "sass": "^1.72.0",
-    "vitepress": "^1.0.0-rc.42",
+    "vitepress": "^1.6.3",
     "yarn-release": "^1.10.6"
   },
   "dependencies": {
