@@ -1,5 +1,12 @@
 # itty-fetcher
 
+[![GitHub](https://img.shields.io/badge/GitHub-%23555.svg?style=flat-square&logo=github&logoColor=#fff)](https://github.com/kwhitley/itty-fetcher)
+[![Version](https://img.shields.io/npm/v/itty-fetcher.svg?style=flat-square)](https://npmjs.com/package/itty-fetcher)
+[![Bundle Size](https://deno.bundlejs.com/?q=itty-fetcher&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-fetcher)
+[![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-fetcher/v5.x?style=flat-square)](https://coveralls.io/github/kwhitley/itty-fetcher?branch=v1.x)
+[![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-fetcher?style=flat-square)](https://npmjs.com/package/itty-fetcher)
+[![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
+
 **An ultra-tiny native fetch wrapper to clean up your API calls.**
 
 **~650 bytes** of pure magic to transform your fetch calls from verbose boilerplate into clean, readable API calls.
@@ -69,7 +76,7 @@ Like any [itty.dev](https://itty.dev) project, this is not a kitchen-sink librar
 
 **✅ Perfect for:**
 - Removing boilerplate from fetch calls
-- Projects using native fetch today  
+- Projects using native fetch today
 - Composable API clients
 - Simple use-cases where size matters
 

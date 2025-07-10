@@ -1,5 +1,6 @@
 # itty-chroma
 
+[![GitHub](https://img.shields.io/badge/GitHub-%23555.svg?style=flat-square&logo=github&logoColor=#fff)](https://github.com/kwhitley/itty-chroma)
 [![Version](https://img.shields.io/npm/v/itty-chroma.svg?style=flat-square)](https://npmjs.com/package/itty-chroma)
 [![Bundle Size](https://deno.bundlejs.com/?q=itty-chroma&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-chroma)
 [![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-chroma?style=flat-square)](https://coveralls.io/github/kwhitley/itty-chroma)
@@ -61,7 +62,7 @@ chroma.bold.red.log('This will be red.')
 ### 3. Or compose using chroma segments
 ```ts
 chroma.log(
-  chroma.bold.green, 
+  chroma.bold.green,
   'This will be green.'
 )
 ```
@@ -126,8 +127,8 @@ chroma.log(
 ### 8. Example: Creating custom log functions
 ```ts
 // we define a curried function to accept some args now, some later
-const createLogger = (type = 'log', label, badge = 'grey', text = 'grey') => 
-  (...args) => 
+const createLogger = (type = 'log', label, badge = 'grey', text = 'grey') =>
+  (...args) =>
     chroma[type](
       chroma.bg(badge).white.bold.padding('2px 5px 1px').radius('0.2rem')(label),
       chroma.color(text).italic,

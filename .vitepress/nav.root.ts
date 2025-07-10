@@ -16,15 +16,6 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-chroma',
-    link: `${BASE}/itty-chroma/`,
-    items: [
-      {
-        text: `Powerful styling for the browser console in under 500 bytes.`
-      },
-    ],
-  },
-  {
     text: 'itty-fetcher <span class="VPBadge new">new v1.x</span>',
     link: `${BASE}/itty-fetcher/`,
     // collapsed: true,
@@ -35,12 +26,11 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-durable',
-    link: `${BASE}/itty-durable/`,
-    // collapsed: true,
+    text: 'itty-chroma',
+    link: `${BASE}/itty-chroma/`,
     items: [
       {
-        text: `Allows you to create (and use) the incredibly-powerful Cloudflare Durable Objects in only a few lines of code.`
+        text: `Powerful styling for the browser console in under 500 bytes.`
       },
     ],
   },
@@ -51,6 +41,16 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     items: [
       {
         text: `Ultra-small (~390 bytes) library for TTL date math and converting ms durations to and from strings.`
+      },
+    ],
+  },
+  {
+    text: 'itty-durable',
+    link: `${BASE}/itty-durable/`,
+    // collapsed: true,
+    items: [
+      {
+        text: `Allows you to create (and use) the incredibly-powerful Cloudflare Durable Objects in only a few lines of code.`
       },
     ],
   },

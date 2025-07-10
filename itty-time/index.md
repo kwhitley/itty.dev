@@ -1,5 +1,6 @@
 # itty-time
 
+[![GitHub](https://img.shields.io/badge/GitHub-%23555.svg?style=flat-square&logo=github&logoColor=#fff)](https://github.com/kwhitley/itty-time)
 [![Version](https://img.shields.io/npm/v/itty-time.svg?style=flat-square)](https://npmjs.com/package/itty-time)
 [![Bundle Size](https://deno.bundlejs.com/?q=itty-time&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-time)
 [![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-time/v1.x?style=flat-square)](https://coveralls.io/github/kwhitley/itty-time?branch=v1.x)
@@ -28,11 +29,11 @@ Ultra-small (~390 bytes) library for TTL date math and converting ms durations t
 
 ## Performance
 
-The only function most folks care about in terms of raw performance is string to ms conversion.  In this, itty stacks up pretty well, being significantly faster than [ms](https://www.npmjs.com/package/ms), but falling to the insanely-optimized [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms).  
+The only function most folks care about in terms of raw performance is string to ms conversion.  In this, itty stacks up pretty well, being significantly faster than [ms](https://www.npmjs.com/package/ms), but falling to the insanely-optimized [@lukeed/ms](https://www.npmjs.com/package/@lukeed/ms).
 
 ![image](https://github.com/kwhitley/itty-time/assets/865416/71170005-7962-4bc8-9a66-f4ad5713e545)
 
-Moral of the story, probably don't use [ms](https://www.npmjs.com/package/ms).  
+Moral of the story, probably don't use [ms](https://www.npmjs.com/package/ms).
 
 Use Luke's if you want the absolute fastest parsing, or itty if you want some of the other functions as well.  If you're byte-counting, itty wins again, but if you're byte-counting that hard, you're probably better off with raw ms math if you can stomach it.
 
@@ -67,7 +68,7 @@ ms('2 weeks') // 1209600000
   <code>duration(ms: number) => string</code>
 </h4>
 
-Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?  
+Of course, we sometimes need to go the other direction.  Want to tell a user how long ago something happened?  How much time they have left?
 
 You could build it yourself, or import the fantastic [humanize-duration](https://www.npmjs.com/package/humanize-duration) library that inspired this, but at 6.3kB<sup>1</sup>, it's over 20x the size of this 280 byte function.
 
