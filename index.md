@@ -57,14 +57,15 @@ export default router
 ```ts [Browser, Node, Bun, Workers]
 import { fetcher } from 'itty-fetcher' // ~650 bytes
 
-// Create a reusable API client
+// Make simple calls...
+fetcher().get('https://ittysockets.io/stats').then(console.log) // the actual parsed data
+
+// or create a reusable API client
 const api = fetcher('https://api.example.com', {
   headers: { 'Authorization': 'Bearer token' }
 })
 
-// Clean, readable API calls
+// and use it later
 const users = await api.get('/users')
 const newUser = await api.post('/users', { name: 'Alice' })
-
-// Automatic JSON parsing, error throwing, and more!
 ```
