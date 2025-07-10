@@ -16,7 +16,7 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-chroma <span class="VPBadge new">new library</span>',
+    text: 'itty-chroma',
     link: `${BASE}/itty-chroma/`,
     items: [
       {
@@ -25,12 +25,12 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-fetcher',
+    text: 'itty-fetcher <span class="VPBadge new">new v1.x</span>',
     link: `${BASE}/itty-fetcher/`,
     // collapsed: true,
     items: [
       {
-        text: `700 byte wrapper around native fetch that simplifies API fetches, saving you bytes with every call.`
+        text: `Ultra-tiny native fetch wrapper (~650 bytes) with automatic JSON parsing, error throwing, and composable API calls.`
       },
     ],
   },

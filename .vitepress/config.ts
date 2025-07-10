@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import type { DefaultTheme } from 'vitepress'
 import { sidebarRoot } from './nav.root'
 import { sidebarIttyRouter } from './nav.itty-router'
+import { sidebarIttyFetcher } from './nav.itty-fetcher'
 
 export default defineConfig({
   lang: 'en-US',
@@ -42,6 +43,7 @@ export default defineConfig({
     sidebar: {
       '/': sidebarRoot,
       '/itty-router/': sidebarIttyRouter,
+      '/itty-fetcher/': sidebarIttyFetcher,
     },
   },
   head: [

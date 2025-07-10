@@ -1,53 +1,88 @@
 # itty-fetcher
 
-[![Version](https://img.shields.io/npm/v/itty-fetcher.svg?style=flat-square)](https://npmjs.com/package/itty-fetcher)
-[![Bundle Size](https://deno.bundlejs.com/?q=itty-fetcher&badge&badge-style=flat-square)](https://deno.bundlejs.com/?q=itty-fetcher)
-[![Coverage Status](https://img.shields.io/coveralls/github/kwhitley/itty-fetcher/v0.x?style=flat-square)](https://coveralls.io/github/kwhitley/itty-fetcher?branch=v0.x)
-[![NPM Weekly Downloads](https://img.shields.io/npm/dw/itty-fetcher?style=flat-square)](https://npmjs.com/package/itty-fetcher)
-[![Discord](https://img.shields.io/discord/832353585802903572?label=Discord&logo=Discord&style=flat-square&logoColor=fff)](https://discord.gg/53vyrZAu9u)
+**An ultra-tiny native fetch wrapper to clean up your API calls.**
 
-## Why yet another fetching library?
+**~650 bytes** of pure magic to transform your fetch calls from verbose boilerplate into clean, readable API calls.
 
-We've all done this countless times in our apps...
+## What is itty-fetcher?
 
-We want to make a nice, lightweight app that (of-course) talks to some API. We could import a full-featured fetch library like axios, but we want to keep our bundle size down, right?
+itty-fetcher is a lightweight wrapper around the native `fetch` API that eliminates common boilerplate and provides a more intuitive way to make HTTP requests. Built with the same philosophy as other [itty.dev](https://itty.dev) libraries - maximum functionality with minimal bytes.
 
-So we just write some basic native fetch statements. That's not hard... we've tread this ground before! Of course as the project grows a bit, we start to become bothered by the repeated boilerplate of setting headers, checking for errors, translating response bodies, etc.
+## ✨ Key Features
 
-So what do we do?
+- **Automatic** - JSON parsing, request serialization, error throwing, etc.
+- **Composable** - Set up your API/endpoint once, then call it cleanly
+- **Human-Readable** - Method calls that feel natural (`api.get('/users')`, `users.post({ name: 'Steve' })`)
+- **100% TypeScript** - Intelligent type inference with generics for request/response shapes
+- **Universal** - Works everywhere fetch is supported... and everywhere it's not (through polyfills)
 
-Why, we write a little abstraction layer of course! Just like this one, but probably a bit bigger.
+## Quick Comparison
 
-## Example
-```js
+**Before (native fetch):**
+```ts
+const response = await fetch('/api/users', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'Alice' })
+})
+
+if (!response.ok) throw new Error(`${response.status}: ${response.statusText}`)
+
+const user = await response.json()
+```
+
+**After (itty-fetcher):**
+```ts
+const user = await fetcher().post('/api/users', { name: 'Alice' })
+```
+
+## Installation
+
+```bash
+npm install itty-fetcher
+# or
+yarn add itty-fetcher
+# or
+bun add itty-fetcher
+```
+
+## Basic Usage
+
+```ts
 import { fetcher } from 'itty-fetcher'
 
-// create an api base (optional)
-const api = fetcher({ base: 'https://api.kittens.com/v1' })
+// Simple requests
+const users = await fetcher().get('/api/users')
+const newUser = await fetcher().post('/api/users', { name: 'Alice' })
 
-// then use it... base will be prepended to urls
-await api.get('/names/?max=2') // ['Fluffy', 'Mittens']
+// Create a reusable API client
+const api = fetcher('https://api.example.com', {
+  headers: { 'Authorization': 'Bearer token' }
+})
 
-// automatically handle sending JSON payloads
-await api.post('/create-a-cat', { name: 'Halsey', age: 3 })
-
-// use any conceivable HTTP method
-// sends using PUT method
-api.put('/kitten/13', { name: 'Different Cat' }) 
-
-// sends using FOO method
-api.foo('/kitten/13', { name: 'Different Cat' }) 
-
-// send files/blobs directly
-await api.post('/upload', 
-  new Blob(['some text'], { type: 'plain/text' })
-)
-
-// ERROR HANDLING
-// 404s, etc will actually throw, allowing an easy catch
-api
-  .get('/not-a-valid-path')
-  .catch(({ status, message }) => {
-    console.error('ERROR', { status, message })
-  })
+const data = await api.get('/users')
 ```
+
+## Philosophy
+
+Like any [itty.dev](https://itty.dev) project, this is not a kitchen-sink library. If you need advanced features like automatic retries or complex request interception, consider a more full-featured library. This is for when you want native fetch behavior with dramatically less boilerplate.
+
+**✅ Perfect for:**
+- Removing boilerplate from fetch calls
+- Projects using native fetch today  
+- Composable API clients
+- Simple use-cases where size matters
+
+**❌ Consider alternatives for:**
+- Automatic retries or timeout handling
+- GraphQL (use a GraphQL client)
+- Complex request/response middleware
+- Very advanced edge-cases
+
+## Next Steps
+
+- [Getting Started](./getting-started) - Basic setup and first API calls
+- [Configuration](./configuration) - All available options
+- [API Reference](./api) - Complete method documentation
+- [TypeScript Guide](./typescript/) - Type-safe usage patterns
+- [Examples](./examples/) - Real-world usage examples

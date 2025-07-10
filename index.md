@@ -51,3 +51,20 @@ router
 
 export default router
 ```
+
+## Clean API calls in ~650 bytes:
+
+```ts [Browser, Node, Bun, Workers]
+import { fetcher } from 'itty-fetcher' // ~650 bytes
+
+// Create a reusable API client
+const api = fetcher('https://api.example.com', {
+  headers: { 'Authorization': 'Bearer token' }
+})
+
+// Clean, readable API calls
+const users = await api.get('/users')
+const newUser = await api.post('/users', { name: 'Alice' })
+
+// Automatic JSON parsing, error throwing, and more!
+```
