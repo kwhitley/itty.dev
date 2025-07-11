@@ -15,7 +15,7 @@ const scriptLoaded = (name: string, icon: string = '✅') => {
   chroma.log(
     icon,
     ...parts.flat(),
-    chroma.bg('#555').bold.color('#aaa').padding('0.2em 0.6em 0.2em').radius('0.4rem').size('7px'),
+    chroma.bg('#555').bold.color('#aaa').padding('0.2em 0.6em 0.2em').radius('0.4rem').size('9px'),
     'available in console'
   )
 }
@@ -23,7 +23,7 @@ const scriptLoaded = (name: string, icon: string = '✅') => {
 const example = (description: string) =>
   chroma.log(
     chroma.font('serif').size('1.3em')('try this:\n'),
-    chroma.darkGrey.size('0.8em'),
+    chroma.darkGrey.size('1em'),
     description,
   )
 
