@@ -7,7 +7,7 @@ import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import './style.scss'
 
-const scriptLoaded = (name: string, icon: string = '✅') => {
+const scriptLoaded = (name: string, docs?: string, icon: string = '✅') => {
   const parts = name.includes('itty')
     ? [chroma.bold.color('#f0b'), name, chroma.clear]
     : [name]
@@ -18,7 +18,7 @@ const scriptLoaded = (name: string, icon: string = '✅') => {
     chroma.bg('#555').bold.color('#aaa').padding('0.2em 0.6em 0.2em').radius('0.4rem').size('9px'),
     'available in console',
     chroma.teal,
-    `docs: https://itty.dev/${name}`,
+    docs ? `docs: ${docs}` : `docs: https://itty.dev/${name}`,
   )
 }
 
@@ -55,7 +55,7 @@ export default {
       scriptLoaded('itty-fetcher')
       example(`fetcher().get('https://ittysockets.io/stats').then(console.log)`)
 
-      scriptLoaded('itty-sockets')
+      scriptLoaded('itty-sockets', 'https://ittysockets.io')
       example(`connect('itty.dev/playground', { echo: true })
         .on('message', e => chroma.magenta.log('received:', chroma.clear, e.message))
         .on('join', e => chroma.dodgerBlue.log('someone joined the channel:', e))
