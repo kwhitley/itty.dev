@@ -57,13 +57,13 @@ export default {
 
       scriptLoaded('itty-sockets', 'https://ittysockets.io')
       example(`connect('itty.dev/playground', { echo: true })
-        .on('message', e => chroma.magenta.log('received:', chroma.clear, e.message))
-        .on('join', e => chroma.dodgerBlue.log('someone joined the channel:', e))
-        .on('leave', e => chroma.salmon.log('someone left the channel:', e))
-        .send('Hello World!')
-        .send([1, 2, 3])
-        .send({ foo: 'bar' })
-        `
+  .on('message', e => chroma.magenta.log('received:', chroma.clear, e.message))
+  .on('join', e => chroma.dodgerBlue.log('someone joined the channel:', e))
+  .on('leave', e => chroma.salmon.log('someone left the channel:', e))
+  .send('Hello World!')
+  .send([1, 2, 3])
+  .send({ foo: 'bar' })
+  `
       )
     }
   }
