@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "itty-chroma": "^0.1.18",
-    "itty-router": "^5.0.9"
+    "itty-fetcher": "^1.0.2",
+    "itty-router": "^5.0.9",
+    "itty-sockets": "^0.5.2"
   }
 }
