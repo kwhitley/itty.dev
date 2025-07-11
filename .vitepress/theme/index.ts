@@ -16,15 +16,19 @@ const scriptLoaded = (name: string, icon: string = '✅') => {
     icon,
     ...parts.flat(),
     chroma.bg('#555').bold.color('#aaa').padding('0.2em 0.6em 0.2em').radius('0.4rem').size('9px'),
-    'available in console'
+    'available in console',
+    chroma.teal,
+    `docs: https://itty.dev/${name}`,
   )
 }
 
 const example = (description: string) =>
   chroma.log(
-    chroma.font('serif').size('1.3em')('try this:\n'),
+    chroma.font('serif').size('1.3em'),
+    'try this:\n',
     chroma.darkGrey.size('1em'),
     description,
+    '\n'
   )
 
 
