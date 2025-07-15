@@ -35,6 +35,16 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
+    text: 'itty-sockets <span class="VPBadge new">early access</span>',
+    link: `https://ittysockets.io`,
+    // collapsed: true,
+    items: [
+      {
+        text: `Dead-simple realtime messaging. No backend required.`
+      },
+    ],
+  },
+  {
     text: 'itty-time',
     link: `${BASE}/itty-time/`,
     // collapsed: true,
@@ -45,7 +55,7 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-durable',
+    text: 'itty-durable <span class="VPBadge info">deprecated</span>',
     link: `${BASE}/itty-durable/`,
     // collapsed: true,
     items: [

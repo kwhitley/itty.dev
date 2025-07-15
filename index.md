@@ -54,6 +54,8 @@ export default router
 
 ## Clean API calls in ~650 bytes:
 
+<Badge type="info">info</Badge>
+
 ```ts [Browser, Node, Bun, Workers]
 import { fetcher } from 'itty-fetcher' // ~650 bytes
 
