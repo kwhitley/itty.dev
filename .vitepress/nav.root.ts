@@ -26,6 +26,16 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
+    text: 'itty-packager <span class="VPBadge new">new</span>',
+    link: `${BASE}/itty-packager/`,
+    // collapsed: true,
+    items: [
+      {
+        text: `Zero-config CLI for building, linting, and releasing TypeScript packages with modern tooling.`
+      },
+    ],
+  },
+  {
     text: 'itty-chroma',
     link: `${BASE}/itty-chroma/`,
     items: [
