@@ -5,69 +5,59 @@ layout: home
 hero:
   name: "<em>itty</em>.dev"
   text: "mighty [tiny] libraries"
-  tagline: <span>We count our bytes to <span class="accent">keep your code small.</span><span>
+  tagline: <span>Ultra-small, powerful tools for modern web development. <span class="accent">Every byte counts.</span><span>
   image:
     src: /itty-square.256.png
     alt: itty.dev
   actions:
-    - theme: alt
-      text: Explore the libraries
-      link: /docs
     - theme: brand
-      text: or jump straight to Itty Router
+      text: Explore All Libraries
+      link: /docs
+    - theme: alt
+      text: Get Started with Itty Router
       link: /itty-router/getting-started
 
-# features:
-#   - icon: 🚀
-#     title: Uses Modern Web Standards
-#     details: Itty is based on modern web standards, as used in many edge runtimes, service workers, and the browser itself.
-  # - icon: 🤑
-  #   title: Spend Less.
-  #   details: Decrease your spend on infrastructure and maintenance, not to mention the engineering talent to keep them running.
-  # - icon: 🌏
-  #   title: Works Everywhere.
-  #   details:  Our realtime rooms open automatically near the apps calling them.  Anywhere in the world.
-  # - icon: 📈
-  #   title: No Limits.
-  #   details: Need a few million socket servers?  No problem.  We scale infinitely. Now you can too.
+features:
+  - icon: 🛣️
+    title: itty-router
+    details: Full-featured serverless API microrouter. From 450 bytes to 1kB depending on features needed.
+    link: /itty-router/
+    linkText: Deliver Tiny APIs
+  - icon: 🌐
+    title: itty-fetcher
+    details: Native fetch wrapper with automatic JSON parsing and error handling. Ultra-clean API calls in 650 bytes.
+    link: /itty-fetcher/
+    linkText: Fetch Data
+  - icon: 📦
+    title: itty-packager
+    details: Zero-config CLI for building, linting, and releasing TypeScript packages with modern tooling.
+    link: /itty-packager/
+    linkText: Ship Packages
+  - icon: 🎨
+    title: itty-chroma
+    details: Powerful browser console styling in under 500 bytes. Make your logs beautiful and organized.
+    link: /itty-chroma/
+    linkText: Style Your Logs
+  - icon: ⚡
+    title: itty-sockets
+    details: Dead-simple realtime messaging with no backend required. Currently in early access.
+    link: https://ittysockets.io
+    linkText: Add Realtime
+  - icon: ⏰
+    title: itty-time
+    details: Faster and smaller than the official <b><code>ms</code></b> library.  In fact, we added ms to durations and date math and are <em>still</em> 3x smaller.
+    link: /itty-time/
+    linkText: Do Time Math
 
 ---
 
-<!-- # Test -->
+## The Itty Philosophy
 
-We really mean it. For example...
+**Every byte matters.** Whether you're building for serverless functions, browser clients, or edge workers, bundle size directly impacts performance, costs, and user experience.
 
-## An edge-ready API in ~1 kB:
+Each itty library is designed to:
+1. **Simplify your code and effort**
+1. **Be intuitive, obvious, and readable**
+1. **Be as close to zero-cost (bytes) as possible**
 
-```ts [Cloudflare Workers or Bun]
-import { AutoRouter } from 'itty-router' // ~970 bytes
-
-export const router = AutoRouter()
-
-router
-  .get('/hello/:name', ({ name = 'World' }) => `Hello ${name}!`)
-  .get('/json', () => [1,2,3])
-  .get('/promises', () => Promise.resolve('foo'))
-
-export default router
-```
-
-## Clean API calls in ~650 bytes:
-
-<Badge type="info">info</Badge>
-
-```ts [Browser, Node, Bun, Workers]
-import { fetcher } from 'itty-fetcher' // ~650 bytes
-
-// Make simple calls...
-fetcher().get('https://ittysockets.io/stats').then(console.log) // the actual parsed data
-
-// or create a reusable API client
-const api = fetcher('https://api.example.com', {
-  headers: { 'Authorization': 'Bearer token' }
-})
-
-// and use it later
-const users = await api.get('/users')
-const newUser = await api.post('/users', { name: 'Alice' })
-```
+## [Get Started →](/docs)
