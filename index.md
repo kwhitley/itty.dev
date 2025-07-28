@@ -11,11 +11,8 @@ hero:
     alt: itty.dev
   actions:
     - theme: brand
-      text: Explore All Libraries
+      text: Explore The Libraries
       link: /docs
-    - theme: alt
-      text: Get Started with Itty Router
-      link: /itty-router/getting-started
 
 features:
   - icon: 🌿

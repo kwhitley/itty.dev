@@ -17,7 +17,6 @@ export const sidebarIttyFetcher: DefaultTheme.SidebarItem[] = [
       {
         text: 'Getting Started',
         link: `${BASE}/getting-started`,
-        collapsed: true,
         items: [
           {
             text: '1. Installation',
@@ -48,7 +47,6 @@ export const sidebarIttyFetcher: DefaultTheme.SidebarItem[] = [
       {
         text: 'Configuration',
         link: `${BASE}/configuration`,
-        collapsed: true,
         items: [
           {
             text: 'Core Options',
@@ -63,6 +61,25 @@ export const sidebarIttyFetcher: DefaultTheme.SidebarItem[] = [
             link: `${BASE}/configuration#option-merging`,
           },
         ],
+      },
+
+      {
+        text: 'TypeScript',
+        link: `${BASE}/typescript`,
+        items: [
+          {
+            text: 'Basic Usage',
+            link: `${BASE}/typescript#basic-usage`,
+          },
+          {
+            text: 'Request/Response Types',
+            link: `${BASE}/typescript#request-response-types`,
+          },
+          {
+            text: 'Advanced Patterns',
+            link: `${BASE}/typescript#advanced-patterns`,
+          }
+        ]
       },
       {
         text: 'Error Handling',
@@ -83,48 +100,6 @@ export const sidebarIttyFetcher: DefaultTheme.SidebarItem[] = [
           },
         ],
       },
-      {
-        text: 'TypeScript',
-        link: `${BASE}/typescript`,
-        collapsed: true,
-        items: [
-          {
-            text: 'Basic Usage',
-            link: `${BASE}/typescript#basic-usage`,
-          },
-          {
-            text: 'Request/Response Types',
-            link: `${BASE}/typescript#request-response-types`,
-          },
-          {
-            text: 'Advanced Patterns',
-            link: `${BASE}/typescript#advanced-patterns`,
-          }
-        ]
-      },
-      // {
-      //   text: 'Examples',
-      //   link: `${BASE}/examples`,
-      //   collapsed: true,
-      //   items: [
-      //     {
-      //       text: 'REST API Client',
-      //       link: `${BASE}/examples#rest-api-client`,
-      //     },
-      //     {
-      //       text: 'Authentication',
-      //       link: `${BASE}/examples#authentication`,
-      //     },
-      //     {
-      //       text: 'File Uploads',
-      //       link: `${BASE}/examples#file-uploads`,
-      //     },
-      //     {
-      //       text: 'Error Recovery',
-      //       link: `${BASE}/examples#error-recovery`,
-      //     },
-      //   ],
-      // },
       {
         text: 'API Reference',
         link: `${BASE}/api`,

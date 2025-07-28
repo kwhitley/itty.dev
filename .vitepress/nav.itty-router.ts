@@ -87,7 +87,7 @@ export const sidebarIttyRouter: DefaultTheme.SidebarItem[] = [
       {
         text: 'Getting Started',
         link: `${BASE}/getting-started`,
-        collapsed: true,
+        collapsed: false,
         items: [
           {
             text: '1. Install',
