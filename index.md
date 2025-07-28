@@ -18,12 +18,12 @@ hero:
       link: /itty-router/getting-started
 
 features:
-  - icon: 🛣️
+  - icon: 🌿
     title: itty-router
     details: Full-featured serverless API microrouter. From 450 bytes to 1kB depending on features needed.
     link: /itty-router/
     linkText: Deliver Tiny APIs
-  - icon: 🌐
+  - icon: 🎾
     title: itty-fetcher
     details: Native fetch wrapper with automatic JSON parsing and error handling. Ultra-clean API calls in 650 bytes.
     link: /itty-fetcher/
@@ -56,8 +56,16 @@ features:
 **Every byte matters.** Whether you're building for serverless functions, browser clients, or edge workers, bundle size directly impacts performance, costs, and user experience.
 
 Each itty library is designed to:
-1. **Simplify your code and effort**
-1. **Be intuitive, obvious, and readable**
-1. **Be as close to zero-cost (bytes) as possible**
+
+### 1. Simplify your code and effort
+While many developers are fine with memorizing established patterns, we like to ask ourselves "what are we really trying to accomplish here?" And then we do that thing, cutting out the extra steps.
+
+### 2. **Be intuitive, obvious, and readable**
+Smaller code is more readable code.  Extra symbols and syntax get in the way of your intent.  Plus we just want to make using our libs *feel* good.
+
+### 3. **Be as close to zero-cost (bytes) as possible**
+We all feel the shared pain of ignoring bundlesize.  Web sites load more slowly, API requests take longer, and your build pipelines take longer.  From every useless file in your node_modules, to every byte served to a client, it all adds up.
+
+We take this one seriously.
 
 ## [Get Started →](/docs)
