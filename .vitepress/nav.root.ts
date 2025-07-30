@@ -5,9 +5,6 @@ const BASE = ''
 
 export const sidebarRoot: DefaultTheme.SidebarItem[] = [
   {
-    text: 'Welcome to itty.dev.  Below are the currently-support itty libraries.'
-  },
-  {
     text: 'itty-router',
     link: `${BASE}/itty-router/`,
     // collapsed: false,
