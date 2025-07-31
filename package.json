@@ -15,9 +15,9 @@
     "yarn-release": "^1.10.6"
   },
   "dependencies": {
-    "itty-chroma": "^0.1.18",
-    "itty-fetcher": "^1.0.2",
+    "itty-chroma": "^1.0.6",
+    "itty-fetcher": "^1.0.10",
     "itty-router": "^5.0.9",
-    "itty-sockets": "^0.5.2"
+    "itty-sockets": "^0.5.4"
   }
 }
