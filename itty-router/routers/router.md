@@ -20,7 +20,7 @@ router
   .get('/params/:id', ({ id }) => id)
   .all('*', () => error(404))
 
-export default router
+export default { ...router }
 ```
 
 ## RouterOptions
@@ -32,5 +32,5 @@ export default router
 | <span class="nowrap">**before** <Badge type="warning" text="v5" /></span> | Array of [`RequestHandler`](/itty-router/typescript/api#requesthandler) | `[]` | An array of route handlers/middleware to execute on requests before any route-matching
 | <span class="nowrap">**catch** <Badge type="warning" text="v5" /></span> | [`ErrorHandler`](/itty-router/typescript/api#errorhandler) | | A single error handler to catch any thrown error.  This may be used to return a Response, log errors, etc. If thrown during the `before` stage or route-matching, the `finally` stage will still be applied after this catch. Conversely, if an error is thrown *during* the `finally` stage, this will still fire, but none of the `finally` stage handlers will be applied to it.
 | <span class="nowrap">**finally** <Badge type="warning" text="v5" /></span> | Array of [`ResponseHandler`](/itty-router/typescript/api#responsehandler) | `[]` | An array of response handlers to execute on any response after route-matching is complete
-| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | Array of [`RouteEntry`](/itty-router/typescript/api#routeentry) | `[]` | Array of manual routes for preloading 
+| <span class="nowrap">**routes** <Badge type="danger" text="advanced" /></span> | Array of [`RouteEntry`](/itty-router/typescript/api#routeentry) | `[]` | Array of manual routes for preloading
 | **...other** <Badge type="warning" text="v4.1+" /> | `any` | | Any other object attributes that don't conflict with methods will be embedded in the final Router object.  This is useful for attaching additional information to the router for exporting.  For example: `Router({ port: 3001 })` could be used to control the port in a Bun setup.
