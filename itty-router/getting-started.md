@@ -47,7 +47,7 @@ const router = IttyRouter()
 ## 3. Register Routes
 ### `router[method: string](route: string, ...handlers): Router`
 
-To define routes, use the corresponding HTTP method "channel" on the router. For example, `.get()` listens to HTTP `GET` requests, `.post()` to `POST`, and so on. 
+To define routes, use the corresponding HTTP method "channel" on the router. For example, `.get()` listens to HTTP `GET` requests, `.post()` to `POST`, and so on.
 
 ```ts
 // assumes router instance (above)
@@ -61,7 +61,7 @@ router
 - These functions return the router itself, allowing chaining route definitions for convenience (see example).
 - The `router.all()` channel matches to ALL methods.
 - Route-definitions are the same across all router types.
-<!-- 
+<!--
 ## 4. Handle Requests
 ### `router.fetch(request: IRequest, ...args): Promise<any>`
 The `router.fetch` method takes a Request-like argument and any additional arguments - then passes them to any matching routes.  This process occurs in a linear loop until *anything at all is returned, from any handler/middleware*, or the routes are exhausted (without a return).
@@ -71,7 +71,7 @@ The `router.fetch` method takes a Request-like argument and any additional argum
 const response = await router.fetch(new Request('https://foo.bar'))
 ``` -->
 
-<!-- 
+<!--
 ## 5. (optional) Transform responses
 
 While you can certainly return a valid `Response` using each route-handler, usually it's more convenient to process them all at once, at the end.  This is also how you would add [CORS](/itty-router/cors) headers to existing `Response` objects.
@@ -113,17 +113,18 @@ await router
 The router itself (intentionally) looks like the commonly-expected signature of:
 
 ```ts
-{ 
+{
   fetch: (request: Request, ...args: any) => Response
+  ...otherPropsYouPassAsOptions
 }
 ```
- 
-As a result, in environments that expect that (e.g. Cloudflare Workers or Bun), we can simply export the router itself:
+
+As a result, in environments that expect that (e.g. Cloudflare Workers or Bun), we can simply export the router itself.  Notice that we recommend spreading the router object to strip the internal Proxy magic.  Otherwise, an environment may be confused, causing errors.
 
 ```ts
 // typically just...
 
-export default router
+export default { ...router }
 ```
 
 ## (Optional) Handling Requests Manually
@@ -139,9 +140,9 @@ const response = await router.fetch(request)
 
 ## Complete Example
 
-The following examples create an equivalent API (using each of the 3 routers), including downstream JSON-formatting and catching errors. 
+The following examples create an equivalent API (using each of the 3 routers), including downstream JSON-formatting and catching errors.
 
-In the example, [`Router`](/itty-router/routers/router) uses stages to create `Response`s and handle errors, while [`IttyRouter`](/itty-router/routers/ittyrouter) achieves the same effect using the Promise chain of `router.fetch()` itself. 
+In the example, [`Router`](/itty-router/routers/router) uses stages to create `Response`s and handle errors, while [`IttyRouter`](/itty-router/routers/ittyrouter) achieves the same effect using the Promise chain of `router.fetch()` itself.
 
 [`AutoRouter`](/itty-router/routers/autorouter) has this same functionality built-in already.
 
@@ -158,7 +159,7 @@ router
   .get('/json', () => ({ foo: 'bar' }))
   .get('/throw', (a) => a.b.c) // safely throws
 
-export default router
+export default { ...router }
 ```
 
 ```ts [Router]
@@ -175,7 +176,7 @@ router
   .get('/json', () => ({ foo: 'bar' }))
   .get('/throw', (a) => a.b.c) // safely throws
 
-export default router
+export default { ...router }
 ```
 
 ```ts [IttyRouter]
@@ -190,7 +191,7 @@ router
   .get('/throw', (a) => a.b.c) // safely throws
 
 export default {
-  fetch: (request, ...args) => 
+  fetch: (request, ...args) =>
     router
       .fetch(request, ...args)
       .then(json)       // downstream response formatting

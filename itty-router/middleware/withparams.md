@@ -28,7 +28,9 @@ Here's how to do it using each available Router:
 import { AutoRouter } from 'itty-router'
 
 // withParams is included by default
-export default AutoRouter()
+const router = AutoRouter()
+
+router
   .get('/items/:id', ({ id }) => `Your id is ${id}.`)
 ```
 
@@ -36,16 +38,28 @@ export default AutoRouter()
 import { Router, withParams } from 'itty-router'
 
 // add withParams to the before stage
-export default Router({ before: [withParams] })
+const router = Router({ before: [withParams] })
+
+router
   .get('/items/:id', ({ id }) => `Your id is ${id}.`)
+
+// or add it to routes
+router
+  .get('/items/:id', withParams, ({ id }) => `Your id is ${id}.`)
 ```
 
 ```ts [IttyRouter (or manually)]
 import { IttyRouter, withParams } from 'itty-router'
 
-export default IttyRouter()
-  .all('*', withParams) // as global upstream middleware
+const router = IttyRouter()
+
+router
+  .all('*', withParams)
   .get('/items/:id', ({ id }) => `Your id is ${id}.`)
+
+// or add it to routes
+router
+  .get('/items/:id', withParams, ({ id }) => `Your id is ${id}.`)
 ```
 
 :::
