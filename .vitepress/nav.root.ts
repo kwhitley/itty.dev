@@ -1,5 +1,6 @@
 import type { DefaultTheme } from 'vitepress'
 import { sidebarIttyRouter } from './nav.itty-router'
+import { sidebarIttySockets } from './nav.itty-sockets'
 
 const BASE = ''
 
@@ -23,12 +24,12 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-packager <span class="VPBadge new">new</span>',
-    link: `${BASE}/itty-packager/`,
+    text: 'itty-sockets <span class="VPBadge new">new</span>',
+    link: `${BASE}/itty-sockets/`,
     // collapsed: true,
     items: [
       {
-        text: `Zero-config CLI for building, linting, and releasing TypeScript packages with modern tooling.`
+        text: `Type-safe WebSocket routing in 540 bytes`
       },
     ],
   },
@@ -42,22 +43,22 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-sockets <span class="VPBadge new">early access</span>',
-    link: `https://ittysockets.io`,
-    // collapsed: true,
-    items: [
-      {
-        text: `Dead-simple realtime messaging. No backend required.`
-      },
-    ],
-  },
-  {
     text: 'itty-time',
     link: `${BASE}/itty-time/`,
     // collapsed: true,
     items: [
       {
         text: `Ultra-small (~390 bytes) library for TTL date math and converting ms durations to and from strings.`
+      },
+    ],
+  },
+  {
+    text: 'itty-packager <span class="VPBadge new">new</span>',
+    link: `${BASE}/itty-packager/`,
+    // collapsed: true,
+    items: [
+      {
+        text: `Zero-config CLI for building, linting, and releasing TypeScript packages with modern tooling.`
       },
     ],
   },
