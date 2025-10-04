@@ -63,7 +63,7 @@ Returns this 400 Response:
 The following examples demonstrate a few of the possible error scenarios you may run into while using itty-router:
 
 ```js
-import { error, Router } from 'itty-router'
+import { Router, error, json } from 'itty-router'
 
 const router = Router({
   catch: error,    // catch uncaught errors
