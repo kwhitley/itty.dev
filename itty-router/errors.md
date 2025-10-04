@@ -65,7 +65,10 @@ The following examples demonstrate a few of the possible error scenarios you may
 ```js
 import { error, Router } from 'itty-router'
 
-const router = Router()
+const router = Router({
+  catch: error,    // catch uncaught errors
+  finally: [json], // transform responses to JSON (if not already Response)
+})
 
 router
   // returning an error directly
@@ -91,13 +94,12 @@ router
   // standard 404 pattern for your outermost router
   .all('*', () => error(404))
 
-export default {
-  fetch: (req, env, ctx) => router
-                              .handle(req, env, ctx)
-                              .then(json)
+export default { ...router }
 
-                              // both thrown Errors will be caught
-                              // and transformed by this handler
-                              .catch(error)
+// which translates to
+export default {
+  fetch: (request, ...otherArguments) =>
+    router.fetch(request,  ...otherArguments)
 }
+// 
 ```
