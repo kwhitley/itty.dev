@@ -97,9 +97,8 @@ router
 export default { ...router }
 
 // which translates to
-export default {
-  fetch: (request, ...otherArguments) =>
-    router.fetch(request,  ...otherArguments)
-}
-// 
+// export default {
+//   fetch: (request, ...otherArguments) =>
+//     router.fetch(request,  ...otherArguments)
+// }
 ```
