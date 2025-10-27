@@ -10,5 +10,5 @@ const router = AutoRouter()
 
 router.get('/', () => 'Success!')
 
-export default { ...router } // strips the proxy before returningw
+export default { ...router } // strips the proxy before returning
 ```
