@@ -18,6 +18,6 @@
     "itty-chroma": "^1.0.6",
     "itty-fetcher": "^1.0.10",
     "itty-router": "^5.0.9",
-    "itty-sockets": "^0.5.4"
+    "itty-sockets": "^0.6.1"
   }
 }
