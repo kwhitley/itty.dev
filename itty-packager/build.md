@@ -41,15 +41,15 @@ dist/
 
 ## Package.json Integration
 
-The build command automatically updates your `package.json` exports:
+The build command automatically updates your `package.json` exports. By default, exports are written relative to the output directory (no `dist/` prefix), since `itty release` publishes from `dist/`.
 
 **Single file:**
 ```json
 {
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./index.mjs",
+      "types": "./index.d.ts"
     }
   }
 }
@@ -60,12 +60,24 @@ The build command automatically updates your `package.json` exports:
 {
   "exports": {
     ".": {
-      "import": "./dist/index.mjs", 
-      "types": "./dist/index.d.ts"
+      "import": "./index.mjs",
+      "types": "./index.d.ts"
     },
     "./utils": {
-      "import": "./dist/utils.mjs",
-      "types": "./dist/utils.d.ts"
+      "import": "./utils.mjs",
+      "types": "./utils.d.ts"
+    }
+  }
+}
+```
+
+If releasing from the project root instead (via `itty release --root`), use `--release-from=.` to include the output directory prefix:
+```json
+{
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     }
   }
 }
@@ -100,6 +112,13 @@ Compresses the output using Terser for smaller bundle sizes.
 - **Example:** `--out=build`
 
 Specifies where compiled files should be written.
+
+### `--release-from`
+**Release directory**
+- **Default:** same as `--out`
+- **Example:** `--release-from=.`
+
+Controls how export paths are written in `package.json`. By default, exports are relative to the output directory (since `itty release` publishes from there). Use `--release-from=.` when releasing from the project root, so exports include the output directory prefix (e.g. `./dist/index.mjs`).
 
 ### `--sourcemap`
 **Generate source maps**

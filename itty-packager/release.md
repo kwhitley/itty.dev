@@ -13,12 +13,12 @@ itty release --root          # Release from project root
 
 ## How it Works
 
-1. **Bumps version** in package.json (patch by default)
-2. **Extracts build artifacts** to temporary directory
-3. **Copies essential files** (README, LICENSE, etc.)
-4. **Transforms package.json** for clean structure
+1. **Verifies npm auth** (prompts for login if session expired)
+2. **Bumps version** in package.json (patch by default)
+3. **Extracts build artifacts** to temporary directory
+4. **Copies essential files** (README, LICENSE, etc.)
 5. **Publishes to npm** from temporary directory
-6. **Creates git tags** and commits (if enabled)
+6. **Creates git tags** and commits (only after successful publish)
 7. **Cleans up** temporary files
 
 ## Release Process
@@ -30,25 +30,27 @@ Uses semantic versioning with these options:
 - `--major`: 1.0.0 → 2.0.0
 - `--type=alpha`: 1.0.0 → 1.0.0-alpha.0
 
-### Package Structure Transformation
+### Package Structure
 
-**Before (in your repo):**
+The build command writes exports relative to the release directory (no `dist/` prefix by default), so no path transformation is needed at release time. The release command simply extracts `dist/` contents into a flat package.
+
+**In your repo:**
 ```
 dist/
 ├── index.mjs
 ├── index.d.ts
 └── utils.mjs
-package.json (exports point to ./dist/*)
+package.json (exports: "./index.mjs")
 README.md
 LICENSE
 ```
 
-**After (in npm):**
+**In npm (after publish):**
 ```
 index.mjs
-index.d.ts  
+index.d.ts
 utils.mjs
-package.json (exports point to ./*)
+package.json (exports: "./index.mjs")
 README.md
 LICENSE
 ```
