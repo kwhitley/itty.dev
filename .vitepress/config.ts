@@ -36,7 +36,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub',
     },
     footer: {
-      copyright: 'Copyright © 2024+ Itty Industries, LLC.'
+      copyright: 'Copyright © Kevin Whitley'
     },
     nav: [
       { text: 'Docs', link: '/docs' },

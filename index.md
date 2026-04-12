@@ -37,9 +37,9 @@ features:
     linkText: Style Your Logs
   - icon: ⚡
     title: itty-sockets
-    details: Dead-simple realtime messaging with no backend required. Currently in early access.
-    link: https://ittysockets.io
-    linkText: Add Realtime
+    details: Zero-config realtime in 1-2 lines of code. 100% free.
+    link: https://ittysockets.com
+    linkText: Add WebSocket Magic
   - icon: ⏰
     title: itty-time
     details: Faster and smaller than the official <b><code>ms</code></b> library.  In fact, we added ms to durations and date math and are <em>still</em> 3x smaller.

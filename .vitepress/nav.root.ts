@@ -42,8 +42,8 @@ export const sidebarRoot: DefaultTheme.SidebarItem[] = [
     ],
   },
   {
-    text: 'itty-sockets <span class="VPBadge new">early access</span>',
-    link: `https://ittysockets.io`,
+    text: 'itty-sockets <span class="VPBadge new">publicly available</span>',
+    link: `https://ittysockets.com`,
     // collapsed: true,
     items: [
       {
