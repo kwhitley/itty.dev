@@ -30,7 +30,7 @@ Runs ESLint with TypeScript-optimized rules and automatic configuration. Falls b
 ### [`itty prepare`](./prepare.md)
 Runs lint, test, and build in sequence - the perfect pre-release workflow. Skips missing steps gracefully, provides clear progress indicators, and supports verbose output for debugging.
 
-### [`itty release`]('./release.md)
+### [`itty release`](./release.md)
 Complete release automation with version bumping, git operations, and npm publishing. Supports semantic versioning, interactive commit messages, dry-run mode, and automatic rollback on failure.
 
 ## Quick Start
